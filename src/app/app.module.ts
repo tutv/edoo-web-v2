@@ -7,11 +7,15 @@ import {WelcomePageComponent} from "./welcome-page/welcome-page.component";
 import {UIRouterModule} from "ui-router-ng2";
 import {UIRouterConfig} from "./config/router.config";
 import {welcomeState} from "./app.states";
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    WelcomePageComponent
+    WelcomePageComponent,
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
