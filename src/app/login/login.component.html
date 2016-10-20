@@ -4,14 +4,14 @@
             <h4 class="modal-title">Đăng Nhập</h4>
         </div>
         <div class="modal-body">
-            <form id="loginForm">
+            <form id="loginForm" (submit)="submit()">
                 <div class="form-group">
-                    <input type="email" class="form-control user_input" name="email" ng-model="loginCtrl.email"
+                    <input type="email" class="form-control user_input" name="email" [(ngModel)]="email"
                            placeholder="Email đăng nhập...">
                 </div>
 
                 <div class="form-group">
-                    <input type="password" class="form-control user_input" name="password" ng-model="loginCtrl.password"
+                    <input type="password" class="form-control user_input" name="password" [(ngModel)]="password"
                            placeholder="Mật khẩu">
                 </div>
 
