@@ -6,29 +6,34 @@ import {AppComponent} from "./app.component";
 import {WelcomePageComponent} from "./welcome-page/welcome-page.component";
 import {UIRouterModule} from "ui-router-ng2";
 import {UIRouterConfig} from "./config/router.config";
-import {welcomeState} from "./app.states";
-import { HeaderComponent } from './header/header.component';
-import { FooterComponent } from './footer/footer.component';
+import * as states from "./app.states";
+import {HeaderComponent} from "./header/header.component";
+import {FooterComponent} from "./footer/footer.component";
+import {LoginComponent} from "./login/login.component";
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    WelcomePageComponent,
-    HeaderComponent,
-    FooterComponent
-  ],
-  imports: [
-    BrowserModule,
-    FormsModule,
-    HttpModule,
-    UIRouterModule.forRoot({
-      states: [welcomeState],
-      useHash: false,
-      configClass: UIRouterConfig
-    })
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        WelcomePageComponent,
+        HeaderComponent,
+        FooterComponent,
+        LoginComponent
+    ],
+    imports: [
+        BrowserModule,
+        FormsModule,
+        HttpModule,
+        UIRouterModule.forRoot({
+            states: [
+                states.welcomeState,
+                states.loginState
+            ],
+            useHash: false,
+            configClass: UIRouterConfig
+        })
+    ],
+    providers: [],
+    bootstrap: [AppComponent]
 })
 export class AppModule {
 }

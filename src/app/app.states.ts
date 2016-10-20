@@ -1,7 +1,14 @@
 import {WelcomePageComponent} from "./welcome-page/welcome-page.component";
+import {LoginComponent} from "./login/login.component";
 
 export const welcomeState = {
-  name: 'welcome',
-  url: '/welcome',
-  component: WelcomePageComponent
+    name: 'welcome',
+    url: '/welcome',
+    component: WelcomePageComponent
+};
+
+export const loginState = {
+    name: 'login',
+    url: '/login',
+    component: LoginComponent
 };
