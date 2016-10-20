@@ -1,10 +1,10 @@
-import {Injectable, Inject} from '@angular/core';
-import {CookieService} from 'angular2-cookie/services/cookies.service';
+import {Injectable} from "@angular/core";
+import {CookieService} from "angular2-cookie/services/cookies.service";
 
 @Injectable()
 export class StorageService {
 
-    constructor(@Inject(CookieService) private storage: CookieService) {
+    constructor(private storage: CookieService) {
     }
 
     setToken(token) {
@@ -15,11 +15,11 @@ export class StorageService {
         this.storage.putObject('user_data', user);
     }
 
-    getUserData():Object {
+    getUserData(): Object {
         return this.storage.getObject('user_data');
     }
 
-    getToken():string {
+    getToken(): string {
         return this.storage.get('user_token');
     }
 

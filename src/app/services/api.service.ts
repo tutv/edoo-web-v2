@@ -1,5 +1,4 @@
-import {Injectable} from '@angular/core';
-import {Inject} from '@angular/core';
+import {Injectable} from "@angular/core";
 import {Http, Headers, Response} from "@angular/http";
 import {Observable} from "rxjs";
 import {StorageService} from "./storage.service";
@@ -8,8 +7,8 @@ import {StorageService} from "./storage.service";
 export class ApiService {
     private BASE_URL = 'http://api-v2.uetf.me';
 
-    constructor(@Inject(Http) private http: Http,
-                @Inject(StorageService) private storage: StorageService) {
+    constructor(private http: Http,
+                private storage: StorageService) {
     }
 
     public request(args): Observable<Response> {

@@ -6,7 +6,7 @@ import {ApiService} from "../services/api.service";
 @Injectable()
 export class AccountService {
 
-    constructor(@Inject(ApiService) private api: ApiService) {
+    constructor(private api: ApiService) {
     }
 
     public auth(email: string, password: string): Observable<Response> {
