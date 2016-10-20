@@ -9,7 +9,7 @@ import {UIRouterConfig} from "./config/router.config";
 import * as states from "./app.states";
 import {HeaderComponent} from "./header/header.component";
 import {FooterComponent} from "./footer/footer.component";
-import {LoginComponent} from "./login/login.component";
+import {LoginComponent} from "./accounts/login/login.component";
 
 @NgModule({
     declarations: [
