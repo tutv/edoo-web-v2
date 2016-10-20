@@ -10,6 +10,9 @@ import * as states from "./app.states";
 import {HeaderComponent} from "./header/header.component";
 import {FooterComponent} from "./footer/footer.component";
 import {LoginComponent} from "./accounts/login/login.component";
+import {ApiService} from "./services/api.service";
+import {StorageService} from "./services/storage.service";
+import {CookieService} from "angular2-cookie/services/cookies.service";
 
 @NgModule({
     declarations: [
@@ -32,7 +35,11 @@ import {LoginComponent} from "./accounts/login/login.component";
             configClass: UIRouterConfig
         })
     ],
-    providers: [],
+    providers: [
+        ApiService,
+        StorageService,
+        CookieService
+    ],
     bootstrap: [AppComponent]
 })
 export class AppModule {

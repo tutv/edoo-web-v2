@@ -1,10 +1,10 @@
-import {Injectable} from '@angular/core';
+import {Injectable, Inject} from '@angular/core';
 import {CookieService} from 'angular2-cookie/services/cookies.service';
 
 @Injectable()
 export class StorageService {
 
-    constructor(private storage: CookieService) {
+    constructor(@Inject(CookieService) private storage: CookieService) {
     }
 
     setToken(token) {
