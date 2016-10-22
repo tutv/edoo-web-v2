@@ -2,7 +2,7 @@ import {Component, OnInit} from "@angular/core";
 import {EventService} from "../../services/event.service";
 import {StorageService} from "../../services/storage.service";
 import {UIRouter} from "ui-router-ng2";
-import {AccountService} from "../accounts/account.service";
+import {AccountService} from "../../services/account.service";
 
 @Component({
     selector: 'app-header',

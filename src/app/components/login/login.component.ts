@@ -1,6 +1,6 @@
 import {Component, OnInit} from "@angular/core";
-import {AccountService} from "../account.service";
-import {EventService} from "../../../services/event.service";
+import {AccountService} from "../../services/account.service";
+import {EventService} from "../../services/event.service";
 import {UIRouter} from "ui-router-ng2";
 
 @Component({

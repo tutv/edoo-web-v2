@@ -9,13 +9,14 @@ import {UIRouterConfig} from "./config/router.config";
 import * as states from "./app.states";
 import {HeaderComponent} from "./components/header/header.component";
 import {FooterComponent} from "./components/footer/footer.component";
-import {LoginComponent, loginState} from "./components/accounts/login/login.component";
+import {LoginComponent, loginState} from "./components/login/login.component";
 import {ApiService} from "./services/api.service";
 import {StorageService} from "./services/storage.service";
 import {CookieService} from "angular2-cookie/services/cookies.service";
 import {EventService} from "./services/event.service";
 import {ListClassesComponent, listClassState} from "./components/list-classes/list-classes.component";
 import {ClassService} from "./services/class.service";
+import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
 
 @NgModule({
     declarations: [
@@ -24,7 +25,8 @@ import {ClassService} from "./services/class.service";
         HeaderComponent,
         FooterComponent,
         LoginComponent,
-        ListClassesComponent
+        ListClassesComponent,
+        EditProfileComponent
     ],
     imports: [
         BrowserModule,
