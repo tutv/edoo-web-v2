@@ -9,6 +9,7 @@ import {UIRouter} from "ui-router-ng2";
     styleUrls: ['./login.component.css'],
     providers: [AccountService]
 })
+
 export class LoginComponent implements OnInit {
     public email: string;
     public password: string;
@@ -40,5 +41,10 @@ export class LoginComponent implements OnInit {
                 }
             )
     }
-
 }
+
+export const loginState = {
+    name: 'login',
+    url: '/login',
+    component: LoginComponent
+};

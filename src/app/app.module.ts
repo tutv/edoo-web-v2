@@ -9,12 +9,13 @@ import {UIRouterConfig} from "./config/router.config";
 import * as states from "./app.states";
 import {HeaderComponent} from "./components/header/header.component";
 import {FooterComponent} from "./components/footer/footer.component";
-import {LoginComponent} from "./components/accounts/login/login.component";
+import {LoginComponent, loginState} from "./components/accounts/login/login.component";
 import {ApiService} from "./services/api.service";
 import {StorageService} from "./services/storage.service";
 import {CookieService} from "angular2-cookie/services/cookies.service";
 import {EventService} from "./services/event.service";
-import {ListClassesComponent} from "./components/list-classes/list-classes.component";
+import {ListClassesComponent, listClassState} from "./components/list-classes/list-classes.component";
+import {ClassService} from "./services/class.service";
 
 @NgModule({
     declarations: [
@@ -32,8 +33,8 @@ import {ListClassesComponent} from "./components/list-classes/list-classes.compo
         UIRouterModule.forRoot({
             states: [
                 states.welcomeState,
-                states.loginState,
-                states.listClass
+                loginState,
+                listClassState
             ],
             useHash: false,
             configClass: UIRouterConfig
@@ -43,7 +44,8 @@ import {ListClassesComponent} from "./components/list-classes/list-classes.compo
         ApiService,
         StorageService,
         CookieService,
-        EventService
+        EventService,
+        ClassService
     ],
     bootstrap: [AppComponent]
 })
