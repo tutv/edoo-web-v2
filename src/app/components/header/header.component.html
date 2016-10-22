@@ -16,7 +16,14 @@
 
             <div class="collapse navbar-collapse" id="menu-mobile">
                 <ul class="nav navbar-nav">
-
+                    <li class="dropdown" *ngIf="isLogin">
+                        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                           aria-expanded="false">Lớp môn học <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li uiSrefActive="active"><a uiSref="class">Tất cả các lớp</a></li>
+                            <li role="separator" class="divider"></li>
+                        </ul>
+                    </li>
                 </ul>
 
                 <ul class="nav navbar-nav navbar-right">
