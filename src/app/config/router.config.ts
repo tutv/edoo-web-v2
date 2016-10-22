@@ -5,5 +5,6 @@ import {Inject, Injectable} from "@angular/core";
 @Injectable()
 export class UIRouterConfig {
     constructor(@Inject(UIRouter) router: UIRouter) {
+
     }
 }
