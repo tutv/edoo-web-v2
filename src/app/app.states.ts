@@ -1,5 +1,6 @@
 import {WelcomePageComponent} from "./welcome-page/welcome-page.component";
 import {LoginComponent} from "./accounts/login/login.component";
+import {ListClassesComponent} from "./components/list-classes/list-classes.component";
 
 export const welcomeState = {
     name: 'welcome',
@@ -11,4 +12,10 @@ export const loginState = {
     name: 'login',
     url: '/login',
     component: LoginComponent
+};
+
+export const listClass = {
+    name: 'class',
+    url: '/class',
+    component: ListClassesComponent
 };

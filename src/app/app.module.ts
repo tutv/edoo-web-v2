@@ -14,6 +14,7 @@ import {ApiService} from "./services/api.service";
 import {StorageService} from "./services/storage.service";
 import {CookieService} from "angular2-cookie/services/cookies.service";
 import {EventService} from "./services/event.service";
+import {ListClassesComponent} from "./components/list-classes/list-classes.component";
 
 @NgModule({
     declarations: [
@@ -21,7 +22,8 @@ import {EventService} from "./services/event.service";
         WelcomePageComponent,
         HeaderComponent,
         FooterComponent,
-        LoginComponent
+        LoginComponent,
+        ListClassesComponent
     ],
     imports: [
         BrowserModule,
@@ -30,7 +32,8 @@ import {EventService} from "./services/event.service";
         UIRouterModule.forRoot({
             states: [
                 states.welcomeState,
-                states.loginState
+                states.loginState,
+                states.listClass
             ],
             useHash: false,
             configClass: UIRouterConfig
