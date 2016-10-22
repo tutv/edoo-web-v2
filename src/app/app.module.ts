@@ -16,7 +16,8 @@ import {CookieService} from "angular2-cookie/services/cookies.service";
 import {EventService} from "./services/event.service";
 import {ListClassesComponent, listClassState} from "./components/list-classes/list-classes.component";
 import {ClassService} from "./services/class.service";
-import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
+import {EditProfileComponent} from './components/edit-profile/edit-profile.component';
+import {ClassDetailsComponent, classDetailsState} from './components/class-details/class-details.component';
 
 @NgModule({
     declarations: [
@@ -26,7 +27,8 @@ import { EditProfileComponent } from './components/edit-profile/edit-profile.com
         FooterComponent,
         LoginComponent,
         ListClassesComponent,
-        EditProfileComponent
+        EditProfileComponent,
+        ClassDetailsComponent
     ],
     imports: [
         BrowserModule,
@@ -36,7 +38,8 @@ import { EditProfileComponent } from './components/edit-profile/edit-profile.com
             states: [
                 states.welcomeState,
                 loginState,
-                listClassState
+                listClassState,
+                classDetailsState
             ],
             useHash: false,
             configClass: UIRouterConfig
