@@ -1,8 +1,6 @@
-import {Component, OnInit, Output, EventEmitter} from "@angular/core";
+import {Component, OnInit} from "@angular/core";
 import {AccountService} from "../account.service";
-import {StorageService} from "../../services/storage.service";
-import {EventService} from "../../services/event.service";
-import {RouterState} from "@angular/router";
+import {EventService} from "../../../services/event.service";
 import {UIRouter} from "ui-router-ng2";
 
 @Component({

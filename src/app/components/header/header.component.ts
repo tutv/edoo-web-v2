@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {EventService} from "../services/event.service";
-import {StorageService} from "../services/storage.service";
+import {EventService} from "../../services/event.service";
+import {StorageService} from "../../services/storage.service";
 
 @Component({
     selector: 'app-header',

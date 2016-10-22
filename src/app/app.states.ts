@@ -1,5 +1,5 @@
-import {WelcomePageComponent} from "./welcome-page/welcome-page.component";
-import {LoginComponent} from "./accounts/login/login.component";
+import {WelcomePageComponent} from "./components/welcome-page/welcome-page.component";
+import {LoginComponent} from "./components/accounts/login/login.component";
 import {ListClassesComponent} from "./components/list-classes/list-classes.component";
 
 export const welcomeState = {
