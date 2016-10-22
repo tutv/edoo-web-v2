@@ -13,6 +13,7 @@ import {LoginComponent} from "./accounts/login/login.component";
 import {ApiService} from "./services/api.service";
 import {StorageService} from "./services/storage.service";
 import {CookieService} from "angular2-cookie/services/cookies.service";
+import {EventService} from "./services/event.service";
 
 @NgModule({
     declarations: [
@@ -38,7 +39,8 @@ import {CookieService} from "angular2-cookie/services/cookies.service";
     providers: [
         ApiService,
         StorageService,
-        CookieService
+        CookieService,
+        EventService
     ],
     bootstrap: [AppComponent]
 })

@@ -1,6 +1,7 @@
-import {Component, OnInit} from "@angular/core";
+import {Component, OnInit, Output, EventEmitter} from "@angular/core";
 import {AccountService} from "../account.service";
 import {StorageService} from "../../services/storage.service";
+import {EventService} from "../../services/event.service";
 
 @Component({
     selector: 'app-login',
@@ -14,7 +15,7 @@ export class LoginComponent implements OnInit {
     public errors: string[] = [];
 
     constructor(private account: AccountService,
-                private storage: StorageService) {
+                private event: EventService) {
     }
 
     ngOnInit() {
@@ -30,11 +31,7 @@ export class LoginComponent implements OnInit {
                     this.password = '';
 
                     let data = response.json();
-                    let token = data.data.token;
-                    this.storage.setToken(token);
-
-                    let user = data.data.user;
-                    this.storage.setUserData(user);
+                    this.event.loginSuccess(data.data);
                 },
                 error => {
                     console.log(error);
