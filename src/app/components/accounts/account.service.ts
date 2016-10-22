@@ -21,4 +21,14 @@ export class AccountService {
         return this
             .api.request(args);
     }
+
+    public logOut(): Observable<Response> {
+        var args = {
+            method: 'GET',
+            url: '/logout'
+        };
+
+        return this
+            .api.requestAuth(args);
+    }
 }
