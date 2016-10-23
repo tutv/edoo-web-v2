@@ -34,7 +34,7 @@ export class LoginComponent implements OnInit {
 
                     let data = response.json();
                     this.event.loginSuccess(data.data);
-                    this.router.stateService.go('class');
+                    this.router.stateService.go('classes');
                 },
                 error => {
                     console.log(error);
