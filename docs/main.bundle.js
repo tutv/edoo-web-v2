@@ -65096,7 +65096,7 @@ var LoginComponent = (function () {
             _this.password = '';
             var data = response.json();
             _this.event.loginSuccess(data.data);
-            _this.router.stateService.go('class');
+            _this.router.stateService.go('classes');
         }, function (error) {
             console.log(error);
         });
