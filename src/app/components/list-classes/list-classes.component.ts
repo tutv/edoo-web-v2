@@ -20,7 +20,7 @@ export class ListClassesComponent implements OnInit {
 }
 
 export const listClassState = {
-    name: 'class',
+    name: 'classes',
     url: '/class',
     component: ListClassesComponent,
     resolve: [

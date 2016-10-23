@@ -21,4 +21,19 @@ export class ClassService {
                 return data.data.classes;
             }).toPromise();
     }
+
+    public getPosts(class_id, page = 1) {
+        var args = {
+            method: 'GET',
+            url: '/posts/' + class_id + '/page/' + page
+        };
+
+        return this
+            .api.requestAuth(args)
+            .map(response => {
+                var data = response.json();
+
+                return data.data;
+            }).toPromise();
+    }
 }

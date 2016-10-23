@@ -9,24 +9,21 @@ import {Input} from "@angular/core/src/metadata/directives";
     styleUrls: ['./class-details.component.css']
 })
 export class ClassDetailsComponent implements OnInit {
-    @Input() classDetails;
     public class_id;
+    @Input() classDetails;
 
-    constructor(private router: UIRouter,
-                private transition: Transition) {
+    constructor(private transition: Transition) {
         this.class_id = transition.params()['classId'];
 
-        console.log(this.class_id);
     }
 
     ngOnInit() {
     }
-
 }
 
 export const classDetailsState = {
-    name: 'class.details',
-    url: '/:classId',
+    name: 'class',
+    url: 'class/:classId',
     component: ClassDetailsComponent,
     resolve: [
         {
@@ -35,7 +32,7 @@ export const classDetailsState = {
             resolveFn: (trans, classSvc) => {
                 var classId = trans.params().classId;
 
-                return classSvc.getListClasses();
+                return classSvc.getPosts(classId);
             }
         }
     ]
