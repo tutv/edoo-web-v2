@@ -31,4 +31,20 @@ export class AccountService {
         return this
             .api.requestAuth(args);
     }
+
+    public getProfile(){
+        var args = {
+            method: 'GET',
+            url: '/profile'
+        };
+
+        return this.api
+            .requestAuth(args)
+            .map(response => {
+                var data = response.json();
+
+                return data.data;
+            })
+            .toPromise();
+    }
 }

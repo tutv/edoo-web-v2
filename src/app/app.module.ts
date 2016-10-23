@@ -41,6 +41,7 @@ import {ListPostsComponent} from "./components/list-posts/list-posts.component";
                 states.welcomeState,
                 loginState,
                 listClassState,
+                editProfileState,
                 classDetailsState
             ],
             useHash: false,
@@ -52,7 +53,8 @@ import {ListPostsComponent} from "./components/list-posts/list-posts.component";
         StorageService,
         CookieService,
         EventService,
-        ClassService
+        ClassService,
+        AccountService
     ],
     bootstrap: [AppComponent]
 })
