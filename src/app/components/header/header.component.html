@@ -35,7 +35,7 @@
                             <img [src]="user?.avatar" class="avatar">
                             {{user.name}} <span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a>Cập nhập thông tin</a></li>
+                            <li><a uiSref="profile">Cập nhập thông tin</a></li>
                             <li><a>Đổi mật khẩu</a></li>
                             <li role="separator" class="divider"></li>
                             <li><a (click)="logOut($event)">Đăng xuất</a></li>

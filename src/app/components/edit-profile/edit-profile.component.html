@@ -1,3 +1,91 @@
-<p>
-  edit-profile works!
-</p>
+<div class="wrapper-profile" >
+     <!--ng-show="profileCtrl.account"-->
+<!--&gt;-->
+    <h2 class="title ed-title">Thông tin tài khoản</h2>
+
+    <div class="top">
+        <div class="row">
+            <div class="col-md-5">
+                <div class="avatar">
+                    <!--<img ng-src="{{profileCtrl.account.avatar}}" class="img-responsive img-rounded" alt="{{profileCtrl.account.name}}">-->
+                    <img src="{{user.avatar}}" class="img-responsive img-rounded" alt="{{user.name}}">
+                </div>
+            </div>
+            <div class="col-md-7">
+                <div class="details">
+                    <table class="table">
+                        <tbody>
+                        <tr>
+                            <td>Họ và tên</td>
+                            <td>
+                                <div class="value">{{user.name}}</div>
+                                <label><input type="hidden" >
+                                              <!--ng-model="profileCtrl.account.name">-->
+                                </label>
+                            </td>
+                        </tr>
+
+                        <tr *ngIf="user.capability == 'student'">
+                            <td>Mã SV</td>
+                            <td>
+                                <div class="value">{{user.code}}</div>
+                                <label><input type="hidden" ngModel="user.code"></label>
+                            </td>
+                        </tr>
+
+                        <tr *ngIf="user.capability == 'student'">
+                            <td>Lớp</td>
+                            <td>
+                                <div class="value">{{user.regular_class}}</div>
+                                <label><input type="hidden" ngModel="user.regular_class"></label>
+                            </td>
+                        </tr>
+
+                        <tr *ngIf="user.email">
+                            <td>Email</td>
+                            <td>
+                                <div class="value">{{user.email}}</div>
+                                <label><input type="hidden" ngModel="user.email"></label>
+                            </td>
+                        </tr>
+
+                        <tr *ngIf="user.point_count">
+                            <td>Edoo point</td>
+                            <td>
+                                <div class="value">{{user.point_count}}</div>
+                                <label><input type="hidden" ngModel="user.point_count"></label>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="bottom">
+        <div class="form-group favorite">
+            <label>Sở thích</label>
+            <!--<span class="btn-edit" (click)="openEdit('favorite')"><i class="fa fa-pencil" aria-hidden="true"></i></span>-->
+            <!--<div class="value" [hidden]="user.favorite">{{user.favorite}}</div>-->
+            <div class="value">{{user.favorite}}</div>
+            <!--<div class="edit-form" ng-show="profileCtrl.form.favorite">-->
+                <!--<textarea class="form-control" rows="5" ng-model="profileCtrl.account.favorite"></textarea>-->
+                <!--<button class="btn btn-primary" ng-click="profileCtrl.update('favorite')">Cập nhật</button>-->
+                <!--<button class="btn btn-default" ng-click="profileCtrl.closeEdit('favorite')">Hủy</button>-->
+            <!--</div>-->
+        </div>
+
+        <div class="form-group description">
+            <label>Giới thiệu</label>
+            <!--<span class="btn-edit" ng-click="profileCtrl.openEdit('description')"><i class="fa fa-pencil" aria-hidden="true"></i></span>-->
+            <!--<div class="value" [hidden]="user.description">{{user.description}}</div>-->
+            <div class="value">{{user.description}}</div>
+            <!--<div class="edit-form" ng-show="profileCtrl.form.description">-->
+                <!--<textarea class="form-control" rows="5" ng-model="profileCtrl.account.description"></textarea>-->
+                <!--<button class="btn btn-primary" ng-click="profileCtrl.update('description')">Cập nhật</button>-->
+                <!--<button class="btn btn-default" ng-click="profileCtrl.closeEdit('description')">Hủy</button>-->
+            <!--</div>-->
+        </div>
+    </div>
+</div>
