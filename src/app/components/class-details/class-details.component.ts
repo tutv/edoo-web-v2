@@ -1,6 +1,6 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit} from "@angular/core";
 import {ClassService} from "../../services/class.service";
-import {Transition, UIRouter} from "ui-router-ng2";
+import {Transition} from "ui-router-ng2";
 import {Input} from "@angular/core/src/metadata/directives";
 
 @Component({
@@ -23,7 +23,7 @@ export class ClassDetailsComponent implements OnInit {
 
 export const classDetailsState = {
     name: 'class',
-    url: 'class/:classId',
+    url: '/class/:classId',
     component: ClassDetailsComponent,
     resolve: [
         {

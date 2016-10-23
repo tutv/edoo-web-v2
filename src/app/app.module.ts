@@ -16,9 +16,10 @@ import {CookieService} from "angular2-cookie/services/cookies.service";
 import {EventService} from "./services/event.service";
 import {ListClassesComponent, listClassState} from "./components/list-classes/list-classes.component";
 import {ClassService} from "./services/class.service";
-import {EditProfileComponent} from "./components/edit-profile/edit-profile.component";
+import {EditProfileComponent, editProfileState} from "./components/edit-profile/edit-profile.component";
 import {ClassDetailsComponent, classDetailsState} from "./components/class-details/class-details.component";
 import {ListPostsComponent} from "./components/list-posts/list-posts.component";
+import {AccountService} from "./services/account.service";
 
 @NgModule({
     declarations: [
@@ -53,8 +54,7 @@ import {ListPostsComponent} from "./components/list-posts/list-posts.component";
         StorageService,
         CookieService,
         EventService,
-        ClassService,
-        AccountService
+        ClassService
     ],
     bootstrap: [AppComponent]
 })
