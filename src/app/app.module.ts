@@ -20,6 +20,7 @@ import {EditProfileComponent, editProfileState} from "./components/edit-profile/
 import {ClassDetailsComponent, classDetailsState} from "./components/class-details/class-details.component";
 import {ListPostsComponent} from "./components/list-posts/list-posts.component";
 import {AccountService} from "./services/account.service";
+import { SidebarListClassesComponent } from './components/sidebar-list-classes/sidebar-list-classes.component';
 
 @NgModule({
     declarations: [
@@ -31,7 +32,8 @@ import {AccountService} from "./services/account.service";
         ListClassesComponent,
         EditProfileComponent,
         ClassDetailsComponent,
-        ListPostsComponent
+        ListPostsComponent,
+        SidebarListClassesComponent
     ],
     imports: [
         BrowserModule,

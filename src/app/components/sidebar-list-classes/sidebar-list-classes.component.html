@@ -1,0 +1,6 @@
+<div class="list-classes sidebar">
+    <h3 class="title-sidebar">Lớp môn học</h3>
+    <ul class="list-sidebar">
+        <li *ngFor="let class of listClasses" uiSrefActive="active"><a uiSref="class" [uiParams]="{ classId: class.id }">{{class.name}}</a></li>
+    </ul>
+</div>
