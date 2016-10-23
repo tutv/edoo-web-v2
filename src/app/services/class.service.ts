@@ -36,4 +36,19 @@ export class ClassService {
                 return data.data;
             }).toPromise();
     }
+
+    public getPost(post_id) {
+        var args = {
+            method: 'GET',
+            url: '/post/' + post_id
+        };
+
+        return this
+            .api.requestAuth(args)
+            .map(response => {
+                var data = response.json();
+
+                return data.data;
+            }).toPromise();
+    }
 }

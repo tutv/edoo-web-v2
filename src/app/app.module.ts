@@ -20,7 +20,8 @@ import {EditProfileComponent, editProfileState} from "./components/edit-profile/
 import {ClassDetailsComponent, classDetailsState} from "./components/class-details/class-details.component";
 import {ListPostsComponent} from "./components/list-posts/list-posts.component";
 import {AccountService} from "./services/account.service";
-import { SidebarListClassesComponent } from './components/sidebar-list-classes/sidebar-list-classes.component';
+import {SidebarListClassesComponent} from './components/sidebar-list-classes/sidebar-list-classes.component';
+import {PostDetailsComponent, postDetailsState} from './components/post-details/post-details.component';
 
 @NgModule({
     declarations: [
@@ -33,7 +34,8 @@ import { SidebarListClassesComponent } from './components/sidebar-list-classes/s
         EditProfileComponent,
         ClassDetailsComponent,
         ListPostsComponent,
-        SidebarListClassesComponent
+        SidebarListClassesComponent,
+        PostDetailsComponent
     ],
     imports: [
         BrowserModule,
@@ -45,7 +47,8 @@ import { SidebarListClassesComponent } from './components/sidebar-list-classes/s
                 loginState,
                 listClassState,
                 editProfileState,
-                classDetailsState
+                classDetailsState,
+                postDetailsState
             ],
             useHash: false,
             configClass: UIRouterConfig
