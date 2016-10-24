@@ -10,7 +10,7 @@
             </div>
         </div>
         <div class="solve-btn solved" *ngIf="comment.is_solve"></div>
-        <div class="solve-btn can-solve unsolved" *ngIf="byPostAuthor && !comment.is_solve" (click)="solve(comment.id)"></div>
+        <div class="solve-btn can-solve unsolved" *ngIf="canManage && !comment.is_solve" (click)="solve(comment.id)"></div>
     </div>
 
     <div class="right">

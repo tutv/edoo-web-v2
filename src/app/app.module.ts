@@ -61,7 +61,8 @@ import { CommentItemComponent } from './components/comment-item/comment-item.com
         StorageService,
         CookieService,
         EventService,
-        ClassService
+        ClassService,
+        AccountService
     ],
     bootstrap: [AppComponent]
 })

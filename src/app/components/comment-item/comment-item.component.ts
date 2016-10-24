@@ -8,7 +8,7 @@ import {Input} from "@angular/core/src/metadata/directives";
 })
 export class CommentItemComponent implements OnInit {
     @Input() comment;
-    @Input() byPostAuthor;
+    @Input() canManage;
 
     constructor() {
     }

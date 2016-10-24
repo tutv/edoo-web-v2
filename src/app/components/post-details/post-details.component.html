@@ -10,7 +10,7 @@
                     <div class="left">
                         <div class="vote">
                             <div class="up"><i class="fa fa-caret-up" aria-hidden="true"></i></div>
-                            <div class="count"></div>
+                            <div class="count">{{post.vote_count}}</div>
                             <div class="down"><i class="fa fa-caret-down" aria-hidden="true"></i>
                             </div>
                         </div>
@@ -62,7 +62,7 @@
 
                 <div class="comments" id="comments">
                     <div *ngFor="let comment of post.comments">
-                        <comment-item [comment]="comment" [byPostAuthor]="post.byPostAuthor"></comment-item>
+                        <comment-item [comment]="comment" [canManage]="post.byPostAuthor"></comment-item>
                     </div>
                 </div>
             </div>
