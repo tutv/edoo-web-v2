@@ -59,6 +59,12 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="comments" id="comments">
+                    <div *ngFor="let comment of post.comments">
+                        <comment-item [comment]="comment" [byPostAuthor]="post.byPostAuthor"></comment-item>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

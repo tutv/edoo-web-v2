@@ -1,0 +1,30 @@
+<div class="comment">
+    <div class="left">
+        <div class="vote">
+            <div class="up" (click)="voteComment(comment.id)">
+                <i class="fa fa-caret-up" aria-hidden="true"></i>
+            </div>
+            <div class="count">{{comment.vote_count || 0}}</div>
+            <div class="down" (click)="devoteComment(comment.id)">
+                <i class="fa fa-caret-down" aria-hidden="true"></i>
+            </div>
+        </div>
+        <div class="solve-btn solved" *ngIf="comment.is_solve"></div>
+        <div class="solve-btn can-solve unsolved" *ngIf="byPostAuthor && !comment.is_solve" (click)="solve(comment.id)"></div>
+    </div>
+
+    <div class="right">
+        <div class="header">
+            <div class="media-left">
+                <img [src]="comment.author.avatar" alt=""/>
+            </div>
+            <div class="media-body">
+                <span class="title">{{comment.author.name}}</span>
+                <div class="time" title="{{comment.created_at}}"></div>
+            </div>
+        </div>
+
+        <div class="content" [innerHtml]="comment.content">
+        </div>
+    </div>
+</div>

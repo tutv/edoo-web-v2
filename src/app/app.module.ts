@@ -22,6 +22,7 @@ import {ListPostsComponent} from "./components/list-posts/list-posts.component";
 import {AccountService} from "./services/account.service";
 import {SidebarListClassesComponent} from './components/sidebar-list-classes/sidebar-list-classes.component';
 import {PostDetailsComponent, postDetailsState} from './components/post-details/post-details.component';
+import { CommentItemComponent } from './components/comment-item/comment-item.component';
 
 @NgModule({
     declarations: [
@@ -35,7 +36,8 @@ import {PostDetailsComponent, postDetailsState} from './components/post-details/
         ClassDetailsComponent,
         ListPostsComponent,
         SidebarListClassesComponent,
-        PostDetailsComponent
+        PostDetailsComponent,
+        CommentItemComponent
     ],
     imports: [
         BrowserModule,
