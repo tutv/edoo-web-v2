@@ -25,6 +25,7 @@ import {PostDetailsComponent, postDetailsState} from './components/post-details/
 import { CommentItemComponent } from './components/comment-item/comment-item.component';
 import {PostService} from "./services/post.service";
 import { FormCommentComponent } from './components/form-comment/form-comment.component';
+import {HomeState} from "./app.states";
 
 @NgModule({
     declarations: [
@@ -53,7 +54,8 @@ import { FormCommentComponent } from './components/form-comment/form-comment.com
                 listClassState,
                 editProfileState,
                 classDetailsState,
-                postDetailsState
+                postDetailsState,
+                HomeState
             ],
             useHash: false,
             configClass: UIRouterConfig

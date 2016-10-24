@@ -5,3 +5,9 @@ export const welcomeState = {
     url: '/welcome',
     component: WelcomePageComponent
 };
+
+export const HomeState = {
+    name: 'index',
+    url: '/',
+    component: WelcomePageComponent
+};
