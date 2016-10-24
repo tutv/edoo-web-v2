@@ -18,6 +18,10 @@ export class PostDetailsComponent implements OnInit {
     ngOnInit() {
     }
 
+    public onComment(comment) {
+        this.post.comments.push(comment);
+    }
+
 }
 
 export const postDetailsState = {
