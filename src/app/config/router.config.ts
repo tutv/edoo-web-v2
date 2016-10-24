@@ -5,6 +5,6 @@ import {Inject, Injectable} from "@angular/core";
 @Injectable()
 export class UIRouterConfig {
     constructor(@Inject(UIRouter) router: UIRouter) {
-
+        router.urlRouterProvider.otherwise(()=> router.stateService.go('welcome'));
     }
 }

@@ -18,8 +18,8 @@ export class EditProfileComponent implements OnInit {
     ngOnInit() {
     }
 
-    openEdit(favorite){
-
+    openEdit(param){
+        console.log('edit' + param);
     }
 }
 
