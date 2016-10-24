@@ -23,6 +23,8 @@ import {AccountService} from "./services/account.service";
 import {SidebarListClassesComponent} from './components/sidebar-list-classes/sidebar-list-classes.component';
 import {PostDetailsComponent, postDetailsState} from './components/post-details/post-details.component';
 import { CommentItemComponent } from './components/comment-item/comment-item.component';
+import {PostService} from "./services/post.service";
+import { FormCommentComponent } from './components/form-comment/form-comment.component';
 
 @NgModule({
     declarations: [
@@ -37,7 +39,8 @@ import { CommentItemComponent } from './components/comment-item/comment-item.com
         ListPostsComponent,
         SidebarListClassesComponent,
         PostDetailsComponent,
-        CommentItemComponent
+        CommentItemComponent,
+        FormCommentComponent
     ],
     imports: [
         BrowserModule,
@@ -62,7 +65,8 @@ import { CommentItemComponent } from './components/comment-item/comment-item.com
         CookieService,
         EventService,
         ClassService,
-        AccountService
+        AccountService,
+        PostService,
     ],
     bootstrap: [AppComponent]
 })
