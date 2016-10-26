@@ -39,10 +39,10 @@
                             <div class="time">
                                 <div>Thời gian:</div>
                                 <span class="number"
-                                      title="post.created_at">{{post.created_at}}</span>
+                                      title="{{post.created_at}}">{{post.created_at}}</span>
                             </div>
 
-                            <div class="action pull-right">
+                            <div *ngIf="allowAlterPost()" class="action pull-right">
                                 <div class="btn-group">
                                     <a class="btn btn-primary" ng-click="postCtrl.edit()"><i
                                         class="fa fa-pencil fa-fw"></i> Sửa</a>

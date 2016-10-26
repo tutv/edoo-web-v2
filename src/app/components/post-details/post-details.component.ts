@@ -3,6 +3,7 @@ import {Transition, UIRouter} from "ui-router-ng2";
 import {ClassService} from "../../services/class.service";
 import {Input} from "@angular/core/src/metadata/directives";
 import {PostService} from "../../services/post.service";
+import {StorageService} from "../../services/storage.service";
 
 @Component({
     selector: 'app-post-details',
@@ -13,14 +14,17 @@ import {PostService} from "../../services/post.service";
 export class PostDetailsComponent implements OnInit {
     @Input() post;
     @Input() listClasses;
+    public user = null;
 
     constructor(
         private postService: PostService,
-        private router: UIRouter
+        private router: UIRouter,
+        private storageService: StorageService
     ) {
     }
 
-    ngOnInit() {
+    ngOnInit(){
+        this.user = this.storageService.getUserData();
     }
 
     public onComment(comment) {
@@ -50,6 +54,14 @@ export class PostDetailsComponent implements OnInit {
             .catch(error => {
                 console.log('Error: ' + error);
             });
+    }
+
+    /**
+     * AlterPost include: Edit and DeletePost
+     * @returns {boolean}
+     */
+    public allowAlterPost(){
+        return this.user.id == this.post.author.id;
     }
 
 }
