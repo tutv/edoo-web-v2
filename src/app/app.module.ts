@@ -26,6 +26,7 @@ import { CommentItemComponent } from './components/comment-item/comment-item.com
 import {PostService} from "./services/post.service";
 import { FormCommentComponent } from './components/form-comment/form-comment.component';
 import {HomeState} from "./app.states";
+import { PostContentComponent } from './components/post-content/post-content.component';
 
 @NgModule({
     declarations: [
@@ -41,7 +42,8 @@ import {HomeState} from "./app.states";
         SidebarListClassesComponent,
         PostDetailsComponent,
         CommentItemComponent,
-        FormCommentComponent
+        FormCommentComponent,
+        PostContentComponent
     ],
     imports: [
         BrowserModule,
