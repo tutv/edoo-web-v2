@@ -9,9 +9,11 @@
                 <div class="post-content">
                     <div class="left">
                         <div class="vote">
-                            <div class="up"><i class="fa fa-caret-up" aria-hidden="true" (click)="votePost(post.id,1)"></i></div>
+                            <div class="up"><i class="fa fa-caret-up" aria-hidden="true"
+                                               (click)="votePost(post.id,1)"></i></div>
                             <div class="count">{{post.vote_count}}</div>
-                            <div class="down"><i class="fa fa-caret-down" aria-hidden="true" (click)="votePost(post.id,-1)"></i>
+                            <div class="down"><i class="fa fa-caret-down" aria-hidden="true"
+                                                 (click)="votePost(post.id,-1)"></i>
                             </div>
                         </div>
                     </div>
@@ -50,7 +52,8 @@
                                         <span class="fa fa-caret-down" title="Toggle dropdown menu"></span>
                                     </a>
                                     <ul class="dropdown-menu">
-                                        <li><a (click)="deletePost(post.id)"><i class="fa fa-trash-o fa-fw"></i> Xóa</a></li>
+                                        <li><a (click)="deletePost(post.id)"><i class="fa fa-trash-o fa-fw"></i> Xóa</a>
+                                        </li>
                                     </ul>
                                 </div>
                             </div>
@@ -61,13 +64,13 @@
                     </div>
                 </div>
 
-                <!--<div class="comments" id="comments">-->
-                <!--<div *ngFor="let comment of post.comments">-->
-                <!--<comment-item [comment]="comment" [canManage]="post.byPostAuthor"></comment-item>-->
-                <!--</div>-->
-                <!--</div>-->
+                <div class="comments" id="comments">
+                    <div *ngFor="let comment of post.comments">
+                        <comment-item [comment]="comment" [data]="getData()" (onSolveComment)="onSolveComment(comment.id)"></comment-item>
+                    </div>
+                </div>
 
-                <!--<form-comment [post_id]="post.id" (onComment)="onComment($event)"></form-comment>-->
+                <form-comment [post_id]="post.id" (onComment)="onComment($event)"></form-comment>
             </div>
         </div>
     </div>

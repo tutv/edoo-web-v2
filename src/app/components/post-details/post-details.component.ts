@@ -16,19 +16,30 @@ export class PostDetailsComponent implements OnInit {
     @Input() listClasses;
     public user = null;
 
-    constructor(
-        private postService: PostService,
-        private router: UIRouter,
-        private storageService: StorageService
-    ) {
+    constructor(private postService: PostService,
+                private router: UIRouter,
+                private storageService: StorageService) {
     }
 
-    ngOnInit(){
+    ngOnInit() {
         this.user = this.storageService.getUserData();
     }
 
     public onComment(comment) {
         this.post.comments.push(comment);
+    }
+
+    /**
+     * Receive event: Other comment is solved -> Unsolved comment
+     * @param comment_id
+     */
+    public onSolveComment(comment_id){
+        for (let comment of this.post.comments){
+            if (comment.id != comment_id && comment.is_solve){
+                comment.is_solve = false;
+                break;
+            }
+        }
     }
 
     public votePost(post_id, content) {
@@ -49,7 +60,7 @@ export class PostDetailsComponent implements OnInit {
         this.postService.deletePost(post_id)
             .then(() => {
                 window.alert('Xóa bài viết thành công!');
-                this.router.stateService.go('classes');
+                this.router.stateService.go('class', {'classId': this.post.class.id});
             })
             .catch(error => {
                 console.log('Error: ' + error);
@@ -60,8 +71,15 @@ export class PostDetailsComponent implements OnInit {
      * AlterPost include: Edit and DeletePost
      * @returns {boolean}
      */
-    public allowAlterPost(){
+    public allowAlterPost() {
         return this.user.id == this.post.author.id;
+    }
+
+    public getData(){
+        return {
+            user_id: this.user.id,
+            post_id: this.post.author.id
+        };
     }
 
 }

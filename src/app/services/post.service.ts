@@ -63,12 +63,104 @@ export class PostService {
 
         return this.api
             .requestAuth(args)
-            // .map(respose => {
-            //     var data = respose.json();
-            //
-            //     return data.data;
-            // })
             .toPromise();
     }
 
+
+    // ----------------------------------------- Comment ---------------------------------------------------------------
+
+    public solveComment(comment_id){
+        var data = `comment_id=${comment_id}`;
+
+        var args = {
+            method: 'POST',
+            url: '/solve',
+            data: data
+        };
+
+        return this.api
+            .requestAuth(args)
+            .map(response => {
+                var data = response.json();
+
+                return data.data;
+            })
+            .toPromise();
+    }
+
+    public unsolveComment(comment_id){
+        var data = `comment_id=${comment_id}`;
+
+        var args = {
+            method: 'POST',
+            url: '/unsolve',
+            data: data
+        };
+
+        return this.api
+            .requestAuth(args)
+            .map(response => {
+                var data = response.json();
+
+                return data.data;
+            })
+            .toPromise();
+    }
+
+    public voteComment(comment_id){
+        var data = `comment_id=${comment_id}`;
+
+        var args = {
+            method: 'POST',
+            url: '/votecmt',
+            data: data
+        };
+
+        return this.api
+            .requestAuth(args)
+            .map(response => {
+                var data = response.json();
+
+                return data.data;
+            })
+            .toPromise();
+    }
+
+    public devoteComment(comment_id){
+        var data = `comment_id=${comment_id}`;
+
+        var args = {
+            method: 'POST',
+            url: '/devotecmt',
+            data: data
+        };
+
+        return this.api
+            .requestAuth(args)
+            .map(response => {
+                var data = response.json();
+
+                return data.data;
+            })
+            .toPromise();
+    }
+
+    public unvoteComment(comment_id){
+        var data = `comment_id=${comment_id}`;
+
+        var args = {
+            method: 'POST',
+            url: '/unvote',
+            data: data
+        };
+
+        return this.api
+            .requestAuth(args)
+            .map(response => {
+                var data = response.json();
+
+                return data.data;
+            })
+            .toPromise();
+    }
 }

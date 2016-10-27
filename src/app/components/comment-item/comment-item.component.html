@@ -9,8 +9,8 @@
                 <i class="fa fa-caret-down" aria-hidden="true"></i>
             </div>
         </div>
-        <div class="solve-btn solved" *ngIf="comment.is_solve"></div>
-        <div class="solve-btn can-solve unsolved" *ngIf="canManage && !comment.is_solve" (click)="solve(comment.id)"></div>
+        <div class="solve-btn solved" *ngIf="comment.is_solve" (click)="unsolveComment()"></div>
+        <div class="solve-btn can-solve unsolved" *ngIf="permission.allow_solve_cmt && !comment.is_solve" (click)="solveComment()"></div>
     </div>
 
     <div class="right">
