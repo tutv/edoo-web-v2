@@ -1,11 +1,73 @@
 <div class="container">
-    <div class="wrapper row">
-        <div class="col-md-3 wrapper-sidebar">
-            <sidebar-list-classes [listClasses]="listClasses"></sidebar-list-classes>
-        </div>
 
-        <app-post-content [post]="post">
-            <h3>Bài đăng chi tiết</h3>
-        </app-post-content>
+    <div class="col-md-9 wrapper-content">
+        <div class="post-wrapper">
+            <div class="post-content">
+                <div class="left">
+                    <div class="vote">
+                        <div class="up"><i class="fa fa-caret-up" aria-hidden="true"
+                                           (click)="votePost(post.id,1)"></i></div>
+                        <div class="count">{{post.vote_count}}</div>
+                        <div class="down"><i class="fa fa-caret-down" aria-hidden="true"
+                                             (click)="votePost(post.id,-1)"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="right">
+                    <h1 class="title ng-fade">{{post.title}}</h1>
+                    <div class="group">
+                        <div class="author" *ngIf="!post.is_incognito">
+                            <img [src]="post.author.avatar" alt="">
+                            <div class="author_name">
+                                <div>Người đăng:</div>
+                                <span>{{post.author.name}}</span>
+                            </div>
+                        </div>
+                        <div class="author" *ngIf="post.is_incognito">
+                            <img [src]="'assets/images/incognito.png'" alt="">
+                            <div class="author_name">
+                                <div>Người đăng</div>
+                                <span>Ẩn danh</span>
+                            </div>
+                        </div>
+                        <div class="number_comments">
+                            <div>Bình luận:</div>
+                            <span class="number ng-binding">{{post.comments.length}}</span>
+                        </div>
+                        <div class="time">
+                            <div>Thời gian:</div>
+                            <span class="number"
+                                  title="{{post.created_at}}">{{post.created_at}}</span>
+                        </div>
+
+                        <div *ngIf="allowAlterPost()" class="action pull-right">
+                            <div class="btn-group">
+                                <a class="btn btn-primary" ng-click="postCtrl.edit()"><i
+                                    class="fa fa-pencil fa-fw"></i> Sửa</a>
+                                <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                                    <span class="fa fa-caret-down" title="Toggle dropdown menu"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a (click)="deletePost(post.id)"><i class="fa fa-trash-o fa-fw"></i> Xóa</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="content ng-fade" [innerHTML]="post.content">
+                    </div>
+                </div>
+            </div>
+
+            <div class="comments" id="comments">
+                <div *ngFor="let comment of post.comments">
+                    <comment-item [comment]="comment" [data]="getData()" (onSolveComment)="onSolveComment(comment.id)"></comment-item>
+                </div>
+            </div>
+
+            <form-comment [post_id]="post.id" (onComment)="onComment($event)"></form-comment>
+        </div>
     </div>
+
 </div>

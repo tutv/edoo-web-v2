@@ -22,11 +22,15 @@ import {ListPostsComponent} from "./components/list-posts/list-posts.component";
 import {AccountService} from "./services/account.service";
 import {SidebarListClassesComponent} from './components/sidebar-list-classes/sidebar-list-classes.component';
 import {PostDetailsComponent, postDetailsState} from './components/post-details/post-details.component';
-import { CommentItemComponent } from './components/comment-item/comment-item.component';
+import {CommentItemComponent} from './components/comment-item/comment-item.component';
 import {PostService} from "./services/post.service";
-import { FormCommentComponent } from './components/form-comment/form-comment.component';
+import {FormCommentComponent} from './components/form-comment/form-comment.component';
 import {HomeState} from "./app.states";
-import { PostContentComponent } from './components/post-content/post-content.component';
+import {PostCreateComponent, postCreateState} from './components/post-create/post-create.component';
+import {
+    ClassPostDetailsComponent,
+    classPostDetailsState
+} from './components/class-post-details/class-post-details.component';
 
 @NgModule({
     declarations: [
@@ -43,7 +47,8 @@ import { PostContentComponent } from './components/post-content/post-content.com
         PostDetailsComponent,
         CommentItemComponent,
         FormCommentComponent,
-        PostContentComponent
+        PostCreateComponent,
+        ClassPostDetailsComponent
     ],
     imports: [
         BrowserModule,
@@ -57,7 +62,9 @@ import { PostContentComponent } from './components/post-content/post-content.com
                 editProfileState,
                 classDetailsState,
                 postDetailsState,
-                HomeState
+                HomeState,
+                classPostDetailsState,
+                postCreateState
             ],
             useHash: false,
             configClass: UIRouterConfig

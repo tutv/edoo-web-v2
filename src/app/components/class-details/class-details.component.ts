@@ -11,11 +11,9 @@ import {Input} from "@angular/core/src/metadata/directives";
 export class ClassDetailsComponent implements OnInit {
     public class_id;
     @Input() classDetails;
-    @Input() listClasses;
 
     constructor(private transition: Transition) {
         this.class_id = transition.params()['classId'];
-
     }
 
     ngOnInit() {
@@ -23,8 +21,8 @@ export class ClassDetailsComponent implements OnInit {
 }
 
 export const classDetailsState = {
-    name: 'class',
-    url: '/class/:classId',
+    name: 'classPost.listPost',
+    url: '^/class/:classId',
     component: ClassDetailsComponent,
     resolve: [
         {
@@ -34,14 +32,6 @@ export const classDetailsState = {
                 var classId = trans.params().classId;
 
                 return classSvc.getPosts(classId);
-            }
-        },
-        {
-            token: 'listClasses',
-            deps: [ClassService],
-            resolveFn: (classSvc) => {
-
-                return classSvc.getListClasses();
             }
         }
     ]

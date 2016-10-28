@@ -10,13 +10,13 @@
             <span class="number ng-binding">{{classDetails.student_count}}</span>
         </div>
         <div class="create_topic">
-            <a uiSref="posts.list.create">Tạo Chủ Đề Mới</a>
+            <a uiSref="^.create">Tạo Chủ Đề Mới</a>
         </div>
         <div class="clearfix"></div>
     </div>
     <div class="post ng-fade" *ngFor="let post of classDetails.posts" ngClass="post.is_seen ? 'seen': ''">
         <div class="header">
-            <h2 class="title"><a uiSref="post" [uiParams]="{postId: post.id}"><span class="type {{post.type}}"></span>{{post.title}}</a>
+            <h2 class="title"><a uiSref="^.post" [uiParams]="{postId: post.id}"><span class="type {{post.type}}"></span>{{post.title}}</a>
             </h2>
         </div>
 
