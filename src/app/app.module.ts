@@ -7,6 +7,7 @@ import {WelcomePageComponent} from "./components/welcome-page/welcome-page.compo
 import {UIRouterModule} from "ui-router-ng2";
 import {UIRouterConfig} from "./config/router.config";
 import * as states from "./app.states";
+import {HomeState} from "./app.states";
 import {HeaderComponent} from "./components/header/header.component";
 import {FooterComponent} from "./components/footer/footer.component";
 import {LoginComponent, loginState} from "./components/login/login.component";
@@ -20,17 +21,17 @@ import {EditProfileComponent, editProfileState} from "./components/edit-profile/
 import {ClassDetailsComponent, classDetailsState} from "./components/class-details/class-details.component";
 import {ListPostsComponent} from "./components/list-posts/list-posts.component";
 import {AccountService} from "./services/account.service";
-import {SidebarListClassesComponent} from './components/sidebar-list-classes/sidebar-list-classes.component';
-import {PostDetailsComponent, postDetailsState} from './components/post-details/post-details.component';
-import {CommentItemComponent} from './components/comment-item/comment-item.component';
+import {SidebarListClassesComponent} from "./components/sidebar-list-classes/sidebar-list-classes.component";
+import {PostDetailsComponent, postDetailsState} from "./components/post-details/post-details.component";
+import {CommentItemComponent} from "./components/comment-item/comment-item.component";
 import {PostService} from "./services/post.service";
-import {FormCommentComponent} from './components/form-comment/form-comment.component';
-import {HomeState} from "./app.states";
-import {PostCreateComponent, postCreateState} from './components/post-create/post-create.component';
-import {
-    ClassPostDetailsComponent,
-    classPostDetailsState
-} from './components/class-post-details/class-post-details.component';
+import {FormCommentComponent} from "./components/form-comment/form-comment.component";
+import {PostCreateComponent, postCreateState} from "./components/post-create/post-create.component";
+import {ClassPostDetailsComponent, classPostDetailsState} from "./components/class-post-details/class-post-details.component";
+import {SettingsComponent, settingsState} from './components/settings/settings.component';
+import {SidebarPersonalSettingsComponent} from './components/sidebar-personal-settings/sidebar-personal-settings.component';
+import {ChangePasswordComponent, changePasswordState} from './components/change-password/change-password.component';
+import {NotificationService} from "./services/notification.service";
 
 @NgModule({
     declarations: [
@@ -48,7 +49,10 @@ import {
         CommentItemComponent,
         FormCommentComponent,
         PostCreateComponent,
-        ClassPostDetailsComponent
+        ClassPostDetailsComponent,
+        SettingsComponent,
+        SidebarPersonalSettingsComponent,
+        ChangePasswordComponent
     ],
     imports: [
         BrowserModule,
@@ -64,13 +68,16 @@ import {
                 postDetailsState,
                 HomeState,
                 classPostDetailsState,
-                postCreateState
+                postCreateState,
+                settingsState,
+                changePasswordState
             ],
             useHash: false,
             configClass: UIRouterConfig
         })
     ],
     providers: [
+        NotificationService,
         ApiService,
         StorageService,
         CookieService,
