@@ -30,6 +30,8 @@ import {PostCreateComponent, postCreateState} from "./components/post-create/pos
 import {ClassPostDetailsComponent, classPostDetailsState} from "./components/class-post-details/class-post-details.component";
 import {SettingsComponent, settingsState} from './components/settings/settings.component';
 import {SidebarPersonalSettingsComponent} from './components/sidebar-personal-settings/sidebar-personal-settings.component';
+import {ChangePasswordComponent, changePasswordState} from './components/change-password/change-password.component';
+import {NotificationService} from "./services/notification.service";
 
 @NgModule({
     declarations: [
@@ -49,7 +51,8 @@ import {SidebarPersonalSettingsComponent} from './components/sidebar-personal-se
         PostCreateComponent,
         ClassPostDetailsComponent,
         SettingsComponent,
-        SidebarPersonalSettingsComponent
+        SidebarPersonalSettingsComponent,
+        ChangePasswordComponent
     ],
     imports: [
         BrowserModule,
@@ -66,13 +69,15 @@ import {SidebarPersonalSettingsComponent} from './components/sidebar-personal-se
                 HomeState,
                 classPostDetailsState,
                 postCreateState,
-                settingsState
+                settingsState,
+                changePasswordState
             ],
             useHash: false,
             configClass: UIRouterConfig
         })
     ],
     providers: [
+        NotificationService,
         ApiService,
         StorageService,
         CookieService,
