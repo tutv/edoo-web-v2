@@ -28,11 +28,11 @@ export class AccountService {
             url: '/logout'
         };
 
-        return this
-            .api.requestAuth(args);
+        return this.api
+            .requestAuth(args);
     }
 
-    public getProfile(){
+    public getProfile() {
         var args = {
             method: 'GET',
             url: '/profile'
@@ -46,5 +46,23 @@ export class AccountService {
                 return data.data;
             })
             .toPromise();
+    }
+
+    public changePassword(old_pass, new_pass) {
+        var data = "old_password=" + old_pass + "&new_password=" + new_pass;
+
+        var args = {
+            data: data,
+            method: 'POST',
+            url: '/changepass'
+        };
+
+        return this.api
+            .requestAuth(args)
+            .map(response => {
+                var data = response.json();
+
+                return data.data;
+            });
     }
 }
