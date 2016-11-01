@@ -46,5 +46,19 @@
     "tslint": "3.13.0",
     "typescript": "2.0.2",
     "webpack": "^2.1.0-beta.22"
-  }
+  },
+  "description": "This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.17.",
+  "main": "karma.conf.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tutv95/edoo-web-v2.git"
+  },
+  "author": "",
+  "bugs": {
+    "url": "https://github.com/tutv95/edoo-web-v2/issues"
+  },
+  "homepage": "https://github.com/tutv95/edoo-web-v2#readme"
 }
