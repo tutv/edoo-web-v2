@@ -25,7 +25,7 @@ export class EditProfileComponent implements OnInit {
 
 
 export const editProfileState = {
-    name: 'profile',
+    name: 'settings.profile',
     url: '/profile',
     component: EditProfileComponent,
     resolve: [
