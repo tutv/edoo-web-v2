@@ -37,7 +37,7 @@
                         <div class="time">
                             <div>Thời gian:</div>
                             <span class="number"
-                                  title="{{post.created_at}}">{{post.created_at}}</span>
+                                  title="{{post.created_at}}">{{post.created_at | date }}</span>
                         </div>
 
                         <div *ngIf="allowAlterPost()" class="action pull-right">
@@ -62,7 +62,8 @@
 
             <div class="comments" id="comments">
                 <div *ngFor="let comment of post.comments">
-                    <comment-item [comment]="comment" [data]="getData()" (onSolveComment)="onSolveComment(comment.id)"></comment-item>
+                    <comment-item [comment]="comment" [data]="getData()"
+                                  (onSolveComment)="onSolveComment(comment.id)"></comment-item>
                 </div>
             </div>
 

@@ -9,12 +9,16 @@ import {ClassService} from "../../services/class.service";
 })
 export class ClassPostDetailsComponent implements OnInit {
     @Input() listClasses;
+    @Input() currentClassId;
+    public currentClass;
+
 
     constructor(private router: UIRouter) {
     }
 
     ngOnInit() {
         this.router.stateService.go('.listPost', {'classId': this.listClasses[0].id});
+        this.currentClass = this.listClasses[0];
     }
 
 }
@@ -30,6 +34,13 @@ export const classPostDetailsState = {
             resolveFn: (classSvc) => {
 
                 return classSvc.getListClasses();
+            }
+        },
+        {
+            token: 'currentClassId',
+            deps: [Transition],
+            resolveFn: (trans) => {
+                return trans.params().classId;
             }
         }
     ]

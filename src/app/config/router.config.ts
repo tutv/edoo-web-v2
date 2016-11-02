@@ -10,7 +10,7 @@ export class UIRouterConfig {
         //
         //     return router.stateService.go('welcome');
         // });
-        // var vis = window['ui-router-visualizer'];
-        // vis.visualizer(router);
+        var vis = window['ui-router-visualizer'];
+        vis.visualizer(router);
     }
 }
