@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {NotificationService} from "../../services/notification.service";
 import {AccountService} from "../../services/account.service";
 import {StorageService} from "../../services/storage.service";
+import {Title} from "@angular/platform-browser";
 
 @Component({
     selector: 'change-password',
@@ -15,10 +16,12 @@ export class ChangePasswordComponent implements OnInit {
 
     constructor(private notification: NotificationService,
                 private accountService: AccountService,
-                private storageService: StorageService) {
+                private storageService: StorageService,
+                private titleService: Title) {
     }
 
     ngOnInit() {
+        this.titleService.setTitle('Thay đổi mật khẩu');
     }
 
     public submit() {

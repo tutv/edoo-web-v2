@@ -1,5 +1,6 @@
 import {Component, OnInit, Input} from "@angular/core";
 import {AccountService} from "../../services/account.service";
+import {Title} from "@angular/platform-browser";
 
 @Component({
     selector: 'app-edit-profile',
@@ -10,15 +11,15 @@ import {AccountService} from "../../services/account.service";
 export class EditProfileComponent implements OnInit {
     @Input() user = {};
 
-    constructor(
-        private account: AccountService
-    ) {
+    constructor(private account: AccountService,
+                private titleService: Title) {
     }
 
     ngOnInit() {
+        this.titleService.setTitle('Cập nhật thông tin cá nhân');
     }
 
-    openEdit(param){
+    openEdit(param) {
         console.log('edit' + param);
     }
 }
