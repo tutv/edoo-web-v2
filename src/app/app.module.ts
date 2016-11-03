@@ -32,7 +32,8 @@ import {SettingsComponent, settingsState} from './components/settings/settings.c
 import {SidebarPersonalSettingsComponent} from './components/sidebar-personal-settings/sidebar-personal-settings.component';
 import {ChangePasswordComponent, changePasswordState} from './components/change-password/change-password.component';
 import {NotificationService} from "./services/notification.service";
-import { EditorComponent } from './components/editor/editor.component';
+import {EditorComponent} from './components/editor/editor.component';
+import {AuthService} from "./services/auth.service";
 
 @NgModule({
     declarations: [
@@ -87,6 +88,7 @@ import { EditorComponent } from './components/editor/editor.component';
         ClassService,
         AccountService,
         PostService,
+        AuthService
     ],
     bootstrap: [AppComponent]
 })

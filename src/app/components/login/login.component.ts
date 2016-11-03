@@ -4,6 +4,7 @@ import {EventService} from "../../services/event.service";
 import {UIRouter} from "ui-router-ng2";
 import {NotificationService} from "../../services/notification.service";
 import {Title} from "@angular/platform-browser";
+import {AuthService} from "../../services/auth.service";
 
 @Component({
     selector: 'app-login',
@@ -21,7 +22,11 @@ export class LoginComponent implements OnInit {
                 private event: EventService,
                 private router: UIRouter,
                 private notification: NotificationService,
+                private auth: AuthService,
                 private titleService: Title) {
+        if (this.auth.authenticated()) {
+            this.redirect();
+        }
     }
 
     ngOnInit() {
@@ -38,7 +43,7 @@ export class LoginComponent implements OnInit {
 
                     let data = response.json();
                     this.event.loginSuccess(data.data);
-                    this.router.stateService.go('classes');
+                    this.redirect();
                 },
                 error => {
                     this.email = '';
@@ -47,6 +52,10 @@ export class LoginComponent implements OnInit {
                     this.notification.error(body.message);
                 }
             );
+    }
+
+    private redirect() {
+        this.router.stateService.go('classes');
     }
 }
 
