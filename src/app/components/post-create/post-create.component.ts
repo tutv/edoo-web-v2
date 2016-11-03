@@ -1,6 +1,7 @@
 import {Component, OnInit, Input} from '@angular/core';
 import {StorageService} from "../../services/storage.service";
 import {PostService} from "../../services/post.service";
+import {UIRouter} from "ui-router-ng2";
 
 @Component({
     selector: 'app-post-create',
@@ -20,7 +21,8 @@ export class PostCreateComponent implements OnInit {
     };
 
     constructor(private storage: StorageService,
-                private postSrv: PostService) {
+                private postSrv: PostService,
+                private router: UIRouter) {
     }
 
     ngOnInit() {
@@ -41,6 +43,7 @@ export class PostCreateComponent implements OnInit {
         this.postSrv.createPost(this.params)
             .then(() => {
                 console.log('Post post success');
+                this.router.stateService.go('^.listPost', {'classId': this.classId});
             });
     }
 
