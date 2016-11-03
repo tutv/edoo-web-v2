@@ -12,9 +12,8 @@
 
             <div class="form-group">
                 <label>Nội dung</label>
-                <!--<textarea ng-model="createPostCtrl.newPost.content" ui-tinymce="createPostCtrl.tinymceOptions"></textarea>-->
-                <textarea class="form-control" [(ngModel)]="params.content"
-                          [ngModelOptions]="{standalone: true}"></textarea>
+
+                <editor [elementId]="'post-content'" (onEditorKeyup)="handlePostContent($event)"></editor>
             </div>
 
             <div class="form-group">
@@ -26,7 +25,7 @@
                     <!--<label class="radio-inline" ng-show="createPostCtrl.isTeacher"><input ng-change="createPostCtrl.changePostType()" ng-model="createPostCtrl.newPost.type" type="radio" name="type" value="notification">Notification</label>-->
                     <!--<label class="radio-inline" ng-show="createPostCtrl.isTeacher"><input ng-change="createPostCtrl.changePostType()" ng-model="createPostCtrl.newPost.type" type="radio" name="type" value="event">Exercise</label>-->
 
-                    <label class="radio-inline"><input type="radio" name="type" value="question" checked="true">Question</label>
+                    <label class="radio-inline"><input type="radio" name="type" value="question" checked="checked">Question</label>
                     <label class="radio-inline"><input type="radio" name="type" value="note">Note</label>
                     <label class="radio-inline"><input type="radio" name="type" value="poll">Poll</label>
                     <label class="radio-inline" *ngIf="isTeacher"><input type="radio" name="type" value="notification">Notification</label>
@@ -51,7 +50,6 @@
 
             <div class="create_topic">
                 <a (click)="postPost()">
-                    <!--ng-bind="createPostCtrl.button">-->
                     Đăng bài
                 </a>
             </div>

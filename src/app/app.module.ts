@@ -32,6 +32,7 @@ import {SettingsComponent, settingsState} from './components/settings/settings.c
 import {SidebarPersonalSettingsComponent} from './components/sidebar-personal-settings/sidebar-personal-settings.component';
 import {ChangePasswordComponent, changePasswordState} from './components/change-password/change-password.component';
 import {NotificationService} from "./services/notification.service";
+import { EditorComponent } from './components/editor/editor.component';
 
 @NgModule({
     declarations: [
@@ -52,7 +53,8 @@ import {NotificationService} from "./services/notification.service";
         ClassPostDetailsComponent,
         SettingsComponent,
         SidebarPersonalSettingsComponent,
-        ChangePasswordComponent
+        ChangePasswordComponent,
+        EditorComponent
     ],
     imports: [
         BrowserModule,

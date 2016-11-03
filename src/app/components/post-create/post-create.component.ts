@@ -25,6 +25,10 @@ export class PostCreateComponent implements OnInit {
                 private router: UIRouter) {
     }
 
+    public handlePostContent(content: string) {
+        this.params.content = content;
+    }
+
     ngOnInit() {
         this.params.class_id = this.classId;
         this.params.type = 'question';
