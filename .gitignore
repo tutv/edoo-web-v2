@@ -32,3 +32,7 @@ testem.log
 #System Files
 .DS_Store
 Thumbs.db
+
+bower.json
+node_modules.7z
+src/welcome-page/welcome-page.css.map
