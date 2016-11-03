@@ -2,6 +2,8 @@ import {Component, OnInit} from "@angular/core";
 import {AccountService} from "../../services/account.service";
 import {EventService} from "../../services/event.service";
 import {UIRouter} from "ui-router-ng2";
+import {NotificationService} from "../../services/notification.service";
+import {Title} from "@angular/platform-browser";
 
 @Component({
     selector: 'app-login',
@@ -17,11 +19,13 @@ export class LoginComponent implements OnInit {
 
     constructor(private account: AccountService,
                 private event: EventService,
-                private router: UIRouter) {
+                private router: UIRouter,
+                private notification: NotificationService,
+                private titleService: Title) {
     }
 
     ngOnInit() {
-
+        this.titleService.setTitle('Đăng nhập');
     }
 
     public submit(): void {
@@ -37,9 +41,12 @@ export class LoginComponent implements OnInit {
                     this.router.stateService.go('classes');
                 },
                 error => {
-                    console.log(error);
+                    this.email = '';
+                    this.password = '';
+                    var body = JSON.parse(error._body);
+                    this.notification.error(body.message);
                 }
-            )
+            );
     }
 }
 

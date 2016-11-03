@@ -1,5 +1,6 @@
 import {Component, OnInit, Input} from "@angular/core";
 import {ClassService} from "../../services/class.service";
+import {Title} from "@angular/platform-browser";
 
 @Component({
     selector: 'app-list-classes',
@@ -11,10 +12,11 @@ import {ClassService} from "../../services/class.service";
 export class ListClassesComponent implements OnInit {
     @Input() listClasses = [];
 
-    constructor() {
+    constructor(private titleService: Title) {
     }
 
     ngOnInit() {
+        this.titleService.setTitle('Danh sách các lớp môn học');
     }
 
 }

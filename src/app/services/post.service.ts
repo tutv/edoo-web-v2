@@ -32,7 +32,7 @@ export class PostService {
      * @param content:
      *          1: vote,     0: cancel vote/devote,      -1: devote
      */
-    public votePost(post_id, content){
+    public votePost(post_id, content) {
         var data = `post_id=${post_id}&content=${content}`;
 
         var args = {
@@ -52,7 +52,7 @@ export class PostService {
     }
 
 
-    public deletePost(post_id){
+    public deletePost(post_id) {
         var data = `post_id=${post_id}`;
 
         var args = {
@@ -66,11 +66,31 @@ export class PostService {
             .toPromise();
     }
 
+    public createPost(params) {
+        var data = `class_id=${params.class_id}&` +
+            `title=${params.title}&` +
+            `content=${params.content}&` +
+            `tag=${params.tag}&` +
+            `type=${params.type}` +
+            `is_incognito=${params.is_incognito}`;
+
+        console.log('params = ' + data);
+        var args = {
+            method: 'POST',
+            url: '/post',
+            data: data
+        };
+
+        return this.api
+            .requestAuth(args)
+            .toPromise();
+    }
 
     // ----------------------------------------- Comment ---------------------------------------------------------------
 
-    public solveComment(comment_id){
-        var data = `comment_id=${comment_id}`;
+    public solveComment(comment_id) {
+        var data = `
+        comment_id = ${comment_id}`;
 
         var args = {
             method: 'POST',
@@ -88,8 +108,9 @@ export class PostService {
             .toPromise();
     }
 
-    public unsolveComment(comment_id){
-        var data = `comment_id=${comment_id}`;
+    public unsolveComment(comment_id) {
+        var data = `
+        comment_id = ${comment_id}`;
 
         var args = {
             method: 'POST',
@@ -107,8 +128,9 @@ export class PostService {
             .toPromise();
     }
 
-    public voteComment(comment_id){
-        var data = `comment_id=${comment_id}`;
+    public voteComment(comment_id) {
+        var data = `
+        comment_id = ${comment_id}`;
 
         var args = {
             method: 'POST',
@@ -126,8 +148,9 @@ export class PostService {
             .toPromise();
     }
 
-    public devoteComment(comment_id){
-        var data = `comment_id=${comment_id}`;
+    public devoteComment(comment_id) {
+        var data = `
+        comment_id = ${comment_id}`;
 
         var args = {
             method: 'POST',
@@ -145,8 +168,9 @@ export class PostService {
             .toPromise();
     }
 
-    public unvoteComment(comment_id){
-        var data = `comment_id=${comment_id}`;
+    public unvoteComment(comment_id) {
+        var data = `
+        comment_id = ${comment_id}`;
 
         var args = {
             method: 'POST',
