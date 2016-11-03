@@ -38,20 +38,23 @@ export class LoginComponent implements OnInit {
             .subscribe(
                 response => {
                     this.errors = [];
-                    this.email = '';
-                    this.password = '';
+                    this.resetAll();
 
                     let data = response.json();
                     this.event.loginSuccess(data.data);
                     this.redirect();
                 },
                 error => {
-                    this.email = '';
-                    this.password = '';
+                    this.resetAll();
                     var body = JSON.parse(error._body);
                     this.notification.error(body.message);
                 }
             );
+    }
+
+    private resetAll() {
+        this.email = '';
+        this.password = '';
     }
 
     private redirect() {
