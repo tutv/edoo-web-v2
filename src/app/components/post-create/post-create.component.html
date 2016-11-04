@@ -25,11 +25,11 @@
                     <!--<label class="radio-inline" ng-show="createPostCtrl.isTeacher"><input ng-change="createPostCtrl.changePostType()" ng-model="createPostCtrl.newPost.type" type="radio" name="type" value="notification">Notification</label>-->
                     <!--<label class="radio-inline" ng-show="createPostCtrl.isTeacher"><input ng-change="createPostCtrl.changePostType()" ng-model="createPostCtrl.newPost.type" type="radio" name="type" value="event">Exercise</label>-->
 
-                    <label class="radio-inline"><input type="radio" name="type" value="question" checked="checked">Question</label>
+                    <label class="radio-inline"><input type="radio" name="type" value="question" checked="true">Question</label>
                     <label class="radio-inline"><input type="radio" name="type" value="note">Note</label>
                     <label class="radio-inline"><input type="radio" name="type" value="poll">Poll</label>
                     <label class="radio-inline" *ngIf="isTeacher"><input type="radio" name="type" value="notification">Notification</label>
-                    <label class="radio-inline" *ngIf="isTeacher"><input type="radio" name="type" value="event">Exercise</label>
+                    <!--<label class="radio-inline" *ngIf="isTeacher"><input type="radio" name="type" value="event">Exercise</label>-->
                 </div>
             </div>
 
