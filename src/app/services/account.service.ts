@@ -44,15 +44,16 @@ export class AccountService {
         return this.api
             .requestAuth(args)
             .map(response => {
-                var data = response.json();
-
-                return data.data;
+                return response['data'];
             })
             .toPromise();
     }
 
     public changePassword(old_pass, new_pass) {
-        var data = "old_password=" + old_pass + "&new_password=" + new_pass;
+        var data = {
+            old_password: old_pass,
+            new_password: new_pass
+        };
 
         var args = {
             data: data,
@@ -63,9 +64,7 @@ export class AccountService {
         return this.api
             .requestAuth(args)
             .map(response => {
-                var data = response.json();
-
-                return data.data;
+                return response['data'];
             });
     }
 }

@@ -43,6 +43,10 @@ export class ApiService {
                 method: args.method,
                 headers: headers,
                 body: args.data
-            });
+            })
+            .map(response => {
+                    return response.json();
+                }
+            );
     }
 }
