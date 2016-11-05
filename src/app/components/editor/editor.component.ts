@@ -22,7 +22,7 @@ export class EditorComponent implements OnInit, AfterViewInit, OnDestroy {
             ['h1', 'h2', 'h3'].forEach(function (name) {
                 editor.addButton("style-" + name, {
                     tooltip: "Heading " + name.charAt(1),
-                    text: name,
+                    text: name.toUpperCase(),
                     onClick: function () {
                         editor.execCommand('mceToggleFormat', false, name);
                     },
