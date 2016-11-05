@@ -10,7 +10,10 @@ export class AccountService {
     }
 
     public auth(email: string, password: string): Observable<Response> {
-        var data = "email=" + email + "&password=" + password;
+        var data = {
+            email: email,
+            password: password
+        };
 
         var args = {
             data: data,
