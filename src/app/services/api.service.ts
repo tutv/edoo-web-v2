@@ -27,11 +27,6 @@ export class ApiService {
             .map(response => {
                     return response.json();
                 }
-            )
-            .catch(
-                (error, caught) => {
-                    console.log(error);
-                }
             );
     }
 
