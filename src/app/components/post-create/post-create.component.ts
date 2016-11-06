@@ -17,8 +17,8 @@ export class PostCreateComponent implements OnInit {
         content: '',
         class_id: '',
         type: '',
-        is_incognito: false,
-        event_end: ''
+        is_incognito: false
+        // event_end: ''
     };
 
     constructor(private storage: StorageService,

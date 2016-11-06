@@ -27,6 +27,13 @@ export class PostDetailsComponent implements OnInit {
         console.log('listClass = ' + this.listClasses);
         console.log('post = ' + this.post);
         this.user = this.storageService.getUserData();
+
+        // Truong hop bai viet an danh
+        if (this.post.author == null){
+            this.post.author = {
+                id: -1
+            }
+        }
     }
 
     public onComment(comment) {
@@ -64,7 +71,7 @@ export class PostDetailsComponent implements OnInit {
         this.postService.deletePost(post_id)
             .then(() => {
                 window.alert('Xóa bài viết thành công!');
-                this.router.stateService.go('class', {'classId': this.post.class.id});
+                this.router.stateService.go('^.listPost', {'classId': this.post.class.id});
             })
             .catch(error => {
                 console.log('Error: ' + error);
