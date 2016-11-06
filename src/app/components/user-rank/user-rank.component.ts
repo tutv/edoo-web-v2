@@ -23,6 +23,8 @@ export class UserRankComponent implements OnInit {
             .then((data)=> {
                 this.users = data.users;
                 console.log('classId = ' + this.classId);
+
+                // log for testing
                 LogService.i(UserRankComponent.TAG, this.users.toString());
             });
     }
