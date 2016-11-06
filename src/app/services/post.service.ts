@@ -85,6 +85,21 @@ export class PostService {
             .toPromise();
     }
 
+    public updatePost(params) {
+        var args = {
+            method: 'POST',
+            url: '/updatepost',
+            data: params
+        };
+
+        return this.api
+            .requestAuth(args)
+            .map(response => {
+                return response['data'];
+            })
+            .toPromise();
+    }
+
     // ----------------------------------------- Comment ---------------------------------------------------------------
 
     public solveComment(comment_id) {

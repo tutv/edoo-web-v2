@@ -40,7 +40,6 @@ export class PostCreateComponent implements OnInit {
     }
 
     public postPost() {
-        // console.log('title = ' + this.params.title + ', content = ' + this.params.content);
         if (this.params.title == '' || this.params.content==''){
             window.alert('Vui lòng điền đầy đủ nội dung.');
             return;

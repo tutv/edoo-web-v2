@@ -4,6 +4,7 @@ import {ClassService} from "../../services/class.service";
 import {Input} from "@angular/core/src/metadata/directives";
 import {PostService} from "../../services/post.service";
 import {StorageService} from "../../services/storage.service";
+import {NotificationService} from "../../services/notification.service";
 
 @Component({
     selector: 'app-post-details',
@@ -14,22 +15,23 @@ import {StorageService} from "../../services/storage.service";
 export class PostDetailsComponent implements OnInit {
     @Input() post;
     @Input() listClasses;
+    private mode = '';
     public user = null;
-
 
 
     constructor(private postService: PostService,
                 private router: UIRouter,
-                private storageService: StorageService) {
+                private storageService: StorageService,
+                private notification: NotificationService) {
     }
 
     ngOnInit() {
-        console.log('listClass = ' + this.listClasses);
-        console.log('post = ' + this.post);
+        this.mode = 'preview';
+
         this.user = this.storageService.getUserData();
 
         // Truong hop bai viet an danh
-        if (this.post.author == null){
+        if (this.post.author == null) {
             this.post.author = {
                 id: -1
             }
@@ -70,7 +72,7 @@ export class PostDetailsComponent implements OnInit {
 
         this.postService.deletePost(post_id)
             .then(() => {
-                window.alert('Xóa bài viết thành công!');
+                this.notification.success('Xóa bài viết thành công!');
                 this.router.stateService.go('^.listPost', {'classId': this.post.class.id});
             })
             .catch(error => {
