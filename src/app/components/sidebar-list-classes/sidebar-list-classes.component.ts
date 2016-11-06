@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, Output, EventEmitter} from '@angular/core';
 import {Input} from "@angular/core/src/metadata/directives";
 
 @Component({
@@ -8,11 +8,16 @@ import {Input} from "@angular/core/src/metadata/directives";
 })
 export class SidebarListClassesComponent implements OnInit {
     @Input() listClasses = [];
+    @Output() onSelected = new EventEmitter<any>();
 
     constructor() {
     }
 
     ngOnInit() {
+    }
+
+    public select(classId: string){
+        this.onSelected.emit(classId);
     }
 
 }

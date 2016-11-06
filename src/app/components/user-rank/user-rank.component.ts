@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, Input} from '@angular/core';
 import {ClassService} from "../../services/class.service";
 import {LogService} from "../../services/log.service";
 
@@ -8,6 +8,7 @@ import {LogService} from "../../services/log.service";
     styleUrls: ['./user-rank.component.css']
 })
 export class UserRankComponent implements OnInit {
+    @Input() classId;
     private users = [];
 
     public static TAG = 'UserRankComponent';
@@ -18,9 +19,10 @@ export class UserRankComponent implements OnInit {
     // todo: lấy class_id vào cho user-rank-component
     ngOnInit() {
         let currentClassId = 'POL100111-2016-2017';
-        this.classService.getClassRank(currentClassId)
+        this.classService.getClassRank(this.classId)
             .then((data)=> {
                 this.users = data.users;
+                console.log('classId = ' + this.classId);
                 LogService.i(UserRankComponent.TAG, this.users.toString());
             });
     }
