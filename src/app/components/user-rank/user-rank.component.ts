@@ -23,10 +23,11 @@ export class UserRankComponent implements OnInit {
         this.classService.getClassRank(this.classId)
             .then((data)=> {
                 this.users = data.users;
-                console.log('classId = ' + this.classId);
+                console.log();
 
                 // log for testing
                 LogService.i(UserRankComponent.TAG, this.users.toString());
+                LogService.i(UserRankComponent.TAG, 'class_id = ' + this.classId);
             });
     }
 
