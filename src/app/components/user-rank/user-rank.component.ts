@@ -8,9 +8,9 @@ import {LogService} from "../../services/log.service";
     styleUrls: ['./user-rank.component.css']
 })
 export class UserRankComponent implements OnInit {
-    private users = [];
-
     public static TAG = 'UserRankComponent';
+
+    private users = [];
 
     constructor(private classService: ClassService) {
     }
