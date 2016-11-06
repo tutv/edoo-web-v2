@@ -4867,6 +4867,10 @@ tbody.collapse.in {
     max-height: 340px;
 }
 
+.wrapper-landing-page {
+    margin-bottom: -100px;
+}
+
 @media (max-device-width: 480px) and (orientation: landscape) {
     .navbar-fixed-top .navbar-collapse,
     .navbar-fixed-bottom .navbar-collapse {
@@ -8554,7 +8558,7 @@ h2.modal-title:after {
 }
 
 #page {
-    padding-bottom: 100px;
+    padding-bottom: 200px;
 }
 
 //#footer {
