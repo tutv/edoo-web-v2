@@ -8,6 +8,7 @@ import {Input, Output} from "@angular/core/src/metadata/directives";
 })
 export class EditorComponent implements OnInit, AfterViewInit, OnDestroy {
     @Input() elementId: String;
+    @Input() content: string;
     @Output() onEditorKeyup = new EventEmitter<any>();
     editor;
 
@@ -49,12 +50,15 @@ export class EditorComponent implements OnInit, AfterViewInit, OnDestroy {
             toolbar1: 'style-h1 style-h2 style-h3 | bold italic | bullist numlist | link | blockquote',
             setup: editor => {
                 this.editor = editor;
+
                 editor.on('keyup', () => {
                     const content = editor.getContent();
                     this.onEditorKeyup.emit(content);
                 });
             },
         });
+
+        this.editor.setContent(this.content);
     }
 
     ngOnDestroy() {

@@ -13,7 +13,7 @@
             <div class="form-group">
                 <label>Nội dung</label>
 
-                <editor [elementId]="'post-content'" (onEditorKeyup)="handlePostContent($event)"></editor>
+                <editor [elementId]="'post-content'" (onEditorKeyup)="handlePostContent($event)" [content]="''"></editor>
             </div>
 
             <div class="form-group">
