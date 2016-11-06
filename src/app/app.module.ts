@@ -34,6 +34,7 @@ import {ChangePasswordComponent, changePasswordState} from './components/change-
 import {NotificationService} from "./services/notification.service";
 import {EditorComponent} from './components/editor/editor.component';
 import {AuthService} from "./services/auth.service";
+import { UserRankComponent } from './components/user-rank/user-rank.component';
 
 @NgModule({
     declarations: [
@@ -55,7 +56,8 @@ import {AuthService} from "./services/auth.service";
         SettingsComponent,
         SidebarPersonalSettingsComponent,
         ChangePasswordComponent,
-        EditorComponent
+        EditorComponent,
+        UserRankComponent
     ],
     imports: [
         BrowserModule,
