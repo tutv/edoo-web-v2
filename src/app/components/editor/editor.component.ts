@@ -8,7 +8,7 @@ import {Input, Output} from "@angular/core/src/metadata/directives";
 })
 export class EditorComponent implements OnInit, AfterViewInit, OnDestroy {
     @Input() elementId: String;
-    @Input() content: string;
+    @Input() content: string = '';
     @Output() onEditorKeyup = new EventEmitter<any>();
     editor;
 
