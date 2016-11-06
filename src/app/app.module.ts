@@ -36,6 +36,7 @@ import {EditorComponent} from './components/editor/editor.component';
 import {AuthService} from "./services/auth.service";
 import { UserRankComponent } from './components/user-rank/user-rank.component';
 import {LogService} from "./services/log.service";
+import {SupportPageComponent, supportState} from './components/support-page/support-page.component';
 
 @NgModule({
     declarations: [
@@ -58,7 +59,8 @@ import {LogService} from "./services/log.service";
         SidebarPersonalSettingsComponent,
         ChangePasswordComponent,
         EditorComponent,
-        UserRankComponent
+        UserRankComponent,
+        SupportPageComponent
     ],
     imports: [
         BrowserModule,
@@ -73,6 +75,7 @@ import {LogService} from "./services/log.service";
                 classDetailsState,
                 postDetailsState,
                 HomeState,
+                supportState,
                 classPostDetailsState,
                 postCreateState,
                 settingsState,
