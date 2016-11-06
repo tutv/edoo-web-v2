@@ -45,4 +45,17 @@ export class ClassService {
                 return response['data'];
             }).toPromise();
     }
+
+    public getClassRank(class_id) {
+        let args = {
+            method: 'GET',
+            url: '/classrank/' + class_id
+        };
+
+        return this
+            .api.requestAuth(args)
+            .map(response => {
+                return response['data'];
+            }).toPromise();
+    }
 }

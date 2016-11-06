@@ -35,6 +35,7 @@ import {NotificationService} from "./services/notification.service";
 import {EditorComponent} from './components/editor/editor.component';
 import {AuthService} from "./services/auth.service";
 import { UserRankComponent } from './components/user-rank/user-rank.component';
+import {LogService} from "./services/log.service";
 
 @NgModule({
     declarations: [
@@ -85,6 +86,7 @@ import { UserRankComponent } from './components/user-rank/user-rank.component';
         NotificationService,
         ApiService,
         StorageService,
+        LogService,
         CookieService,
         EventService,
         ClassService,
