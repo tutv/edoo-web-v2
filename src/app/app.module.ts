@@ -27,15 +27,20 @@ import {CommentItemComponent} from "./components/comment-item/comment-item.compo
 import {PostService} from "./services/post.service";
 import {FormCommentComponent} from "./components/form-comment/form-comment.component";
 import {PostCreateComponent, postCreateState} from "./components/post-create/post-create.component";
-import {ClassPostDetailsComponent, classPostDetailsState} from "./components/class-post-details/class-post-details.component";
+import {
+    ClassPostDetailsComponent,
+    classPostDetailsState
+} from "./components/class-post-details/class-post-details.component";
 import {SettingsComponent, settingsState} from './components/settings/settings.component';
 import {SidebarPersonalSettingsComponent} from './components/sidebar-personal-settings/sidebar-personal-settings.component';
 import {ChangePasswordComponent, changePasswordState} from './components/change-password/change-password.component';
 import {NotificationService} from "./services/notification.service";
 import {EditorComponent} from './components/editor/editor.component';
 import {AuthService} from "./services/auth.service";
-import { UserRankComponent } from './components/user-rank/user-rank.component';
+import {PostEditComponent} from './components/post-edit/post-edit.component';
+import {UserRankComponent} from './components/user-rank/user-rank.component';
 import {LogService} from "./services/log.service";
+import {SupportPageComponent, supportState} from './components/support-page/support-page.component';
 
 @NgModule({
     declarations: [
@@ -58,7 +63,9 @@ import {LogService} from "./services/log.service";
         SidebarPersonalSettingsComponent,
         ChangePasswordComponent,
         EditorComponent,
-        UserRankComponent
+        UserRankComponent,
+        SupportPageComponent,
+        PostEditComponent
     ],
     imports: [
         BrowserModule,
@@ -73,6 +80,7 @@ import {LogService} from "./services/log.service";
                 classDetailsState,
                 postDetailsState,
                 HomeState,
+                supportState,
                 classPostDetailsState,
                 postCreateState,
                 settingsState,
