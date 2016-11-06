@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" *ngIf="mode=='preview'">
 
     <div class="col-md-9 wrapper-content">
         <div class="post-wrapper">
@@ -42,7 +42,7 @@
 
                         <div *ngIf="allowAlterPost()" class="action pull-right">
                             <div class="btn-group">
-                                <a class="btn btn-primary" ng-click="postCtrl.edit()"><i
+                                <a class="btn btn-primary" (click)="mode='edit'"><i
                                     class="fa fa-pencil fa-fw"></i> Sửa</a>
                                 <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
                                     <span class="fa fa-caret-down" title="Toggle dropdown menu"></span>
@@ -72,3 +72,8 @@
     </div>
 
 </div>
+
+<app-post-edit *ngIf="mode=='edit'"
+[post]="post" (onUpdated)="$event?mode='preview':mode='edit'">
+    Edit...
+</app-post-edit>
