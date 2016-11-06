@@ -21,6 +21,8 @@ export class UserRankComponent implements OnInit {
         this.classService.getClassRank(currentClassId)
             .then((data)=> {
                 this.users = data.users;
+
+                // log for testing
                 LogService.i(UserRankComponent.TAG, this.users.toString());
             });
     }
