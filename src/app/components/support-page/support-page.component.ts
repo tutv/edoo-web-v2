@@ -1,16 +1,39 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {AccountService} from "../../services/account.service";
+import {LogService} from "../../services/log.service";
 
 @Component({
-  selector: 'support-page',
-  templateUrl: './support-page.component.html',
-  styleUrls: ['./support-page.component.css']
+    selector: 'support-page',
+    templateUrl: './support-page.component.html',
+    styleUrls: ['./support-page.component.css']
 })
 export class SupportPageComponent implements OnInit {
+    private static TAG = 'SupportPageComponent';
 
-  constructor() { }
+    private email = '';
+    private type = '';
+    private content = '';
 
-  ngOnInit() {
-  }
+    constructor(private accountService: AccountService) {
+    }
+
+    ngOnInit() {
+    }
+
+    onSubmit() {
+        this.accountService.sendSupportRequest(this.email, this.type, this.content).subscribe(
+            res=> {
+                LogService.i(SupportPageComponent.TAG, JSON.stringify(res));
+
+                this.email = '';
+                this.type = '';
+                this.content = '';
+            },
+            err=> {
+                LogService.i(SupportPageComponent.TAG, 'error');
+            }
+        )
+    }
 
 }
 
