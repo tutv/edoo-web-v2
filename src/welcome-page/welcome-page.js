@@ -9,8 +9,8 @@ function drawChart() {
     // ======Pie chart 1===============================================
     var data_1 = google.visualization.arrayToDataTable([
         ['Response', 'Percent'],
-        ['Có', 985],
-        ['Không', 15]
+        ['Có', 66],
+        ['Không', 1]
     ]);
 
     var options_1 = {
@@ -30,8 +30,8 @@ function drawChart() {
 
     var data_2 = google.visualization.arrayToDataTable([
         ['Response', 'Percent'],
-        ['Có', 209],
-        ['Không', 791]
+        ['Có', 14],
+        ['Không', 53]
     ]);
 
     var options_2 = {
@@ -47,10 +47,10 @@ function drawChart() {
 
     var data_3 = google.visualization.arrayToDataTable([
         ['Contact', 'Via'],
-        ['Facebook', 955],
-        ['Email', 30],
-        ['Phone', 5],
-        ['Other', 10]
+        ['Facebook', 64],
+        ['Email', 2],
+        ['Điện thoại', 0],
+        ['Khác', 1]
     ]);
 
     var options_3 = {
@@ -66,11 +66,11 @@ function drawChart() {
 
     var data = google.visualization.arrayToDataTable([
         ['', 'People', { role: 'style' }],
-        ['Google', 44, '#26ae90'],
-        ['Friends', 42, '#26ae90'],
-        ['Teachers', 11, '#26ae90'],
-        ['Facebook group', 27, '#26ae90' ],
-        ['Other', 8, '#26ae90' ],
+        ['Google', 44, 'rgb(17, 18, 50)'],
+        ['Bạn bè', 42, 'rgb(17, 18, 50)'],
+        ['Giảng viên', 11, 'rgb(17, 18, 50)'],
+        ['Nhóm Facebook', 27, 'rgb(17, 18, 50)' ],
+        ['Khác', 8, 'rgb(17, 18, 50)' ],
     ]);
 
     var view = new google.visualization.DataView(data);
@@ -84,13 +84,13 @@ function drawChart() {
     var options = {
         title: "",
         height: 300,
-        bar: {groupWidth: "60%"},
+        bar: {groupWidth: "40%"},
         legend: { position: "none" },
         animation: {
             duration: 1000,
             easing: 'inAndOut',
             startup: true,
-        }
+        },
     };
     var chart = new google.visualization.BarChart(document.getElementById("bar-chart"));
     chart.draw(view, options);
