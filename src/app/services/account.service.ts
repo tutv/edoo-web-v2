@@ -67,4 +67,27 @@ export class AccountService {
                 return response['data'];
             });
     }
+
+    public sendSupportRequest(email:string, type:string, content:string) {
+        let data = {
+            type: type,
+            content: content
+        };
+
+        if (email.length > 0){
+            data['email'] = email;
+        }
+
+        let args = {
+            data: data,
+            method: 'POST',
+            url: '/sendsupport'
+        };
+
+        return this.api
+            .requestAuth(args)
+            .map(response => {
+                return response['data'];
+            });
+    }
 }
