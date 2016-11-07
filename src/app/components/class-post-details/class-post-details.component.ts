@@ -21,6 +21,10 @@ export class ClassPostDetailsComponent implements OnInit {
         this.currentClass = this.listClasses[0];
     }
 
+    public onSelected(classId: string){
+        this.currentClassId = classId
+    }
+
 }
 
 export const classPostDetailsState = {

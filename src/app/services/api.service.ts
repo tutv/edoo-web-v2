@@ -15,7 +15,7 @@ export class ApiService {
         var url_api = this.BASE_URL + args.url;
 
         var headers = new Headers();
-        headers.set('Content-Type', 'application/x-www-form-urlencoded');
+        headers.set('Content-Type', 'application/json');
 
         return this
             .http
@@ -23,14 +23,18 @@ export class ApiService {
                 method: args.method,
                 headers: headers,
                 body: args.data
-            });
+            })
+            .map(response => {
+                    return response.json();
+                }
+            );
     }
 
     public requestAuth(args): Observable<Response> {
         var url_api = this.BASE_URL + args.url;
 
         var headers = new Headers();
-        headers.set('Content-Type', 'application/x-www-form-urlencoded');
+        headers.set('Content-Type', 'application/json');
         headers.set('Authorization', this.storage.getToken());
 
         return this
@@ -39,6 +43,10 @@ export class ApiService {
                 method: args.method,
                 headers: headers,
                 body: args.data
-            });
+            })
+            .map(response => {
+                    return response.json();
+                }
+            );
     }
 }

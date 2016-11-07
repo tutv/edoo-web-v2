@@ -16,9 +16,7 @@ export class ClassService {
         return this
             .api.requestAuth(args)
             .map(response => {
-                var data = response.json();
-
-                return data.data.classes;
+                return response['data'].classes;
             }).toPromise();
     }
 
@@ -31,9 +29,7 @@ export class ClassService {
         return this
             .api.requestAuth(args)
             .map(response => {
-                var data = response.json();
-
-                return data.data;
+                return response['data'];
             }).toPromise();
     }
 
@@ -46,9 +42,20 @@ export class ClassService {
         return this
             .api.requestAuth(args)
             .map(response => {
-                var data = response.json();
+                return response['data'];
+            }).toPromise();
+    }
 
-                return data.data;
+    public getClassRank(class_id) {
+        let args = {
+            method: 'GET',
+            url: '/classrank/' + class_id
+        };
+
+        return this
+            .api.requestAuth(args)
+            .map(response => {
+                return response['data'];
             }).toPromise();
     }
 }

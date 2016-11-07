@@ -1,0 +1,13 @@
+<div class="top-users sidebar">
+    <h3 class="title-sidebar">Bảng xếp hạng</h3>
+    <ul class="list-sidebar">
+        <li>
+            <div class="user" *ngFor="let user of users | slice:0:5; let i=index">
+                <img [src]="user?.avatar" class="avatar"/>
+                <div class="comment_content">
+                    <span class="author">{{user.name}}</span> <span class="pull-right">{{user.point_count}} EP</span>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
