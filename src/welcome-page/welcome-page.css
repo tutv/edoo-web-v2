@@ -10,4 +10,7 @@
   .group-chart .chart {
     width: 100%; }
 
+.slider-button a, .start_now a {
+  cursor: pointer; }
+
 /*# sourceMappingURL=welcome-page.css.map */
