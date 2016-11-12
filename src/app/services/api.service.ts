@@ -52,7 +52,7 @@ export class ApiService {
             )
             .catch(
                 error => {
-                    this.event.authFailed(error);
+                    this.event.authFailed(error.json());
 
                     return Observable.throw(error);
                 }

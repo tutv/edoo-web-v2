@@ -17,6 +17,8 @@ export class EventService {
     }
 
     authFailed(error: any) {
-        this.onAuth.next(error);
+        if (error.statusCode == 401) {
+            this.onAuth.next(error);
+        }
     }
 }
