@@ -45,12 +45,16 @@ export class HeaderComponent implements OnInit {
             .logOut()
             .subscribe(
                 response => {
+                },
+                error => {
                     this.isLogin = false;
                     this.storage.removeAll();
                     this.router.stateService.go('welcome');
                 },
-                error => {
-                    console.log(error);
+                () => {
+                    this.isLogin = false;
+                    this.storage.removeAll();
+                    this.router.stateService.go('welcome');
                 }
             );
     }
