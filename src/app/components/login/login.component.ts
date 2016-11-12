@@ -42,6 +42,10 @@ export class LoginComponent implements OnInit {
                     this.redirect();
                 },
                 error => {
+                    this.resetAll();
+
+                    var body = error.json();
+                    this.notification.error(body.message);
                 },
                 () => {
                     this.resetAll();

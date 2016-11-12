@@ -16,10 +16,13 @@
             "mobile": false,
             "styles": [
                 "assets/css/font-awesome.css",
+                "assets/css/animate.css",
                 "styles.css"
             ],
             "scripts": [
                 "assets/js/jquery-3.1.1.min.js",
+                "assets/js/jquery.noty.packaged.min.js",
+                "assets/js/theme.noty.js",
                 "assets/js/bootstrap.min.js",
                 "assets/js/main.js",
                 "../node_modules/tinymce/tinymce.jquery.js",

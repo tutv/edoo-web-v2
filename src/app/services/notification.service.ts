@@ -29,7 +29,19 @@ export class NotificationService {
     private _add(content, type) {
         type = type || 'success';
 
-        alert(content);
+        return noty({
+            layout: 'topRight',
+            text: content,
+            type: type,
+            animation: {
+                open: 'animated bounceInRight',
+                close: 'animated bounceOutRight'
+            },
+            timeout: 3000,
+            closeWith: ['click'],
+            killer: true,
+            theme: 'edoo'
+        });
     }
 
 }

@@ -6,10 +6,10 @@ export class LogService {
   constructor() { }
 
     public static i(tag: string, msg: string){
-        console.log(`INFO: ${tag} : ${msg}`);
+        console.info(`INFO: ${tag} : ${msg}`);
     }
 
     public static e(tag: string, msg: string){
-        console.log(`ERROR: ${tag} : ${msg}`);
+        console.error(`ERROR: ${tag} : ${msg}`);
     }
 }
