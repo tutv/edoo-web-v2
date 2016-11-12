@@ -3,6 +3,7 @@ import {EventService} from "../../services/event.service";
 import {StorageService} from "../../services/storage.service";
 import {UIRouter} from "ui-router-ng2";
 import {AccountService} from "../../services/account.service";
+import {NotificationService} from "../../services/notification.service";
 
 @Component({
     selector: 'app-header',
@@ -17,13 +18,27 @@ export class HeaderComponent implements OnInit {
     constructor(private eventService: EventService,
                 private storage: StorageService,
                 private accountService: AccountService,
-                private router: UIRouter) {
-        eventService.login$.subscribe(
+                private router: UIRouter,
+                private notification: NotificationService) {
+        this.eventService.login$.subscribe(
             data => {
                 this.isLogin = true;
                 this.onLoginSuccess(data);
             }
         );
+
+        this.eventService.auth$.subscribe(
+            data => {
+                this.notification.error('Phiên làm việc của bạn đã hết hạn. Vui lòng đăng nhập lại!');
+                this.reLogin();
+            }
+        )
+    }
+
+    reLogin() {
+        this.isLogin = false;
+        this.storage.removeAll();
+        this.router.stateService.go('login');
     }
 
     ngOnInit() {

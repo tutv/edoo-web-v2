@@ -2,13 +2,15 @@ import {Injectable} from "@angular/core";
 import {Http, Headers, Response} from "@angular/http";
 import {Observable} from "rxjs";
 import {StorageService} from "./storage.service";
+import {EventService} from "./event.service";
 
 @Injectable()
 export class ApiService {
     private BASE_URL = 'http://api-v2.uetf.me';
 
     constructor(private http: Http,
-                private storage: StorageService) {
+                private storage: StorageService,
+                private event: EventService) {
     }
 
     public request(args): Observable<Response> {
@@ -46,6 +48,13 @@ export class ApiService {
             })
             .map(response => {
                     return response.json();
+                }
+            )
+            .catch(
+                error => {
+                    this.event.authFailed(error);
+
+                    return Observable.throw(error);
                 }
             );
     }
