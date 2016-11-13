@@ -10,9 +10,9 @@ import {Title} from "@angular/platform-browser";
     styleUrls: ['./change-password.component.scss']
 })
 export class ChangePasswordComponent implements OnInit {
-    public old_pass: string;
-    public new_pass: string;
-    public confirm_pass: string;
+    public old_pass: string = '';
+    public new_pass: string = '';
+    public confirm_pass: string = '';
 
     constructor(private notification: NotificationService,
                 private accountService: AccountService,
@@ -53,10 +53,17 @@ export class ChangePasswordComponent implements OnInit {
     }
 
     public validate() {
+        if (this.old_pass.length == 0) {
+            this.notification.error('Vui lòng nhập mật khẩu hiện tại!');
+
+            return false;
+        }
+
         if (this.new_pass !== this.confirm_pass) {
             this.notification.error('Mật khẩu không khớp! Vui lòng thử lại');
             this.new_pass = '';
             this.confirm_pass = '';
+
             return false;
         }
 
