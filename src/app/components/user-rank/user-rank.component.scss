@@ -1,0 +1,42 @@
+.sidebar.top-users {
+    font-size: 12px;
+}
+
+.sidebar.top-users .list-sidebar {
+    margin-bottom: 20px;
+}
+
+.sidebar.top-users .user {
+    margin-bottom: 10px;
+}
+
+.sidebar.top-users .user img {
+    width: 30px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    border: 1px solid #26ae90;
+    float: left;
+}
+
+.sidebar.top-users .user .author {
+    font-weight: 700;
+    max-width: 130px;
+    display: inline-block;
+}
+
+.sidebar.top-users .user .comment_content {
+    margin-left: 40px;
+}
+
+.sidebar.top-users li {
+    margin-bottom: 30px;
+}
+
+.sidebar.top-users li > a {
+    margin-top: 10px;
+}
+
+.sidebar.top-users li:last-child {
+    margin-bottom: 0;
+}
