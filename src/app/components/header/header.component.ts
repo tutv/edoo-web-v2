@@ -5,6 +5,7 @@ import {UIRouter} from "ui-router-ng2";
 import {AccountService} from "../../services/account.service";
 import {NotificationService} from "../../services/notification.service";
 import {ClassService} from "../../services/class.service";
+import {AuthService} from "../../services/auth.service";
 
 @Component({
     selector: 'app-header',
@@ -22,7 +23,8 @@ export class HeaderComponent implements OnInit {
                 private storage: StorageService,
                 private accountService: AccountService,
                 private router: UIRouter,
-                private notification: NotificationService) {
+                private notification: NotificationService,
+                private auth: AuthService) {
         this.event.login$.subscribe(
             data => {
                 this.isLogin = true;
@@ -70,8 +72,7 @@ export class HeaderComponent implements OnInit {
     }
 
     ngOnInit() {
-        var token = this.storage.getToken();
-        if (token) {
+        if (this.auth.authenticated()) {
             this.isLogin = true;
             this.user = this.storage.getUserData();
 
