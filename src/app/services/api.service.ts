@@ -19,7 +19,7 @@ export class ApiService {
         var headers = new Headers();
         headers.set('Content-Type', 'application/json');
 
-        return this
+        var source = this
             .http
             .request(url_api, {
                 method: args.method,
@@ -30,6 +30,16 @@ export class ApiService {
                     return response.json();
                 }
             );
+
+        if (args.ignoreLoadingBar == undefined) {
+            args.ignoreLoadingBar = false;
+        }
+
+        if (!args.ignoreLoadingBar) {
+            this.loadingBar(source);
+        }
+
+        return source;
     }
 
     public requestAuth(args): Observable<Response> {
@@ -39,7 +49,7 @@ export class ApiService {
         headers.set('Content-Type', 'application/json');
         headers.set('Authorization', this.storage.getToken());
 
-        return this
+        var source = this
             .http
             .request(url_api, {
                 method: args.method,
@@ -57,5 +67,28 @@ export class ApiService {
                     return Observable.throw(error);
                 }
             );
+
+        if (args.ignoreLoadingBar == undefined) {
+            args.ignoreLoadingBar = false;
+        }
+
+        if (!args.ignoreLoadingBar) {
+            this.loadingBar(source);
+        }
+
+        return source;
+    }
+
+    private loadingBar(source: Observable<Response>) {
+        NProgress.start();
+
+        source.subscribe(
+            data => {
+                NProgress.done();
+            },
+            error => {
+                NProgress.done();
+            }
+        );
     }
 }

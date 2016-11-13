@@ -10,7 +10,8 @@ export class ClassService {
     public getListClasses() {
         var args = {
             method: 'GET',
-            url: '/classes'
+            url: '/classes',
+            ignoreLoadingBar: true
         };
 
         return this
@@ -49,7 +50,8 @@ export class ClassService {
     public getClassRank(class_id) {
         let args = {
             method: 'GET',
-            url: '/classrank/' + class_id
+            url: '/classrank/' + class_id,
+            ignoreLoadingBar: true
         };
 
         return this
