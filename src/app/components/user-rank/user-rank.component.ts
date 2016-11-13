@@ -1,11 +1,10 @@
-import {Component, OnInit, Input} from '@angular/core';
+import {Component, OnInit, Input} from "@angular/core";
 import {ClassService} from "../../services/class.service";
-import {LogService} from "../../services/log.service";
 
 @Component({
     selector: 'user-rank',
     templateUrl: './user-rank.component.html',
-    styleUrls: ['./user-rank.component.css']
+    styleUrls: ['./user-rank.component.scss']
 })
 export class UserRankComponent implements OnInit {
     public static TAG = 'UserRankComponent';

@@ -5,7 +5,7 @@ import {ClassService} from "../../services/class.service";
 @Component({
     selector: 'app-class-post-details',
     templateUrl: './class-post-details.component.html',
-    styleUrls: ['./class-post-details.component.css']
+    styleUrls: ['./class-post-details.component.scss']
 })
 export class ClassPostDetailsComponent implements OnInit {
     @Input() listClasses;

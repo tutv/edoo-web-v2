@@ -5,7 +5,7 @@ import {Title} from "@angular/platform-browser";
 @Component({
     selector: 'app-list-classes',
     templateUrl: './list-classes.component.html',
-    styleUrls: ['./list-classes.component.css'],
+    styleUrls: ['./list-classes.component.scss'],
     providers: [ClassService]
 })
 

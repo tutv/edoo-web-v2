@@ -4,7 +4,7 @@ import {Input, Output} from "@angular/core/src/metadata/directives";
 @Component({
     selector: 'editor',
     templateUrl: './editor.component.html',
-    styleUrls: ['./editor.component.css']
+    styleUrls: ['./editor.component.scss']
 })
 export class EditorComponent implements OnInit, AfterViewInit, OnDestroy {
     @Input() elementId: String;

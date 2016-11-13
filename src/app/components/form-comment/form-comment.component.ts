@@ -5,7 +5,7 @@ import {PostService} from "../../services/post.service";
 @Component({
     selector: 'form-comment',
     templateUrl: './form-comment.component.html',
-    styleUrls: ['./form-comment.component.css'],
+    styleUrls: ['./form-comment.component.scss'],
     providers: [PostService]
 })
 export class FormCommentComponent implements OnInit {

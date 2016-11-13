@@ -6,7 +6,7 @@ import {UIRouter} from "ui-router-ng2";
 @Component({
     selector: 'app-welcome-page',
     templateUrl: './welcome-page.component.html',
-    styleUrls: ['./welcome-page.component.css']
+    styleUrls: ['./welcome-page.component.scss']
 })
 export class WelcomePageComponent implements OnInit {
     private static TAG = 'WelcomePageComponent';

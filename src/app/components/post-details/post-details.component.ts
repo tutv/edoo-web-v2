@@ -9,7 +9,7 @@ import {NotificationService} from "../../services/notification.service";
 @Component({
     selector: 'app-post-details',
     templateUrl: './post-details.component.html',
-    styleUrls: ['./post-details.component.css'],
+    styleUrls: ['./post-details.component.scss'],
     providers: [PostService, StorageService]
 })
 export class PostDetailsComponent implements OnInit {
@@ -57,12 +57,13 @@ export class PostDetailsComponent implements OnInit {
 
     public votePost(post_id, content) {
         this.postService.votePost(post_id, content)
-            .then(data => {
-                this.post.vote_count = data.vote_count;
-            })
-            .catch(error => {
-                window.alert('Bạn không thể đánh giá cho bài viết này nữa! ' + error);
-            });
+            .then(
+                data => {
+                    this.post.vote_count = data.vote_count;
+                },
+                error => {
+                    window.alert('Bạn không thể đánh giá cho bài viết này nữa! ' + error);
+                });
     }
 
     public deletePost(post_id) {
@@ -71,13 +72,14 @@ export class PostDetailsComponent implements OnInit {
         }
 
         this.postService.deletePost(post_id)
-            .then(() => {
-                this.notification.success('Xóa bài viết thành công!');
-                this.router.stateService.go('^.listPost', {'classId': this.post.class.id});
-            })
-            .catch(error => {
-                console.log('Error: ' + error);
-            });
+            .then(
+                () => {
+                    this.notification.success('Xóa bài viết thành công!');
+                    this.router.stateService.go('^.listPost', {'classId': this.post.class.id});
+                },
+                error => {
+                    console.log('Error: ' + error);
+                })
     }
 
     /**

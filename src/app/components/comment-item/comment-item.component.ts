@@ -5,7 +5,7 @@ import {PostService} from "../../services/post.service";
 @Component({
     selector: 'comment-item',
     templateUrl: './comment-item.component.html',
-    styleUrls: ['./comment-item.component.css']
+    styleUrls: ['./comment-item.component.scss']
 })
 export class CommentItemComponent implements OnInit {
     @Input() comment;

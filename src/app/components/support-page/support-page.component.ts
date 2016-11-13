@@ -5,7 +5,7 @@ import {LogService} from "../../services/log.service";
 @Component({
     selector: 'support-page',
     templateUrl: './support-page.component.html',
-    styleUrls: ['./support-page.component.css']
+    styleUrls: ['./support-page.component.scss']
 })
 export class SupportPageComponent implements OnInit {
     private static TAG = 'SupportPageComponent';

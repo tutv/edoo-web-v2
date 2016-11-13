@@ -7,7 +7,7 @@ import {Title} from "@angular/platform-browser";
 @Component({
     selector: 'app-class-details',
     templateUrl: './class-details.component.html',
-    styleUrls: ['./class-details.component.css']
+    styleUrls: ['./class-details.component.scss']
 })
 export class ClassDetailsComponent implements OnInit {
     public class_id;
