@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {AccountService} from "../../services/account.service";
 import {LogService} from "../../services/log.service";
+import {StorageService} from "../../services/storage.service";
+import {AuthService} from "../../services/auth.service";
 
 @Component({
     selector: 'support-page',
@@ -14,10 +16,16 @@ export class SupportPageComponent implements OnInit {
     private type = '';
     private content = '';
 
-    constructor(private accountService: AccountService) {
+    constructor(private accountService: AccountService,
+                private storage: StorageService,
+                private auth: AuthService) {
     }
 
     ngOnInit() {
+        if (this.auth.authenticated()) {
+            var user = this.storage.getUserData();
+            this.email = user['email'];
+        }
     }
 
     onSubmit() {
