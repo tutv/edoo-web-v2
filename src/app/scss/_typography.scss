@@ -1,4 +1,4 @@
-a[ng-click] {
+a {
 	cursor: pointer;
 }
 
@@ -66,4 +66,13 @@ body {
 		left: 0;
 		bottom: -15px;
 	}
+}
+
+#wrapper {
+    min-height: 100%;
+    position: relative;
+}
+
+#page {
+    padding-bottom: 200px;
 }

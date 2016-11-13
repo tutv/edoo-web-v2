@@ -5,7 +5,7 @@ import {Title} from "@angular/platform-browser";
 @Component({
     selector: 'app-edit-profile',
     templateUrl: './edit-profile.component.html',
-    styleUrls: ['./edit-profile.component.css'],
+    styleUrls: ['./edit-profile.component.scss'],
     providers: [AccountService]
 })
 export class EditProfileComponent implements OnInit {
