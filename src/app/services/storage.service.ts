@@ -15,6 +15,14 @@ export class StorageService {
         this.storage.putObject('user_data', user);
     }
 
+    setListClasses(classes) {
+        this.storage.putObject('listClasses', classes);
+    }
+
+    getListClasses() {
+        return this.storage.getObject('listClasses');
+    }
+
     getUserData(): Object {
         return this.storage.getObject('user_data');
     }

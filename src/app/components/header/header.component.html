@@ -22,6 +22,9 @@
                         <ul class="dropdown-menu">
                             <li uiSrefActive="active"><a uiSref="classes">Tất cả các lớp</a></li>
                             <li role="separator" class="divider"></li>
+                            <li *ngFor="let cl of classes" uiSrefActive="active">
+                                <a uiSref="classPost.listPost" [uiParams]="{ classId: cl.id }">{{cl.name}}</a>
+                            </li>
                         </ul>
                     </li>
                 </ul>
