@@ -37,6 +37,7 @@ export class LoginComponent implements OnInit {
         this.account.auth(this.email, this.password)
             .subscribe(
                 response => {
+                    this.notification.success('Đăng nhập thành công :]');
                     this.errors = [];
                     this.event.loginSuccess(response['data']);
                     this.redirect();
