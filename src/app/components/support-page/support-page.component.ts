@@ -3,6 +3,7 @@ import {AccountService} from "../../services/account.service";
 import {LogService} from "../../services/log.service";
 import {StorageService} from "../../services/storage.service";
 import {AuthService} from "../../services/auth.service";
+import {NotificationService} from "../../services/notification.service";
 
 @Component({
     selector: 'support-page',
@@ -17,6 +18,7 @@ export class SupportPageComponent implements OnInit {
     private content = '';
 
     constructor(private accountService: AccountService,
+                private notiService: NotificationService,
                 private storage: StorageService,
                 private auth: AuthService) {
     }
@@ -32,6 +34,7 @@ export class SupportPageComponent implements OnInit {
         this.accountService.sendSupportRequest(this.email, this.type, this.content).subscribe(
             res=> {
                 LogService.i(SupportPageComponent.TAG, JSON.stringify(res));
+                this.notiService.success('Yêu cầu của bạn đã được ghi lại, Cám ơn bạn!');
 
                 this.email = '';
                 this.type = '';
