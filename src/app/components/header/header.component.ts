@@ -29,6 +29,7 @@ export class HeaderComponent implements OnInit {
             data => {
                 this.isLogin = true;
                 this.onLoginSuccess(data);
+                this.fetchListClasses();
             }
         );
 
@@ -53,10 +54,21 @@ export class HeaderComponent implements OnInit {
     }
 
     private fetchListClasses() {
+        if (!this.auth.authenticated()) {
+            return;
+        }
+
+        var listClasses = this.storage.getListClasses();
+        if (listClasses) {
+            this.event.fetchListClasses(listClasses);
+            return;
+        }
+
         this.classService
             .getListClasses()
             .then(
                 data => {
+                    console.log(data);
                     this.event.fetchListClasses(data);
                 },
                 error => {
@@ -75,14 +87,9 @@ export class HeaderComponent implements OnInit {
         if (this.auth.authenticated()) {
             this.isLogin = true;
             this.user = this.storage.getUserData();
-
-            var listClasses = this.storage.getListClasses();
-            if (!listClasses) {
-                this.fetchListClasses();
-            } else {
-                this.event.fetchListClasses(listClasses);
-            }
         }
+
+        this.fetchListClasses();
     }
 
     public onLoginSuccess(data) {
