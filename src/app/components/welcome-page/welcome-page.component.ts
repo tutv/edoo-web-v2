@@ -1,5 +1,4 @@
 import {Component, OnInit} from "@angular/core";
-import {LogService} from "../../services/log.service";
 import {AuthService} from "../../services/auth.service";
 import {UIRouter} from "ui-router-ng2";
 
@@ -16,6 +15,9 @@ export class WelcomePageComponent implements OnInit {
     }
 
     ngOnInit() {
+        if (this.authService.authenticated()) {
+            this.router.stateService.go('classes');
+        }
     }
 
     onJoinBtnClick() {
