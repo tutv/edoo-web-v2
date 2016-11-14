@@ -103,6 +103,7 @@ export class HeaderComponent implements OnInit {
             .logOut()
             .subscribe(
                 response => {
+                    this.notification.success('Hẹn gặp bạn lần sau :]');
                 },
                 error => {
                     this.isLogin = false;
