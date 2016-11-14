@@ -29,7 +29,8 @@ export class ApiService {
             .map(response => {
                     return response.json();
                 }
-            );
+            )
+            .share();
 
         if (args.ignoreLoadingBar == undefined) {
             args.ignoreLoadingBar = false;
@@ -66,7 +67,8 @@ export class ApiService {
 
                     return Observable.throw(error);
                 }
-            );
+            )
+            .share();
 
         if (args.ignoreLoadingBar == undefined) {
             args.ignoreLoadingBar = false;
