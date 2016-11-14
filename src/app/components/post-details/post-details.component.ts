@@ -5,6 +5,7 @@ import {Input} from "@angular/core/src/metadata/directives";
 import {PostService} from "../../services/post.service";
 import {StorageService} from "../../services/storage.service";
 import {NotificationService} from "../../services/notification.service";
+import {LogService} from "../../services/log.service";
 
 @Component({
     selector: 'app-post-details',
@@ -78,7 +79,7 @@ export class PostDetailsComponent implements OnInit {
                     this.router.stateService.go('^.listPost', {'classId': this.post.class.id});
                 },
                 error => {
-                    console.log('Error: ' + error);
+                    LogService.i('Error: ', error);
                 })
     }
 
@@ -111,7 +112,7 @@ export const postDetailsState = {
             resolveFn: (trans, classSvc) => {
                 var postId = trans.params().postId;
 
-                console.log('router get PostDetails');
+                LogService.i('POST', 'router get PostDetails');
                 return classSvc.getPost(postId);
             }
         },
@@ -120,7 +121,7 @@ export const postDetailsState = {
             deps: [Transition, 'listClasses'],
             resolveFn: (trans, list) => {
 
-                console.log('router get ListClass');
+                LogService.i('OK', 'router get ListClass');
 
                 return list;
             },
