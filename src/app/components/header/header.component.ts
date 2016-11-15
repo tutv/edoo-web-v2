@@ -68,7 +68,6 @@ export class HeaderComponent implements OnInit {
             .getListClasses()
             .then(
                 data => {
-                    console.log(data);
                     this.event.fetchListClasses(data);
                 },
                 error => {
