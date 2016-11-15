@@ -1,4 +1,4 @@
-<div class="wrapper-pagination" *ngIf="args?.pageCount > 1">
+<div class="wrapper-pagination text-center" *ngIf="args?.pageCount > 1">
     <ul class="pagination">
         <li ngClass="{{(currentPage==number) ? 'active': ''}}" *ngFor="let number of numbers"><a uiSref="classPost.listPost" [uiParams]="{ classId: classId, page: number }">{{number}}</a></li>
     </ul>
