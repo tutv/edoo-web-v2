@@ -64,9 +64,5 @@
         <h2 class="title">Chưa có thảo luận nào</h2>
     </div>
 
-    <div class="wrapper-pagination" *ngIf="classDetails.pagination.pageCount > 1">
-        <ul class="pagination">
-            <li uiSrefActive="active" *ngFor=""><a uiSref="posts.list({classId: postsCtrl.class_id, page: page_number})">{{page_number}}</a></li>
-        </ul>
-    </div>
+    <pagination [args]="classDetails.pagination"></pagination>
 </div>
