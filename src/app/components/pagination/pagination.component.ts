@@ -7,6 +7,8 @@ import {Component, OnInit, Input} from '@angular/core';
 })
 export class PaginationComponent implements OnInit {
     @Input() args: any = {};
+    @Input() public classId;
+    @Input() public currentPage = 1;
 
     public numbers = [];
 
