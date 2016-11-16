@@ -1,5 +1,5 @@
 import {BrowserModule} from "@angular/platform-browser";
-import {NgModule} from "@angular/core";
+import {NgModule, ValueProvider} from "@angular/core";
 import {FormsModule} from "@angular/forms";
 import {HttpModule} from "@angular/http";
 import {AppComponent} from "./app.component";
@@ -42,6 +42,11 @@ import {UserRankComponent} from './components/user-rank/user-rank.component';
 import {LogService} from "./services/log.service";
 import {SupportPageComponent, supportState} from './components/support-page/support-page.component';
 import { PaginationComponent } from './components/pagination/pagination.component';
+
+const WINDOW_PROVIDER: ValueProvider = {
+    provide: Window,
+    useValue: window
+};
 
 @NgModule({
     declarations: [
@@ -93,6 +98,7 @@ import { PaginationComponent } from './components/pagination/pagination.componen
         })
     ],
     providers: [
+        WINDOW_PROVIDER,
         NotificationService,
         ApiService,
         StorageService,

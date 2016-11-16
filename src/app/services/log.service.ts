@@ -1,10 +1,14 @@
-import {Injectable} from "@angular/core";
+import {Injectable, Inject} from "@angular/core";
 import {environment} from "../../environments/environment";
 
 @Injectable()
 export class LogService {
 
     constructor() {
+    }
+
+    public test() {
+        window.scrollTo(0, 0);
     }
 
     public static i(tag: string, msg: any) {

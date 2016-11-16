@@ -3,11 +3,13 @@ import {ClassService} from "../../services/class.service";
 import {Transition} from "ui-router-ng2";
 import {Input} from "@angular/core/src/metadata/directives";
 import {Title} from "@angular/platform-browser";
+import {LogService} from "../../services/log.service";
 
 @Component({
     selector: 'app-class-details',
     templateUrl: './class-details.component.html',
-    styleUrls: ['./class-details.component.scss']
+    styleUrls: ['./class-details.component.scss'],
+    providers: [LogService]
 })
 export class ClassDetailsComponent implements OnInit {
     public class_id;
@@ -16,10 +18,10 @@ export class ClassDetailsComponent implements OnInit {
     @Input() classDetails;
 
     constructor(private transition: Transition,
-                private titleService: Title) {
+                private titleService: Title,
+    private log: LogService) {
         var params = transition.params();
 
-        console.log(params);
         this.class_id = params['classId'];
         var page = params['page'];
 
@@ -31,6 +33,7 @@ export class ClassDetailsComponent implements OnInit {
     }
 
     ngOnInit() {
+        this.log.test();
         this.titleService.setTitle(this.classDetails.name);
     }
 }
