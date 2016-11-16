@@ -11,11 +11,23 @@ import {Title} from "@angular/platform-browser";
 })
 export class ClassDetailsComponent implements OnInit {
     public class_id;
+    public currentPage = 1;
+
     @Input() classDetails;
 
     constructor(private transition: Transition,
                 private titleService: Title) {
-        this.class_id = transition.params()['classId'];
+        var params = transition.params();
+
+        console.log(params);
+        this.class_id = params['classId'];
+        var page = params['page'];
+
+        if (!page) {
+            page = 1;
+        }
+
+        this.currentPage = page;
     }
 
     ngOnInit() {
@@ -25,16 +37,22 @@ export class ClassDetailsComponent implements OnInit {
 
 export const classDetailsState = {
     name: 'classPost.listPost',
-    url: '^/class/:classId',
+    url: '^/class/:classId?page',
     component: ClassDetailsComponent,
     resolve: [
         {
             token: 'classDetails',
             deps: [Transition, ClassService],
             resolveFn: (trans, classSvc) => {
-                var classId = trans.params().classId;
+                var params = trans.params();
+                var classId = params.classId;
+                var page = params['page'];
 
-                return classSvc.getPosts(classId);
+                if (!page) {
+                    page = 1;
+                }
+
+                return classSvc.getPosts(classId, page);
             }
         }
     ]

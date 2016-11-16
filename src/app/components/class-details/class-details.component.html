@@ -14,4 +14,6 @@
 
 <div class="col-md-9 wrapper-content">
     <list-posts [classDetails]="classDetails"></list-posts>
+
+    <pagination [args]="classDetails.pagination" [classId]="classDetails.class_id" [currentPage]="currentPage"></pagination>
 </div>

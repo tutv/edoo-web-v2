@@ -41,6 +41,7 @@ import {PostEditComponent} from './components/post-edit/post-edit.component';
 import {UserRankComponent} from './components/user-rank/user-rank.component';
 import {LogService} from "./services/log.service";
 import {SupportPageComponent, supportState} from './components/support-page/support-page.component';
+import { PaginationComponent } from './components/pagination/pagination.component';
 
 @NgModule({
     declarations: [
@@ -65,7 +66,8 @@ import {SupportPageComponent, supportState} from './components/support-page/supp
         EditorComponent,
         UserRankComponent,
         SupportPageComponent,
-        PostEditComponent
+        PostEditComponent,
+        PaginationComponent
     ],
     imports: [
         BrowserModule,
