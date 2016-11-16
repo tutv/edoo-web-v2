@@ -7,10 +7,6 @@ export class LogService {
     constructor() {
     }
 
-    public test() {
-        window.scrollTo(0, 0);
-    }
-
     public static i(tag: string, msg: any) {
         if (environment.production) {
             return;

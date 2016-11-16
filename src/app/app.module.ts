@@ -42,6 +42,7 @@ import {UserRankComponent} from './components/user-rank/user-rank.component';
 import {LogService} from "./services/log.service";
 import {SupportPageComponent, supportState} from './components/support-page/support-page.component';
 import { PaginationComponent } from './components/pagination/pagination.component';
+import {UtilService} from "./services/util.service";
 
 const WINDOW_PROVIDER: ValueProvider = {
     provide: Window,
@@ -108,7 +109,8 @@ const WINDOW_PROVIDER: ValueProvider = {
         ClassService,
         AccountService,
         PostService,
-        AuthService
+        AuthService,
+        UtilService
     ],
     bootstrap: [AppComponent]
 })

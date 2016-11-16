@@ -4,6 +4,7 @@ import {Transition} from "ui-router-ng2";
 import {Input} from "@angular/core/src/metadata/directives";
 import {Title} from "@angular/platform-browser";
 import {LogService} from "../../services/log.service";
+import {UtilService} from "../../services/util.service";
 
 @Component({
     selector: 'app-class-details',
@@ -19,11 +20,12 @@ export class ClassDetailsComponent implements OnInit {
 
     constructor(private transition: Transition,
                 private titleService: Title,
-    private log: LogService) {
-        var params = transition.params();
+                private log: LogService,
+                private util: UtilService) {
+        let params = transition.params();
 
         this.class_id = params['classId'];
-        var page = params['page'];
+        let page = params['page'];
 
         if (!page) {
             page = 1;
@@ -33,7 +35,7 @@ export class ClassDetailsComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.log.test();
+        this.util.backToTop();
         this.titleService.setTitle(this.classDetails.name);
     }
 }
