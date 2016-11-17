@@ -100,6 +100,34 @@ export class PostService {
             .toPromise();
     }
 
+    // ---------------------------------------- Exercise ---------------------------------------------------------------
+    public checkEvent(post_id) {
+        var args = {
+            method: 'GET',
+            url: '/checkevent/' + post_id
+        };
+
+        return this.api
+            .requestAuth(args)
+            .map(response => {
+                return response['data'];
+            })
+            .toPromise();
+    }
+
+    public downloadAllExercise(post_id){
+        var args = {
+            method: 'GET',
+            url: '/geteventfiles/' + post_id
+        };
+
+        return this.api
+            .requestAuth(args)
+            .map(response => {
+                return response['data'];
+            });
+    }
+
     // ----------------------------------------- Comment ---------------------------------------------------------------
 
     public solveComment(comment_id) {

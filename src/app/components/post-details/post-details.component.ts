@@ -7,6 +7,8 @@ import {StorageService} from "../../services/storage.service";
 import {NotificationService} from "../../services/notification.service";
 import {LogService} from "../../services/log.service";
 
+var FileSaver = require('file-saver');
+
 @Component({
     selector: 'app-post-details',
     templateUrl: './post-details.component.html',
@@ -36,6 +38,15 @@ export class PostDetailsComponent implements OnInit {
             this.post.author = {
                 id: -1
             }
+        }
+
+        console.log('post: ' + this.post.toString());
+        if (this.post.type == 'event') {
+            this.post.listExercise = [];
+            this.postService.checkEvent(this.post.id)
+                .then(data => {
+                    this.post.listExercise = data.attack_files;
+                })
         }
     }
 
@@ -96,6 +107,22 @@ export class PostDetailsComponent implements OnInit {
             user_id: this.user.id,
             post_id: this.post.author.id
         };
+    }
+
+    public getListExercise(){
+        // this.notification.information('Danh sach nop bai tap');
+    }
+
+    public downloadAllExercise(){
+        this.postService.downloadAllExercise(this.post.id)
+            .subscribe(
+                response => {
+                    window.location.href = response;
+                },
+                error => {
+                    this.notification.error(`Không thể tải file về!${error.toString()}`);
+                }
+            )
     }
 
 
