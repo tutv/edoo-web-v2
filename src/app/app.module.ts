@@ -43,6 +43,7 @@ import {LogService} from "./services/log.service";
 import {SupportPageComponent, supportState} from './components/support-page/support-page.component';
 import { PaginationComponent } from './components/pagination/pagination.component';
 import {UtilService} from "./services/util.service";
+import {FileSelectDirective} from "ng2-file-upload";
 
 const WINDOW_PROVIDER: ValueProvider = {
     provide: Window,
@@ -74,6 +75,9 @@ const WINDOW_PROVIDER: ValueProvider = {
         SupportPageComponent,
         PostEditComponent,
         PaginationComponent
+
+
+        ,FileSelectDirective
     ],
     imports: [
         BrowserModule,

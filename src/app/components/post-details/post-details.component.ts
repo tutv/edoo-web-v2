@@ -6,6 +6,8 @@ import {PostService} from "../../services/post.service";
 import {StorageService} from "../../services/storage.service";
 import {NotificationService} from "../../services/notification.service";
 import {LogService} from "../../services/log.service";
+import {FileUploader, FileSelectDirective} from "ng2-file-upload";
+import {UploaderService} from "../../services/uploader.service";
 
 // var FileSaver = require('file-saver');
 
@@ -13,7 +15,7 @@ import {LogService} from "../../services/log.service";
     selector: 'app-post-details',
     templateUrl: './post-details.component.html',
     styleUrls: ['./post-details.component.scss'],
-    providers: [PostService, StorageService]
+    providers: [PostService, StorageService, FileSelectDirective]
 })
 export class PostDetailsComponent implements OnInit {
     @Input() post;
@@ -48,6 +50,16 @@ export class PostDetailsComponent implements OnInit {
                     this.post.listExercise = data['attack_files'];
                 })
         }
+
+
+        // -----------
+        this.uploader = new FileUploader({
+            url: 'http://api-v2.uetf.me/upfileevent/80',
+            headers: [
+                {name: 'Content-Type', value: 'multipart/form-data'},
+                {name: 'Authorization', value: this.storageService.getToken()}
+            ]
+        });
     }
 
     public onComment(comment) {
@@ -109,6 +121,9 @@ export class PostDetailsComponent implements OnInit {
         };
     }
 
+
+    // -------------------------------- Exercise -----------------------------------------------------------------------
+
     public getListExercise(){
         // this.notification.information('Danh sach nop bai tap');
     }
@@ -125,9 +140,34 @@ export class PostDetailsComponent implements OnInit {
             )
     }
 
+    public disableUpload = false;
 
+    public uploadExercise(){
+        this.disableUpload = true;
+        this.notification.information('Upload exercise ' + this.uploader.queue.length);
+
+
+        // this.uploadService.uploadExercise(this.uploader, this.post.id);
+
+        // this.uploader.options = {
+        //     // url: `http://api-v2.uetf.me/upfileevent/${this.post.id}`,
+        //     url: `https://evening-anchorage-3159.herokuapp.com/api/`
+        //     // headers: [
+        //     //     // {name: 'Content-Type', value: 'application/json'},
+        //     //     {name: 'Authorization', value: this.storageService.getToken()}
+        //     // ]
+        // };
+        this.uploader.authToken = this.storageService.getToken();
+
+        for (let item of this.uploader.queue){
+            item.upload();
+        }
+    }
+
+    public uploader:FileUploader;
 }
 
+// -------------------------------------- State ------------------------------------------------------------------------
 export const postDetailsState = {
     name: 'classPost.post',
     url: '/post/:postId',

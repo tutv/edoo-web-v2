@@ -107,26 +107,29 @@
                                         </div>
 
                                         <div class="modal-footer">
-                                            <button type="button" class="btn btn-primary ed-button" (click)="downloadAllExercise()">
-                                                    <!--[disable]="!post.listExercise.length"-->
-                                            Tải về tất cả lớp</button>
+                                            <button type="button" class="btn btn-primary ed-button" (click)="downloadAllExercise()" [disabled]="!post.listExercise.length">
+                                                Tải về tất cả lớp
+                                            </button>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <!--<div class="student" ng-if="postCtrl.data.user.capability != 'teacher'">-->
-                            <!--<p ng-if="postCtrl.post.is_send_file">Bạn đã nộp bài tập.</p>-->
-                            <!--<button class="btn btn-primary ed-button" data-toggle="modal" data-target="#modalExercise" ng-if="!postCtrl.post.is_send_file" ng-disabled="postCtrl.disableUploadExercise">Nộp bài tập</button>-->
 
-                            <!--&lt;!&ndash; Modal &ndash;&gt;-->
-                            <!--<div class="modal fade" id="modalExercise" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">-->
-                                <!--<div class="modal-dialog" role="document">-->
-                                    <!--<div class="modal-content">-->
-                                        <!--<div class="modal-header">-->
-                                            <!--<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>-->
-                                            <!--<h4 class="modal-title" id="myModalLabel">Nộp bài tập</h4>-->
-                                        <!--</div>-->
+                        <div class="student" *ngIf="user.capability != 'teacher'">
+                            <p *ngIf="post.is_send_file">Bạn đã nộp bài tập.</p>
+                            <button class="btn btn-primary ed-button" data-toggle="modal" data-target="#modalExercise" *ngIf="!post.is_send_file" >
+                                    <!--[disabled]="postCtrl.disableUploadExercise">-->
+                                Nộp bài tập</button>
+
+                            <!-- Modal -->
+                            <div class="modal fade" id="modalExercise" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                            <h4 class="modal-title" id="myModalLabel">Nộp bài tập</h4>
+                                        </div>
                                         <!--<div class="modal-body">-->
                                             <!--<div class="upload-component">-->
                                                 <!--<button class="btn btn-primary" type="file" ngf-select="postCtrl.selectFile($file, $invalidFiles)">-->
@@ -147,14 +150,31 @@
 
                                             <!--<p>Chọn file và chọn Tải lên hoặc chọn &times; để thoát.</p>-->
                                         <!--</div>-->
-                                        <!--<div class="modal-footer">-->
-                                            <!--<button type="button" class="btn btn-primary ed-button" ng-click="postCtrl.uploadExercise()" ng-disabled="postCtrl.disableUpload || postCtrl.post.is_send_file">Tải lên</button>-->
-                                        <!--</div>-->
-                                    <!--</div>-->
-                                <!--</div>-->
-                            <!--</div>-->
 
-                        <!--</div>-->
+                                        <input type="file" ng2FileSelect [uploader]="uploader" />
+                                        <div>
+                                            <div>
+                                                Queue progress:
+                                                <div class="progress" style="">
+                                                    <div class="progress-bar" role="progressbar" [ngStyle]="{ 'width': uploader.progress + '%' }"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--<div *ngIf="">-->
+                                            <!--<h2></h2>-->
+                                        <!--</div>-->
+
+
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-primary ed-button" (click)="uploadExercise()"
+                                                    [disabled]="disableUpload || post.is_send_file">
+                                                Tải lên</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
                     </div>
                 </div>
             </div>
