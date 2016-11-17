@@ -7,7 +7,7 @@ import {StorageService} from "../../services/storage.service";
 import {NotificationService} from "../../services/notification.service";
 import {LogService} from "../../services/log.service";
 
-var FileSaver = require('file-saver');
+// var FileSaver = require('file-saver');
 
 @Component({
     selector: 'app-post-details',
@@ -45,7 +45,7 @@ export class PostDetailsComponent implements OnInit {
             this.post.listExercise = [];
             this.postService.checkEvent(this.post.id)
                 .then(data => {
-                    this.post.listExercise = data.attack_files;
+                    this.post.listExercise = data['attack_files'];
                 })
         }
     }

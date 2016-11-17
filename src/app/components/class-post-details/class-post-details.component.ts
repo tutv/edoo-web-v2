@@ -1,6 +1,7 @@
 import {Component, OnInit, Input} from '@angular/core';
 import {Transition, UIRouter} from "ui-router-ng2";
 import {ClassService} from "../../services/class.service";
+import {UtilService} from "../../services/util.service";
 
 @Component({
     selector: 'app-class-post-details',
@@ -13,10 +14,13 @@ export class ClassPostDetailsComponent implements OnInit {
     public currentClass;
 
 
-    constructor(private router: UIRouter) {
+    constructor(private router: UIRouter,
+    private util: UtilService) {
     }
 
     ngOnInit() {
+        this.util.backToTop();
+
         this.router.stateService.go('.listPost', {'classId': this.listClasses[0].id});
         this.currentClass = this.listClasses[0];
     }

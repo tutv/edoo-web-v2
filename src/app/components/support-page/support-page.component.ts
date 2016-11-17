@@ -4,6 +4,7 @@ import {LogService} from "../../services/log.service";
 import {StorageService} from "../../services/storage.service";
 import {AuthService} from "../../services/auth.service";
 import {NotificationService} from "../../services/notification.service";
+import {UtilService} from "../../services/util.service";
 
 @Component({
     selector: 'support-page',
@@ -20,10 +21,13 @@ export class SupportPageComponent implements OnInit {
     constructor(private accountService: AccountService,
                 private notiService: NotificationService,
                 private storage: StorageService,
-                private auth: AuthService) {
+                private auth: AuthService,
+    private util: UtilService) {
     }
 
     ngOnInit() {
+        this.util.backToTop();
+        
         if (this.auth.authenticated()) {
             var user = this.storage.getUserData();
             this.email = user['email'];
