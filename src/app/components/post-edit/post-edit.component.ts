@@ -2,6 +2,7 @@ import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 import {StorageService} from "../../services/storage.service";
 import {PostService} from "../../services/post.service";
 import {NotificationService} from "../../services/notification.service";
+import {LogService} from "../../services/log.service";
 
 @Component({
     selector: 'app-post-edit',
@@ -15,6 +16,10 @@ export class PostEditComponent implements OnInit {
     private isTeacher;
     private user = null;
 
+    // DateTime picker
+    date: Date;
+    datepickerOpts: {};
+
     constructor(private storage: StorageService,
                 private postSrv: PostService,
                 private notification: NotificationService) {
@@ -25,6 +30,20 @@ export class PostEditComponent implements OnInit {
 
         this.user = this.storage.getUserData();
         this.isTeacher = this.user.capability == 'teacher';
+
+        // Options
+        if (this.post.type != 'event') return;
+        this.date = new Date(0);
+        this.date.setMilliseconds(this.post.time_end);
+        let millisecondStart = (+new Date())>(this.post.time_end) ? this.post.time_end : (+new Date());
+        this.datepickerOpts = {
+            startDate: new Date((new Date(0)).setMilliseconds(millisecondStart - 24*3600)),
+            autoclose: true,
+            todayBtn: 'linked',
+            todayHighlight: true,
+            assumeNearbyYear: true,
+            format: 'D, dd/mm/yyyy'
+        }
     }
 
     public handlePostContent(content: string) {
@@ -37,15 +56,30 @@ export class PostEditComponent implements OnInit {
             return;
         }
 
-        let params = {
-            post_id: this.post.id,
-            title: this.post.title,
-            content: this.post.content,
-            is_incognito: this.post.is_incognito,
-            type: this.post.type
-        };
+        let params = {};
+
+        if (this.post.type == 'event') {
+            params = {
+                post_id: this.post.id,
+                title: this.post.title,
+                content: this.post.content,
+                is_incognito: this.post.is_incognito,
+                type: this.post.type,
+                event_end: this.post.event_end
+            }
+        } else {
+            params = {
+                post_id: this.post.id,
+                title: this.post.title,
+                content: this.post.content,
+                is_incognito: this.post.is_incognito,
+                type: this.post.type
+            }
+        }
+
         this.postSrv.updatePost(params)
             .then(() => {
+                this.post.time_end = +this.date + '';
                 this.onUpdated.emit(true);
                 this.notification.success('Cập nhật thành công.');
             });

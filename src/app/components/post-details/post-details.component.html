@@ -58,7 +58,7 @@
                     <div class="content ng-fade" [innerHTML]="post.content"></div>
 
                     <div class="exercise" *ngIf="post.type == 'event'">
-                        <h3>Hạn nộp: {{post.time_end | date : 'short'}}</h3>
+                        <h3>Hạn nộp: {{post.time_end | date : 'd/M/yyyy HH:mm'}}</h3>
                         <!--<h3>Còn lại: {{post.time_remaining_event}}</h3>-->
 
                         <div class="teacher" *ngIf="user.capability == 'teacher'">

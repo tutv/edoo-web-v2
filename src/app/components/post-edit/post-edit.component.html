@@ -13,29 +13,36 @@
             <div class="form-group">
                 <label>Nội dung</label>
 
-                <editor [elementId]="'post-content'" [content]="post.content" (onEditorKeyup)="handlePostContent($event)"></editor>
+                <editor [elementId]="'post-content'" [content]="post.content"
+                        (onEditorKeyup)="handlePostContent($event)"></editor>
             </div>
 
             <div class="form-group">
                 <label for="type">Thể loại</label>
                 <div id="type">
-                    <label class="radio-inline"><input type="radio" name="type" value="question" [checked]="post.type=='question'"
+                    <label class="radio-inline"><input type="radio" name="type" value="question"
+                                                       [checked]="post.type=='question'"
                                                        (click)="post.type='question'">Question</label>
-                    <label class="radio-inline"><input type="radio" name="type" value="note" [checked]="post.type=='note'"
+                    <label class="radio-inline"><input type="radio" name="type" value="note"
+                                                       [checked]="post.type=='note'"
                                                        (click)="post.type='note'">Note</label>
-                    <label class="radio-inline"><input type="radio" name="type" value="poll" [checked]="post.type=='poll'"
+                    <label class="radio-inline"><input type="radio" name="type" value="poll"
+                                                       [checked]="post.type=='poll'"
                                                        (click)="post.type='poll'">Poll</label>
-                    <label class="radio-inline" *ngIf="isTeacher"><input type="radio" name="type" value="notification" [checked]="post.type=='notification'"
+                    <label class="radio-inline" *ngIf="isTeacher"><input type="radio" name="type" value="notification"
+                                                                         [checked]="post.type=='notification'"
                                                                          (click)="post.type='notification'">Notification</label>
-                    <!--<label class="radio-inline" *ngIf="isTeacher"><input type="radio" name="type" value="event">Exercise</label>-->
+                    <label class="radio-inline" *ngIf="isTeacher"><input type="radio" name="type" value="event"
+                                                                         [checked]="post.type=='event'"
+                                                                         (click)="post.type='event'">Exercise</label>
                 </div>
             </div>
 
-            <!--<div class="form-group" ng-show="createPostCtrl.newPost.type == 'event'">-->
-            <!--<label for="time_end_event">Hạn nộp</label>-->
-            <!--<input class="form-control" id="time_end_event" datetime-picker date-format="{{createPostCtrl.date_format}}"-->
-            <!--future-only ng-model="createPostCtrl.time_end_event"/>-->
-            <!--</div>-->
+            <div class="form-group" *ngIf="post.type == 'event'">
+                <label for="time_end_event">Hạn nộp</label>
+                <datetime id="time_end_event" [(ngModel)]="date" [ngModelOptions]="{standalone: true}"
+                          [datepicker]="datepickerOpts"></datetime>
+            </div>
 
             <!--<div class="form-group">-->
             <!--<label for="is_incognito">Đăng với tư cách</label>-->

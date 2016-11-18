@@ -72,9 +72,6 @@ export class PostCreateComponent implements OnInit {
         }
 
         if (this.params.type == 'event') {
-            LogService.i('Post', this.date.getMilliseconds());
-            LogService.i('Post', this.date.getUTCMilliseconds());
-            LogService.i('Post', +this.date);
             this.params.event_end = +this.date + '  ';
         }
 
