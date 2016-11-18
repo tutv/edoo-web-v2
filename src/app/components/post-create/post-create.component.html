@@ -28,15 +28,17 @@
                                                        (click)="params.type='poll'">Poll</label>
                     <label class="radio-inline" *ngIf="isTeacher"><input type="radio" name="type" value="notification"
                                                                          (click)="params.type='notification'">Notification</label>
-                    <!--<label class="radio-inline" *ngIf="isTeacher"><input type="radio" name="type" value="event">Exercise</label>-->
+                    <label class="radio-inline" *ngIf="isTeacher"><input type="radio" name="type" value="event"
+                                                                         (click)="params.type='event'">Exercise</label>
                 </div>
             </div>
 
-            <!--<div class="form-group" ng-show="createPostCtrl.newPost.type == 'event'">-->
-            <!--<label for="time_end_event">Hạn nộp</label>-->
-            <!--<input class="form-control" id="time_end_event" datetime-picker date-format="{{createPostCtrl.date_format}}"-->
-            <!--future-only ng-model="createPostCtrl.time_end_event"/>-->
-            <!--</div>-->
+            <div class="form-group" *ngIf="params.type == 'event'">
+                <label for="time_end_event">Hạn nộp</label>
+                <datetime id="time_end_event" [(ngModel)]="date" [ngModelOptions]="{standalone: true}"
+                          [datepicker]="datepickerOpts"></datetime>
+                {{date}}
+            </div>
 
             <!--<div class="form-group">-->
             <!--<label for="is_incognito">Đăng với tư cách</label>-->

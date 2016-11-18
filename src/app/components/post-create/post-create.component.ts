@@ -2,6 +2,16 @@ import {Component, OnInit, Input} from '@angular/core';
 import {StorageService} from "../../services/storage.service";
 import {PostService} from "../../services/post.service";
 import {UIRouter} from "ui-router-ng2";
+import {LogService} from "../../services/log.service";
+
+interface ParamsReq {
+    title: string;
+    content: string;
+    class_id: string;
+    type: string;
+    is_incognito?: boolean;
+    event_end?: string;
+}
 
 @Component({
     selector: 'app-post-create',
@@ -12,18 +22,23 @@ export class PostCreateComponent implements OnInit {
     @Input() classId;
     private isTeacher;
     private user = null;
-    public params = {
-        title: '',
-        content: '',
-        class_id: '',
-        type: '',
-        is_incognito: false
-        // event_end: ''
-    };
+    public params: ParamsReq;
+
+    // DateTime picker
+    date: Date;
+    datepickerOpts: {};
+
 
     constructor(private storage: StorageService,
                 private postSrv: PostService,
                 private router: UIRouter) {
+        this.params = {
+            title: '',
+            content: '',
+            class_id: '',
+            type: '',
+            is_incognito: false
+        };
     }
 
     public handlePostContent(content: string) {
@@ -37,12 +52,30 @@ export class PostCreateComponent implements OnInit {
         // this.isTeacher = this.storage.getUserData().capability == 'teacher';
         this.user = this.storage.getUserData();
         this.isTeacher = this.user.capability == 'teacher';
+
+        // Options
+        this.datepickerOpts = {
+            startDate: new Date(),
+            autoclose: true,
+            todayBtn: 'linked',
+            todayHighlight: true,
+            assumeNearbyYear: true,
+            format: 'D, dd/mm/yyyy'
+        }
     }
 
+
     public postPost() {
-        if (this.params.title == '' || this.params.content==''){
+        if (this.params.title == '' || this.params.content == '') {
             window.alert('Vui lòng điền đầy đủ nội dung.');
             return;
+        }
+
+        if (this.params.type == 'event') {
+            LogService.i('Post', this.date.getMilliseconds());
+            LogService.i('Post', this.date.getUTCMilliseconds());
+            LogService.i('Post', +this.date);
+            this.params.event_end = +this.date + '  ';
         }
 
         this.postSrv.createPost(this.params)
@@ -50,7 +83,6 @@ export class PostCreateComponent implements OnInit {
                 this.router.stateService.go('^.listPost', {'classId': this.classId});
             });
     }
-
 }
 
 

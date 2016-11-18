@@ -44,6 +44,7 @@ import {SupportPageComponent, supportState} from './components/support-page/supp
 import { PaginationComponent } from './components/pagination/pagination.component';
 import {UtilService} from "./services/util.service";
 import {FileSelectDirective} from "ng2-file-upload";
+import { NKDatetimeModule } from 'ng2-datetime/ng2-datetime'
 
 const WINDOW_PROVIDER: ValueProvider = {
     provide: Window,
@@ -83,6 +84,7 @@ const WINDOW_PROVIDER: ValueProvider = {
         BrowserModule,
         FormsModule,
         HttpModule,
+        NKDatetimeModule,
         UIRouterModule.forRoot({
             states: [
                 states.welcomeState,
