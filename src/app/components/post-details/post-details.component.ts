@@ -7,7 +7,7 @@ import {StorageService} from "../../services/storage.service";
 import {NotificationService} from "../../services/notification.service";
 import {LogService} from "../../services/log.service";
 import {FileUploader, FileSelectDirective} from "ng2-file-upload";
-import {UploaderService} from "../../services/uploader.service";
+//import {UploaderService} from "../../services/uploader.service";
 
 // var FileSaver = require('file-saver');
 
