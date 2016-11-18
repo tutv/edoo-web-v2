@@ -13,6 +13,7 @@ export class FormCommentComponent implements OnInit {
     @Output() onComment = new EventEmitter<any>();
 
     public answer: string = '';
+    private isDisabled = false;
 
     constructor(private postService: PostService) {
     }
@@ -21,6 +22,12 @@ export class FormCommentComponent implements OnInit {
     }
 
     public submit() {
+        if (this.answer.length < 1){
+            return;
+        }
+
+        this.isDisabled = true;
+
         this.postService.comment(this.post_id, this.answer)
             .then(
                 data => {
@@ -29,11 +36,16 @@ export class FormCommentComponent implements OnInit {
                     this.answer = '';
 
                     this.onComment.emit(comment);
+
+                    this.isDisabled = false;
                 },
                 error => {
                     console.log(error);
-                }
-            )
+                    this.isDisabled = false;
+                })
+            .catch(()=>{
+                this.isDisabled = false;
+            })
     }
 
 }
