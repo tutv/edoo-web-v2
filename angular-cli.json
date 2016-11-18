@@ -26,6 +26,7 @@
                 "assets/js/jquery-3.1.1.min.js",
                 "assets/js/nprogress.js",
                 "assets/js/jquery.noty.packaged.min.js",
+                "assets/js/google-charts-loader.js",
                 "assets/js/theme.noty.js",
                 "assets/js/bootstrap.min.js",
                 "assets/js/main.js",
