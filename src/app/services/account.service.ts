@@ -49,6 +49,24 @@ export class AccountService {
             .toPromise();
     }
 
+    public updateProfile(description, favorite) {
+        var args = {
+            data: {
+                description: description,
+                favorite: favorite
+            },
+            method: 'POST',
+            url: '/profile'
+        };
+
+        return this.api
+            .requestAuth(args)
+            .map(response => {
+                return response['data'];
+            })
+            .toPromise();
+    }
+
     public changePassword(old_pass, new_pass) {
         var data = {
             old_password: old_pass,
