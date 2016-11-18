@@ -23,6 +23,7 @@ export class PostCreateComponent implements OnInit {
     private isTeacher;
     private user = null;
     public params: ParamsReq;
+    private isDisabled = false;
 
     // DateTime picker
     date: Date;
@@ -71,6 +72,8 @@ export class PostCreateComponent implements OnInit {
             return;
         }
 
+        this.isDisabled = true;
+
         if (this.params.type == 'event') {
             this.params.event_end = +this.date + '  ';
         }
@@ -78,6 +81,9 @@ export class PostCreateComponent implements OnInit {
         this.postSrv.createPost(this.params)
             .then(() => {
                 this.router.stateService.go('^.listPost', {'classId': this.classId});
+            })
+            .catch(() => {
+                this.isDisabled = false;
             });
     }
 }
