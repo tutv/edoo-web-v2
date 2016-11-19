@@ -6,8 +6,7 @@ import {NotificationService} from "../../services/notification.service";
 @Component({
     selector: 'app-edit-profile',
     templateUrl: './edit-profile.component.html',
-    styleUrls: ['./edit-profile.component.scss'],
-    providers: [AccountService]
+    styleUrls: ['./edit-profile.component.scss']
 })
 export class EditProfileComponent implements OnInit {
     @Input() user = {};
@@ -29,26 +28,31 @@ export class EditProfileComponent implements OnInit {
 
     updateDes() {
         this.accountService.updateProfile(this.description, this.user['favorite'])
-            .then(function () {
-                this.notiService.success('Cập nhật thành công');
+            .subscribe(
+                data => {
+                    this.notiService.success('Cập nhật thành công');
+                    this.user['description'] = this.description;
 
-                this.closeEditDes();
-            })
-            .catch(function (err) {
-                this.notiService.error(err);
-            });
+                    this.closeEditDes();
+                },
+                err => {
+                    this.notiService.error(err);
+                });
     }
 
     updateFavorite() {
         this.accountService.updateProfile(this.user['description'], this.favorite)
-            .then(function () {
-                this.notiService.success('Cập nhật thành công');
+            .subscribe(
+                data => {
+                    this.notiService.success('Cập nhật thành công');
+                    this.user['favorite'] = this.favorite;
 
-                this.closeEditFavorite();
-            })
-            .catch(function (err) {
-                this.notiService.error(err);
-            });
+                    this.closeEditFavorite();
+                },
+                err => {
+                    this.notiService.error(err);
+                }
+            )
     }
 
     openEditFavorite() {

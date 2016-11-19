@@ -63,8 +63,7 @@ export class AccountService {
             .requestAuth(args)
             .map(response => {
                 return response['data'];
-            })
-            .toPromise();
+            });
     }
 
     public changePassword(old_pass, new_pass) {

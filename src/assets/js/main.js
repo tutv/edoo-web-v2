@@ -72,27 +72,29 @@ function drawChart() {
     //=======Column chart=================================================
 
     var data = google.visualization.arrayToDataTable([
-        ['', 'People', { role: 'style' }],
+        ['', 'People', {role: 'style'}],
         ['Google', 44, 'rgb(17, 18, 50)'],
         ['Bạn bè', 42, 'rgb(17, 18, 50)'],
         ['Giảng viên', 11, 'rgb(17, 18, 50)'],
-        ['Nhóm Facebook', 27, 'rgb(17, 18, 50)' ],
-        ['Khác', 8, 'rgb(17, 18, 50)' ],
+        ['Nhóm Facebook', 27, 'rgb(17, 18, 50)'],
+        ['Khác', 8, 'rgb(17, 18, 50)'],
     ]);
 
     var view = new google.visualization.DataView(data);
     view.setColumns([0, 1,
-        { calc: "stringify",
+        {
+            calc: "stringify",
             sourceColumn: 1,
             type: "string",
-            role: "annotation" },
+            role: "annotation"
+        },
         2]);
 
     var options = {
         title: "",
         height: 300,
         bar: {groupWidth: "40%"},
-        legend: { position: "none" },
+        legend: {position: "none"},
         animation: {
             duration: 1000,
             easing: 'inAndOut',
@@ -103,6 +105,6 @@ function drawChart() {
     chart.draw(view, options);
 }
 
-$(window).resize(function(){
+$(window).resize(function () {
     drawChart();
 });
