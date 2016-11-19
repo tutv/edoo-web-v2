@@ -38,7 +38,7 @@
                 "../node_modules/tinymce/plugins/table/plugin.js",
                 "../node_modules/ng2-datetime/src/vendor/bootstrap-datepicker/bootstrap-datepicker.min.js",
                 "../node_modules/ng2-datetime/src/vendor/bootstrap-timepicker/bootstrap-timepicker.min.js",
-                "assets/js/google-charts-loader.js",
+                "assets/js/google-charts-loader.js"
             ],
             "environments": {
                 "source": "environments/environment.ts",
