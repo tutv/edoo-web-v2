@@ -25,7 +25,6 @@
             "scripts": [
                 "../node_modules/jquery/dist/jquery.js",
                 "assets/js/nprogress.js",
-                "assets/js/jquery.form.js",
                 "assets/js/jquery.noty.packaged.min.js",
                 "assets/js/theme.noty.js",
                 "../node_modules/bootstrap/dist/js/bootstrap.js",

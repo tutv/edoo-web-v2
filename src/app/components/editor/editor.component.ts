@@ -18,17 +18,7 @@ export class EditorComponent implements OnInit, AfterViewInit, OnDestroy {
     }
 
     public uploadImage() {
-        var self = this;
-        console.log('Start upload');
 
-        //noinspection TypeScriptUnresolvedFunction
-        $('#my_form').ajaxSubmit({
-            success: function (response) {
-                var url = response.data.url;
-
-                $('#' + self.field_image).val(url);
-            }
-        });
     }
 
     ngOnInit() {
@@ -65,7 +55,6 @@ export class EditorComponent implements OnInit, AfterViewInit, OnDestroy {
             menubar: false,
             target_list: false,
             link_title: false,
-            image_upload_url: 'http://upload.uetf.me/upload',
             toolbar1: 'style-h1 style-h2 style-h3 | bold italic | bullist numlist | link | blockquote | image',
             setup: editor => {
                 this.editor = editor;
@@ -74,11 +63,6 @@ export class EditorComponent implements OnInit, AfterViewInit, OnDestroy {
                     const content = editor.getContent();
                     this.onEditorKeyup.emit(content);
                 });
-            },
-            file_browser_callback: function (field_name, url, type, win) {
-                self.field_image = field_name;
-
-                if (type == 'image') $('#my_form input').click();
             }
         });
 

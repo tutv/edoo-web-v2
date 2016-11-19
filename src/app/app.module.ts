@@ -27,24 +27,21 @@ import {CommentItemComponent} from "./components/comment-item/comment-item.compo
 import {PostService} from "./services/post.service";
 import {FormCommentComponent} from "./components/form-comment/form-comment.component";
 import {PostCreateComponent, postCreateState} from "./components/post-create/post-create.component";
-import {
-    ClassPostDetailsComponent,
-    classPostDetailsState
-} from "./components/class-post-details/class-post-details.component";
-import {SettingsComponent, settingsState} from './components/settings/settings.component';
-import {SidebarPersonalSettingsComponent} from './components/sidebar-personal-settings/sidebar-personal-settings.component';
-import {ChangePasswordComponent, changePasswordState} from './components/change-password/change-password.component';
+import {ClassPostDetailsComponent, classPostDetailsState} from "./components/class-post-details/class-post-details.component";
+import {SettingsComponent, settingsState} from "./components/settings/settings.component";
+import {SidebarPersonalSettingsComponent} from "./components/sidebar-personal-settings/sidebar-personal-settings.component";
+import {ChangePasswordComponent, changePasswordState} from "./components/change-password/change-password.component";
 import {NotificationService} from "./services/notification.service";
-import {EditorComponent} from './components/editor/editor.component';
+import {EditorComponent} from "./components/editor/editor.component";
 import {AuthService} from "./services/auth.service";
-import {PostEditComponent} from './components/post-edit/post-edit.component';
-import {UserRankComponent} from './components/user-rank/user-rank.component';
+import {PostEditComponent} from "./components/post-edit/post-edit.component";
+import {UserRankComponent} from "./components/user-rank/user-rank.component";
 import {LogService} from "./services/log.service";
-import {SupportPageComponent, supportState} from './components/support-page/support-page.component';
-import { PaginationComponent } from './components/pagination/pagination.component';
+import {SupportPageComponent, supportState} from "./components/support-page/support-page.component";
+import {PaginationComponent} from "./components/pagination/pagination.component";
 import {UtilService} from "./services/util.service";
 import {FileSelectDirective} from "ng2-file-upload";
-import { NKDatetimeModule } from 'ng2-datetime/ng2-datetime'
+import {NKDatetimeModule} from "ng2-datetime/ng2-datetime";
 
 const WINDOW_PROVIDER: ValueProvider = {
     provide: Window,
