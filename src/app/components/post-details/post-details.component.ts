@@ -54,12 +54,13 @@ export class PostDetailsComponent implements OnInit {
 
         // -----------
         this.uploader = new FileUploader({
-            url: 'http://api-v2.uetf.me/upfileevent/80',
+            url: 'http://api-v2.uetf.me/upfileevent/' + this.post.id,
             headers: [
-                {name: 'Content-Type', value: 'multipart/form-data'},
-                {name: 'Authorization', value: this.storageService.getToken()}
+                // {'name': 'Content-Type', 'value': 'multipart/form-data'}
+                {'name': 'Authorization', 'value': this.storageService.getToken()}
             ]
         });
+        this.uploader.onAfterAddingFile = (file)=> { file.withCredentials = false; };
     }
 
     public onComment(comment) {
@@ -144,20 +145,19 @@ export class PostDetailsComponent implements OnInit {
 
     public uploadExercise(){
         this.disableUpload = true;
-        this.notification.information('Upload exercise ' + this.uploader.queue.length);
 
+        this.uploader.onCompleteItem = (item, response, status, header) => {
+            // LogService.i('UploadComplete', `item: ${item}, status: ${status}, response: ${response}`);
+            let json = JSON.parse(response);
+            if (json.error == true) {
+                this.notification.information('Xảy ra lỗi khi nộp bài tập');
+            }
 
-        // this.uploadService.uploadExercise(this.uploader, this.post.id);
-
-        // this.uploader.options = {
-        //     // url: `http://api-v2.uetf.me/upfileevent/${this.post.id}`,
-        //     url: `https://evening-anchorage-3159.herokuapp.com/api/`
-        //     // headers: [
-        //     //     // {name: 'Content-Type', value: 'application/json'},
-        //     //     {name: 'Authorization', value: this.storageService.getToken()}
-        //     // ]
-        // };
-        this.uploader.authToken = this.storageService.getToken();
+            // If error = false
+            this.notification.information('Đã nộp bài tập');
+            this.link_download = json.data.url;
+            this.post.is_send_file = true;
+        };
 
         for (let item of this.uploader.queue){
             item.upload();
@@ -165,6 +165,7 @@ export class PostDetailsComponent implements OnInit {
     }
 
     public uploader:FileUploader;
+    public link_download;
 }
 
 // -------------------------------------- State ------------------------------------------------------------------------
