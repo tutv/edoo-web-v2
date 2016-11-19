@@ -15,6 +15,7 @@ export class PostEditComponent implements OnInit {
 
     private isTeacher;
     private user = null;
+    private isDisabled = false;
 
     // DateTime picker
     date: Date;
@@ -35,9 +36,9 @@ export class PostEditComponent implements OnInit {
         if (this.post.type != 'event') return;
         this.date = new Date(0);
         this.date.setMilliseconds(this.post.time_end);
-        let millisecondStart = (+new Date())>(this.post.time_end) ? this.post.time_end : (+new Date());
+        let millisecondStart = (+new Date()) > (this.post.time_end) ? this.post.time_end : (+new Date());
         this.datepickerOpts = {
-            startDate: new Date((new Date(0)).setMilliseconds(millisecondStart - 24*3600)),
+            startDate: new Date((new Date(0)).setMilliseconds(millisecondStart - 24 * 3600)),
             autoclose: true,
             todayBtn: 'linked',
             todayHighlight: true,
@@ -55,6 +56,8 @@ export class PostEditComponent implements OnInit {
             window.alert('Vui lòng điền đầy đủ nội dung.');
             return;
         }
+
+        this.isDisabled = true;
 
         let params = {};
 
@@ -82,6 +85,11 @@ export class PostEditComponent implements OnInit {
                 this.post.time_end = +this.date + '';
                 this.onUpdated.emit(true);
                 this.notification.success('Cập nhật thành công.');
+
+                this.isDisabled = false;
+            })
+            .catch(() => {
+                this.isDisabled = false;
             });
     }
 

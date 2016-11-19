@@ -54,7 +54,7 @@
             <!--</div>-->
 
             <div class="create_topic">
-                <a (click)="updatePost()">
+                <a class="btn btn-primary btn-lg" [ngClass]="{disabled: isDisabled}" (click)="updatePost()">
                     Cập nhật
                 </a>
             </div>

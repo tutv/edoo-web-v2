@@ -48,11 +48,9 @@
             <!--</select>-->
             <!--</div>-->
 
-            <div class="create_topic">
-                <a (click)="postPost()">
+                <a class="btn btn-primary btn-lg create_topic" data-toggle="modal" [ngClass]="{disabled: isDisabled}" (click)="postPost()">
                     Đăng bài
                 </a>
-            </div>
         </form>
 
     </div>
