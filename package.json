@@ -20,6 +20,7 @@
     "@angular/platform-browser": "^2.1.0",
     "@angular/platform-browser-dynamic": "^2.1.0",
     "@angular/router": "^3.1.0",
+    "angular2-image-upload": "^0.2.1",
     "bootstrap-datepicker": "^1.6.4",
     "bootstrap-timepicker": "^0.5.2",
     "core-js": "^2.4.1",

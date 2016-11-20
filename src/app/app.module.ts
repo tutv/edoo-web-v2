@@ -42,80 +42,82 @@ import {PaginationComponent} from "./components/pagination/pagination.component"
 import {UtilService} from "./services/util.service";
 import {FileSelectDirective} from "ng2-file-upload";
 import {NKDatetimeModule} from "ng2-datetime/ng2-datetime";
+import {ImageUploadModule} from "angular2-image-upload";
 
 const WINDOW_PROVIDER: ValueProvider = {
-    provide: Window,
-    useValue: window
+	provide: Window,
+	useValue: window
 };
 
 @NgModule({
-    declarations: [
-        AppComponent,
-        WelcomePageComponent,
-        HeaderComponent,
-        FooterComponent,
-        LoginComponent,
-        ListClassesComponent,
-        EditProfileComponent,
-        ClassDetailsComponent,
-        ListPostsComponent,
-        SidebarListClassesComponent,
-        PostDetailsComponent,
-        CommentItemComponent,
-        FormCommentComponent,
-        PostCreateComponent,
-        ClassPostDetailsComponent,
-        SettingsComponent,
-        SidebarPersonalSettingsComponent,
-        ChangePasswordComponent,
-        EditorComponent,
-        UserRankComponent,
-        SupportPageComponent,
-        PostEditComponent,
-        PaginationComponent
+	declarations: [
+		AppComponent,
+		WelcomePageComponent,
+		HeaderComponent,
+		FooterComponent,
+		LoginComponent,
+		ListClassesComponent,
+		EditProfileComponent,
+		ClassDetailsComponent,
+		ListPostsComponent,
+		SidebarListClassesComponent,
+		PostDetailsComponent,
+		CommentItemComponent,
+		FormCommentComponent,
+		PostCreateComponent,
+		ClassPostDetailsComponent,
+		SettingsComponent,
+		SidebarPersonalSettingsComponent,
+		ChangePasswordComponent,
+		EditorComponent,
+		UserRankComponent,
+		SupportPageComponent,
+		PostEditComponent,
+		PaginationComponent
 
 
-        ,FileSelectDirective
-    ],
-    imports: [
-        BrowserModule,
-        FormsModule,
-        HttpModule,
-        NKDatetimeModule,
-        UIRouterModule.forRoot({
-            states: [
-                states.welcomeState,
-                loginState,
-                listClassState,
-                editProfileState,
-                classDetailsState,
-                postDetailsState,
-                HomeState,
-                supportState,
-                classPostDetailsState,
-                postCreateState,
-                settingsState,
-                changePasswordState
-            ],
-            useHash: false,
-            configClass: UIRouterConfig
-        })
-    ],
-    providers: [
-        WINDOW_PROVIDER,
-        NotificationService,
-        ApiService,
-        StorageService,
-        LogService,
-        CookieService,
-        EventService,
-        ClassService,
-        AccountService,
-        PostService,
-        AuthService,
-        UtilService
-    ],
-    bootstrap: [AppComponent]
+		, FileSelectDirective
+	],
+	imports: [
+		BrowserModule,
+		FormsModule,
+		HttpModule,
+		NKDatetimeModule,
+		ImageUploadModule.forRoot(),
+		UIRouterModule.forRoot({
+			states: [
+				states.welcomeState,
+				loginState,
+				listClassState,
+				editProfileState,
+				classDetailsState,
+				postDetailsState,
+				HomeState,
+				supportState,
+				classPostDetailsState,
+				postCreateState,
+				settingsState,
+				changePasswordState
+			],
+			useHash: false,
+			configClass: UIRouterConfig
+		})
+	],
+	providers: [
+		WINDOW_PROVIDER,
+		NotificationService,
+		ApiService,
+		StorageService,
+		LogService,
+		CookieService,
+		EventService,
+		ClassService,
+		AccountService,
+		PostService,
+		AuthService,
+		UtilService
+	],
+	bootstrap: [AppComponent]
 })
 export class AppModule {
 }
