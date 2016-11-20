@@ -9,8 +9,8 @@
  * welcome page
  */
 
-google.charts.load('current', {'packages': ['corechart', 'bar']});
-google.charts.setOnLoadCallback(drawChart);
+// google.charts.load('current', {'packages': ['corechart', 'bar']});
+// google.charts.setOnLoadCallback(drawChart);
 function drawChart() {
 
     // ======Pie chart 1===============================================
@@ -105,6 +105,6 @@ function drawChart() {
     chart.draw(view, options);
 }
 
-$(window).resize(function () {
-    drawChart();
-});
+// $(window).resize(function () {
+//     drawChart();
+// });

@@ -33,7 +33,6 @@
                 "../node_modules/ng2-datetime/src/vendor/bootstrap-datepicker/bootstrap-datepicker.min.js",
                 "../node_modules/ng2-datetime/src/vendor/bootstrap-timepicker/bootstrap-timepicker.min.js",
 
-                "assets/js/google-charts-loader.js",
                 "assets/js/nprogress.js",
                 "assets/js/jquery.noty.packaged.min.js",
                 "assets/js/theme.noty.js",
