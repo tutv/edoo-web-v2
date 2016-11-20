@@ -68,13 +68,14 @@ export class EditorComponent implements OnInit, AfterViewInit, OnDestroy {
 
 		tinymce.init({
 			selector: '#' + this.elementId,
-			plugins: ['link', 'stylebuttons', 'image'],
+			plugins: ['link', 'stylebuttons', 'image', 'autoresize', 'fullscreen', 'preview'],
 			skin_url: '/assets/skins/lightgray',
 			min_height: 200,
 			menubar: false,
 			target_list: false,
 			link_title: false,
-			toolbar1: 'style-h1 style-h2 style-h3 | bold italic | bullist numlist | link | blockquote | image upload',
+			autoresize_max_height: 1000,
+			toolbar1: 'style-h1 style-h2 style-h3 | bold italic | bullist numlist | link | blockquote | image upload | preview | fullscreen',
 			setup: editor => {
 				this.editor = editor;
 
