@@ -1,7 +1,7 @@
 <div class="container">
     <div class="wrapper row">
         <div class="col-md-3 wrapper-sidebar">
-            <sidebar-list-classes [listClasses]="listClasses" (onSelected)="onSelected($event)"></sidebar-list-classes>
+            <sidebar-list-classes [listClasses]="listClasses" [currentClassId]="currentClassId" (onSelected)="onSelected($event)"></sidebar-list-classes>
             <user-rank [classId]="currentClassId"></user-rank>
         </div>
 

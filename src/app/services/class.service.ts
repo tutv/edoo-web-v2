@@ -1,10 +1,12 @@
 import {Injectable} from "@angular/core";
 import {ApiService} from "./api.service";
+import {EventService} from "./event.service";
 
 @Injectable()
 export class ClassService {
 
-    constructor(private api: ApiService) {
+    constructor(private api: ApiService,
+                private eventService: EventService) {
     }
 
     public getListClasses() {
@@ -27,11 +29,15 @@ export class ClassService {
             url: '/posts/' + class_id + '/page/' + page
         };
 
-        return this
+        let postReq = this
             .api.requestAuth(args)
             .map(response => {
                 return response['data'];
-            }).toPromise();
+            });
+
+        this.eventService.switchClass(class_id);
+
+        return postReq.toPromise();
     }
 
     public getPost(post_id) {

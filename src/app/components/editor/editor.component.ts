@@ -12,21 +12,13 @@ export class EditorComponent implements OnInit, AfterViewInit, OnDestroy {
     @Output() onEditorKeyup = new EventEmitter<any>();
     editor;
 
-    public field_image;
-
     constructor() {
-    }
-
-    public uploadImage() {
-
     }
 
     ngOnInit() {
     }
 
     ngAfterViewInit() {
-        var self = this;
-
         tinymce.PluginManager.add('stylebuttons', function (editor, url) {
             ['h1', 'h2', 'h3'].forEach(function (name) {
                 editor.addButton("style-" + name, {
@@ -49,13 +41,13 @@ export class EditorComponent implements OnInit, AfterViewInit, OnDestroy {
 
         tinymce.init({
             selector: '#' + this.elementId,
-            plugins: ['link', 'stylebuttons', 'image'],
+            plugins: ['link', 'stylebuttons'],
             skin_url: '/assets/skins/lightgray',
             min_height: 200,
             menubar: false,
             target_list: false,
             link_title: false,
-            toolbar1: 'style-h1 style-h2 style-h3 | bold italic | bullist numlist | link | blockquote | image',
+            toolbar1: 'style-h1 style-h2 style-h3 | bold italic | bullist numlist | link | blockquote',
             setup: editor => {
                 this.editor = editor;
 
@@ -63,11 +55,10 @@ export class EditorComponent implements OnInit, AfterViewInit, OnDestroy {
                     const content = editor.getContent();
                     this.onEditorKeyup.emit(content);
                 });
-            }
+            },
         });
 
         this.editor.setContent(this.content);
-
     }
 
     ngOnDestroy() {
