@@ -17,6 +17,7 @@ export class HeaderComponent implements OnInit {
     public user: any = null;
     public isLogin = false;
     public classes = [];
+    private currClassId;
 
     constructor(private classService: ClassService,
                 private event: EventService,
@@ -45,7 +46,13 @@ export class HeaderComponent implements OnInit {
                 data => {
                     this.onFetchListClasses(data);
                 }
-            )
+            );
+
+        this.event.switchClass$.subscribe(
+            classId => {
+                this.currClassId = classId;
+            }
+        )
     }
 
     private onFetchListClasses(classes) {
