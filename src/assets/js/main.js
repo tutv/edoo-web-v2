@@ -9,8 +9,8 @@
  * welcome page
  */
 
-/*google.charts.load('current', {'packages': ['corechart', 'bar']});
-google.charts.setOnLoadCallback(drawChart);
+// google.charts.load('current', {'packages': ['corechart', 'bar']});
+// google.charts.setOnLoadCallback(drawChart);
 function drawChart() {
 
     // ======Pie chart 1===============================================
@@ -103,8 +103,8 @@ function drawChart() {
     };
     var chart = new google.visualization.BarChart(document.getElementById("bar-chart"));
     chart.draw(view, options);
-}*/
+}
 
-/*$(window).resize(function () {
-    drawChart();
-});*/
+// $(window).resize(function () {
+//     drawChart();
+// });

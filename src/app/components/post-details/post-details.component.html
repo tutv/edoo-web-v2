@@ -130,40 +130,27 @@
                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                             <h4 class="modal-title" id="myModalLabel">Nộp bài tập</h4>
                                         </div>
-                                        <!--<div class="modal-body">-->
-                                            <!--<div class="upload-component">-->
-                                                <!--<button class="btn btn-primary" type="file" ngf-select="postCtrl.selectFile($file, $invalidFiles)">-->
-                                                    <!--Select File-->
-                                                <!--</button>-->
-                                                <!--<span class="filename">{{f.name}}</span>-->
 
-                                                <!--<div class="upload-actions"> {{errFile.name}} {{errFile.$error}} {{errFile.$errorParam}}-->
-                                                    <!--<div class="upload-progress" ng-show="f.progress >= 0">-->
-                                                        <!--<div style="width:{{f.progress}}%" ng-bind="f.progress + '%'"></div>-->
-                                                    <!--</div>-->
-                                                <!--</div>-->
+                                        <div class="modal-body">
+                                            <div class="upload-component">
+                                                <input type="file" ng2FileSelect [uploader]="uploader" />
 
-                                                <!--<div class="upload-results" ng-show="link_download">-->
-                                                    <!--Link download: <a ng-href="{{link_download}}" download="{{link_download}}" target="_blank">{{f.name}}</a>-->
-                                                <!--</div>-->
-                                            <!--</div>-->
+                                                <div class="upload-actions">
+                                                    <div class="upload-progress" *ngIf="uploader.progress >= 0">
+                                                        <div style="width:{{uploader.progress}}%" >
+                                                             <!--ng-bind="f.progress + '%'">-->
+                                                        </div>
+                                                    </div>
+                                                </div>
 
-                                            <!--<p>Chọn file và chọn Tải lên hoặc chọn &times; để thoát.</p>-->
-                                        <!--</div>-->
-
-                                        <input type="file" ng2FileSelect [uploader]="uploader" />
-                                        <div>
-                                            <div>
-                                                Queue progress:
-                                                <div class="progress" style="">
-                                                    <div class="progress-bar" role="progressbar" [ngStyle]="{ 'width': uploader.progress + '%' }"></div>
+                                                <div class="upload-results" *ngIf="link_download">
+                                                    <!--Link download: <a [href]="link_download" download="{{link_download}}" target="_blank">{{f.name}}</a>-->
+                                                    Link: {{link_download}}
                                                 </div>
                                             </div>
-                                        </div>
-                                        <!--<div *ngIf="">-->
-                                            <!--<h2></h2>-->
-                                        <!--</div>-->
 
+                                            <p>Chọn file và chọn Tải lên hoặc chọn &times; để thoát.</p>
+                                        </div>
 
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-primary ed-button" (click)="uploadExercise()"

@@ -21,15 +21,15 @@
                 <div id="type">
 
                     <label class="radio-inline"><input type="radio" name="type" value="question" checked="true"
-                                                       (click)="params.type='question'">Question</label>
+                                                       (click)="params.type='question'">Câu hỏi</label>
                     <label class="radio-inline"><input type="radio" name="type" value="note"
-                                                       (click)="params.type='note'">Note</label>
+                                                       (click)="params.type='note'">Ghi chú</label>
                     <label class="radio-inline"><input type="radio" name="type" value="poll"
-                                                       (click)="params.type='poll'">Poll</label>
+                                                       (click)="params.type='poll'">Khảo sát</label>
                     <label class="radio-inline" *ngIf="isTeacher"><input type="radio" name="type" value="notification"
-                                                                         (click)="params.type='notification'">Notification</label>
+                                                                         (click)="params.type='notification'">Thông báo</label>
                     <label class="radio-inline" *ngIf="isTeacher"><input type="radio" name="type" value="event"
-                                                                         (click)="params.type='event'">Exercise</label>
+                                                                         (click)="params.type='event'">Nộp bài tập</label>
                 </div>
             </div>
 

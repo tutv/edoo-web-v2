@@ -6,10 +6,12 @@ export class EventService {
     private onLogin = new Subject<any>();
     private onAuth = new Subject<any>();
     private onFetchListClasses = new Subject<any>();
+    private onSwitchClass = new Subject<any>();
 
     public login$ = this.onLogin.asObservable();
     public auth$ = this.onAuth.asObservable();
     public listClass$ = this.onFetchListClasses.asObservable();
+    public switchClass$ = this.onSwitchClass.asObservable();
 
     constructor() {
     }
@@ -26,5 +28,9 @@ export class EventService {
 
     fetchListClasses(classes: any) {
         this.onFetchListClasses.next(classes);
+    }
+
+    switchClass(classId){
+        this.onSwitchClass.next(classId);
     }
 }

@@ -1,7 +1,7 @@
 <div class="list-classes sidebar">
     <h3 class="title-sidebar">Lớp môn học</h3>
     <ul class="list-sidebar">
-        <li *ngFor="let class of listClasses" uiSrefActive="active" (click)="select(class.id)">
+        <li *ngFor="let class of listClasses" [class.active]="class.id == currentClassId" (click)="select(class.id)">
             <a uiSref=".listPost" [uiParams]="{ classId: class.id }">{{class.name}}</a>
         </li>
     </ul>

@@ -15,7 +15,7 @@ export class ClassPostDetailsComponent implements OnInit {
 
 
     constructor(private router: UIRouter,
-    private util: UtilService) {
+                private util: UtilService) {
     }
 
     ngOnInit() {
@@ -25,7 +25,7 @@ export class ClassPostDetailsComponent implements OnInit {
         this.currentClass = this.listClasses[0];
     }
 
-    public onSelected(classId: string){
+    public onSelected(classId: string) {
         this.currentClassId = classId
     }
 
