@@ -9,7 +9,7 @@
  * welcome page
  */
 
-google.charts.load('current', {'packages': ['corechart', 'bar']});
+/*google.charts.load('current', {'packages': ['corechart', 'bar']});
 google.charts.setOnLoadCallback(drawChart);
 function drawChart() {
 
@@ -103,8 +103,8 @@ function drawChart() {
     };
     var chart = new google.visualization.BarChart(document.getElementById("bar-chart"));
     chart.draw(view, options);
-}
+}*/
 
-$(window).resize(function () {
+/*$(window).resize(function () {
     drawChart();
-});
+});*/

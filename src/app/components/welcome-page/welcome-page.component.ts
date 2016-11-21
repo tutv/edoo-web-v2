@@ -23,8 +23,7 @@ export class WelcomePageComponent implements OnInit {
     onJoinBtnClick() {
         if (this.authService.authenticated()) {
             this.router.stateService.go('classes');
-        } else {
-            this.router.stateService.go('login');
+        } else this.router.stateService.go('login');
         }
     }
 
