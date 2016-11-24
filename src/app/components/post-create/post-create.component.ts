@@ -3,6 +3,7 @@ import {StorageService} from "../../services/storage.service";
 import {PostService} from "../../services/post.service";
 import {UIRouter} from "ui-router-ng2";
 import {LogService} from "../../services/log.service";
+import {NotificationService} from "../../services/notification.service";
 
 interface ParamsReq {
     title: string;
@@ -32,7 +33,8 @@ export class PostCreateComponent implements OnInit {
 
     constructor(private storage: StorageService,
                 private postSrv: PostService,
-                private router: UIRouter) {
+                private router: UIRouter,
+                private notiService: NotificationService) {
         this.params = {
             title: '',
             content: '',
@@ -68,7 +70,7 @@ export class PostCreateComponent implements OnInit {
 
     public postPost() {
         if (this.params.title == '' || this.params.content == '') {
-            window.alert('Vui lòng điền đầy đủ nội dung.');
+            this.notiService.error('Vui lòng điền đầy đủ nội dung');
             return;
         }
 
