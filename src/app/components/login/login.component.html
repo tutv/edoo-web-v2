@@ -7,7 +7,7 @@
             <form id="loginForm" (submit)="submit()">
                 <div class="form-group">
                     <input type="email" class="form-control user_input" name="email" [(ngModel)]="email"
-                           placeholder="Email đăng nhập...">
+                           placeholder="Email">
                 </div>
 
                 <div class="form-group">
@@ -16,7 +16,7 @@
                 </div>
 
                 <div class="form-group">
-                    <button class="btn btn-primary login-button ed-button" type="submit">Đăng Nhập</button>
+                    <button class="btn btn-primary login-button ed-button" [disabled]="isDisabled" type="submit">Đăng Nhập</button>
                     <label class="checkbox-inline"><input type="checkbox" value="">Nhớ mật khẩu</label>
                     <a href="#forget-password" class="forget-password">Bạn quên mật khẩu?</a>
                 </div>

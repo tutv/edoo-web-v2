@@ -18,6 +18,8 @@ export class LoginComponent implements OnInit {
     public password: string;
     public errors: string[] = [];
 
+    private isDisabled = false;
+
     constructor(private account: AccountService,
                 private event: EventService,
                 private router: UIRouter,
@@ -34,6 +36,8 @@ export class LoginComponent implements OnInit {
     }
 
     public submit(): void {
+        this.isDisabled = true;
+
         this.account.auth(this.email, this.password)
             .subscribe(
                 response => {
@@ -43,6 +47,7 @@ export class LoginComponent implements OnInit {
                     this.redirect();
                 },
                 error => {
+                    this.isDisabled = false;
                     this.resetAll();
 
                     var body = error.json();
