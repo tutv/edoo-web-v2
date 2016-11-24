@@ -30,7 +30,7 @@
                                   [(ngModel)]="content" name="content"></textarea>
                     </div>
                     <div class="submit">
-                        <input type="submit" class="btn submit-button" value="Gửi">
+                        <input type="submit" class="btn submit-button" value="Gửi" [disabled]="isDisabled">
                     </div>
                 </form>
             </div>

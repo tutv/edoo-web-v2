@@ -29,11 +29,6 @@ export class EditProfileComponent implements OnInit {
     }
 
     updateDes() {
-        if (this.description == ''){
-            this.notiService.error('Thông tin bị trống');
-            return;
-        }
-
         this.isDisabled = true;
 
         this.accountService.updateProfile(this.description, this.user['favorite'])
@@ -53,11 +48,6 @@ export class EditProfileComponent implements OnInit {
     }
 
     updateFavorite() {
-        if (this.favorite == ''){
-            this.notiService.error('Thông tin bị trống');
-            return;
-        }
-
         this.isDisabled = true;
 
         this.accountService.updateProfile(this.user['description'], this.favorite)

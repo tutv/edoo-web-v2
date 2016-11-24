@@ -13,6 +13,7 @@ export class ChangePasswordComponent implements OnInit {
     public old_pass: string = '';
     public new_pass: string = '';
     public confirm_pass: string = '';
+    private isDisabled = false;
 
     constructor(private notification: NotificationService,
                 private accountService: AccountService,
@@ -35,6 +36,8 @@ export class ChangePasswordComponent implements OnInit {
     }
 
     public update() {
+        this.isDisabled = true;
+
         this.accountService
             .changePassword(this.old_pass, this.new_pass)
             .subscribe(
@@ -43,8 +46,12 @@ export class ChangePasswordComponent implements OnInit {
                     this.storageService.setToken(token);
                     this.notification.success('Cập nhập thành công');
                     this.reset_all();
+
+                    this.isDisabled = false;
                 },
                 error => {
+                    this.isDisabled = false;
+
                     var body = JSON.parse(error._body);
                     this.notification.error(body.message);
                     this.reset_all();
@@ -53,12 +60,6 @@ export class ChangePasswordComponent implements OnInit {
     }
 
     public validate() {
-        if (this.old_pass.length == 0) {
-            this.notification.error('Vui lòng nhập mật khẩu hiện tại!');
-
-            return false;
-        }
-
         if (this.new_pass !== this.confirm_pass) {
             this.notification.error('Mật khẩu không khớp! Vui lòng thử lại');
             this.new_pass = '';

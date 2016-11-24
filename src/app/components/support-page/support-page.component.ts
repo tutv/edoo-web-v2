@@ -17,6 +17,7 @@ export class SupportPageComponent implements OnInit {
     private email = '';
     private type = '';
     private content = '';
+    private isDisabled = false;
 
     constructor(private accountService: AccountService,
                 private notiService: NotificationService,
@@ -27,7 +28,7 @@ export class SupportPageComponent implements OnInit {
 
     ngOnInit() {
         this.util.backToTop();
-        
+
         if (this.auth.authenticated()) {
             var user = this.storage.getUserData();
             this.email = user['email'];
@@ -35,16 +36,20 @@ export class SupportPageComponent implements OnInit {
     }
 
     onSubmit() {
+        this.isDisabled = true;
         this.accountService.sendSupportRequest(this.email, this.type, this.content).subscribe(
             res=> {
                 LogService.i(SupportPageComponent.TAG, JSON.stringify(res));
                 this.notiService.success('Yêu cầu của bạn đã được ghi lại, Cám ơn bạn!');
 
-                this.email = '';
                 this.type = '';
                 this.content = '';
+
+                this.isDisabled = false;
             },
             err=> {
+                this.isDisabled = false;
+
                 LogService.i(SupportPageComponent.TAG, 'error');
             }
         )
