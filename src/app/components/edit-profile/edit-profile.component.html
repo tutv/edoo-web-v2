@@ -60,29 +60,29 @@
     </div>
 
     <div class="bottom">
-        <div class="form-group favorite">
+        <form class="form-group favorite" (submit)="updateFavorite()">
             <label>Sở thích</label>
             <span class="btn-edit" (click)="openEditFavorite()"><i class="fa fa-pencil" aria-hidden="true"></i></span>
             <div class="value" *ngIf="!isEditFavorite">{{user.favorite}}</div>
 
             <div class="edit-form" *ngIf="isEditFavorite">
                 <textarea class="form-control" rows="5" style="margin: 0px -0.486111px 10px 0px; width: 788px; height: 125px;" [(ngModel)]="favorite" name="favorite">{{favorite}}</textarea>
-                <button class="btn btn-primary" (click)="updateFavorite()">Cập nhật</button>
+                <button class="btn btn-primary" [disabled]="isDisabled">Cập nhật</button>
                 <button class="btn btn-default" (click)="closeEditFavorite()">Hủy</button>
             </div>
 
-        </div>
+        </form>
 
-        <div class="form-group description">
+        <form class="form-group description" (submit)="updateDes()">
             <label>Giới thiệu</label>
             <span class="btn-edit" (click)="openEditDes()"><i class="fa fa-pencil" aria-hidden="true"></i></span>
             <div class="value" *ngIf="!isEditDes">{{user.description}}</div>
 
             <div class="edit-form" *ngIf="isEditDes">
                 <textarea class="form-control" rows="5" style="margin: 0px -0.486111px 10px 0px; width: 788px; height: 125px;" [(ngModel)]="description" name="description">{{description}}</textarea>
-                <button class="btn btn-primary" (click)="updateDes()">Cập nhật</button>
+                <button class="btn btn-primary" [disabled]="isDisabled">Cập nhật</button>
                 <button class="btn btn-default" (click)="closeEditDes()">Hủy</button>
             </div>
-        </div>
+        </form>
     </div>
 </div>
