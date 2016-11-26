@@ -9,7 +9,7 @@ export class AuthService {
     }
 
     authenticated() {
-        var token = this.storageService.getToken();
+        let token = this.storageService.getToken();
 
         return Boolean(token);
     }

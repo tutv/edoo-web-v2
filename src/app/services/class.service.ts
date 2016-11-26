@@ -10,7 +10,7 @@ export class ClassService {
     }
 
     public getListClasses() {
-        var args = {
+        let args = {
             method: 'GET',
             url: '/classes',
             ignoreLoadingBar: true
@@ -24,7 +24,7 @@ export class ClassService {
     }
 
     public getPosts(class_id, page = 1) {
-        var args = {
+        let args = {
             method: 'GET',
             url: '/posts/' + class_id + '/page/' + page
         };
@@ -41,7 +41,7 @@ export class ClassService {
     }
 
     public getPost(post_id) {
-        var args = {
+        let args = {
             method: 'GET',
             url: '/post/' + post_id
         };

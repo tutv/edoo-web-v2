@@ -10,12 +10,12 @@ export class AccountService {
     }
 
     public auth(email: string, password: string): Observable<Response> {
-        var data = {
+        let data = {
             email: email,
             password: password
         };
 
-        var args = {
+        let args = {
             data: data,
             method: 'POST',
             url: '/login'
@@ -26,7 +26,7 @@ export class AccountService {
     }
 
     public logOut(): Observable<Response> {
-        var args = {
+        let args = {
             method: 'GET',
             url: '/logout'
         };
@@ -36,7 +36,7 @@ export class AccountService {
     }
 
     public getProfile() {
-        var args = {
+        let args = {
             method: 'GET',
             url: '/profile'
         };
@@ -50,7 +50,7 @@ export class AccountService {
     }
 
     public updateProfile(description, favorite) {
-        var args = {
+        let args = {
             data: {
                 description: description,
                 favorite: favorite
@@ -67,12 +67,12 @@ export class AccountService {
     }
 
     public changePassword(old_pass, new_pass) {
-        var data = {
+        let data = {
             old_password: old_pass,
             new_password: new_pass
         };
 
-        var args = {
+        let args = {
             data: data,
             method: 'POST',
             url: '/changepass'

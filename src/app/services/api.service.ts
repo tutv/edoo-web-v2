@@ -3,23 +3,25 @@ import {Http, Headers, Response} from "@angular/http";
 import {Observable} from "rxjs";
 import {StorageService} from "./storage.service";
 import {EventService} from "./event.service";
+import {environment} from "../../environments/environment";
 
 @Injectable()
 export class ApiService {
-    private BASE_URL = 'http://api-v2.uetf.me';
+    private BASE_URL = '';
 
     constructor(private http: Http,
                 private storage: StorageService,
                 private event: EventService) {
+        this.BASE_URL = environment.url_api;
     }
 
-    public request(args): Observable<Response> {
-        var url_api = this.BASE_URL + args.url;
+    public request(args): Observable<any> {
+        let url_api = this.BASE_URL + args.url;
 
-        var headers = new Headers();
+        let headers = new Headers();
         headers.set('Content-Type', 'application/json');
 
-        var source = this
+        let source = this
             .http
             .request(url_api, {
                 method: args.method,
@@ -44,13 +46,13 @@ export class ApiService {
     }
 
     public requestAuth(args): Observable<Response> {
-        var url_api = this.BASE_URL + args.url;
+        let url_api = this.BASE_URL + args.url;
 
-        var headers = new Headers();
+        let headers = new Headers();
         headers.set('Content-Type', 'application/json');
         headers.set('Authorization', this.storage.getToken());
 
-        var source = this
+        let source = this
             .http
             .request(url_api, {
                 method: args.method,

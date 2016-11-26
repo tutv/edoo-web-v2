@@ -8,12 +8,12 @@ export class PostService {
     }
 
     public comment(post_id, content) {
-        var data = {
+        let data = {
             post_id: post_id,
             content: content
         };
 
-        var args = {
+        let args = {
             method: 'POST',
             url: '/cmt',
             data: data
@@ -34,12 +34,12 @@ export class PostService {
      *          1: vote,     0: cancel vote/devote,      -1: devote
      */
     public votePost(post_id, content) {
-        var data = {
+        let data = {
             post_id: post_id,
             content: content
         };
 
-        var args = {
+        let args = {
             method: 'POST',
             url: '/votepost',
             data: data
@@ -56,7 +56,7 @@ export class PostService {
 
     public deletePost(post_id) {
 
-        var args = {
+        let args = {
             method: 'POST',
             url: '/deletepost',
             data: {post_id: post_id}
@@ -71,7 +71,7 @@ export class PostService {
     }
 
     public createPost(params) {
-        var args = {
+        let args = {
             method: 'POST',
             url: '/post',
             data: params
@@ -86,7 +86,7 @@ export class PostService {
     }
 
     public updatePost(params) {
-        var args = {
+        let args = {
             method: 'POST',
             url: '/updatepost',
             data: params
@@ -102,7 +102,7 @@ export class PostService {
 
     // ---------------------------------------- Exercise ---------------------------------------------------------------
     public checkEvent(post_id) {
-        var args = {
+        let args = {
             method: 'GET',
             url: '/checkevent/' + post_id
         };
@@ -116,7 +116,7 @@ export class PostService {
     }
 
     public downloadAllExercise(post_id){
-        var args = {
+        let args = {
             method: 'GET',
             url: '/geteventfiles/' + post_id
         };
@@ -132,7 +132,7 @@ export class PostService {
 
     public solveComment(comment_id) {
 
-        var args = {
+        let args = {
             method: 'POST',
             url: '/solve',
             data: {comment_id: comment_id}
@@ -148,7 +148,7 @@ export class PostService {
 
     public unsolveComment(comment_id) {
 
-        var args = {
+        let args = {
             method: 'POST',
             url: '/unsolve',
             data: {comment_id: comment_id}
@@ -164,7 +164,7 @@ export class PostService {
 
     public voteComment(comment_id) {
 
-        var args = {
+        let args = {
             method: 'POST',
             url: '/votecmt',
             data: {comment_id: comment_id}
@@ -180,7 +180,7 @@ export class PostService {
 
     public devoteComment(comment_id) {
 
-        var args = {
+        let args = {
             method: 'POST',
             url: '/devotecmt',
             data: {comment_id}
@@ -195,7 +195,7 @@ export class PostService {
     }
 
     public unvoteComment(comment_id) {
-        var args = {
+        let args = {
             method: 'POST',
             url: '/unvote',
             data: {comment_id: comment_id}
