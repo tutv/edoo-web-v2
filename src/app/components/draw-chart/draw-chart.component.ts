@@ -23,6 +23,8 @@ export class DrawChartComponent extends GoogleChartComponent{
     private options;
     private data;
     private chart;
+    private view;
+
     constructor(){
         super();
     }
@@ -65,7 +67,7 @@ export class DrawChartComponent extends GoogleChartComponent{
                 startup: true,
             }
         };
-        this.chart_1 = this.createPieChart(document.getElementById('khaosat1'));
+        this.chart_1 = this.createPieChart(document.getElementById('chart-1'));
 
         this.chart_1.draw(this.data_1, this.options_1);
 
@@ -82,13 +84,13 @@ export class DrawChartComponent extends GoogleChartComponent{
             height: 250,
         };
 
-        this.chart_2 = this.createPieChart(document.getElementById('pie-chart-2'));
+        this.chart_2 = this.createPieChart(document.getElementById('chart-2'));
 
         this.chart_2.draw(this.data_2, this.options_2);
 
         //========Pie chart 3=========================================
 
-        this.data_3 = this.createPieChart([
+        this.data_3 = this.createDataTable([
             ['Contact', 'Via'],
             ['Facebook', 64],
             ['Email', 2],
@@ -101,13 +103,13 @@ export class DrawChartComponent extends GoogleChartComponent{
             height: 250,
         };
 
-        this.chart_3 =this.createPieChart(document.getElementById('pie-chart-3'));
+        this.chart_3 =this.createPieChart(document.getElementById('chart-3'));
 
         this.chart_3.draw(this.data_3, this.options_3);
 
         //=======Column chart=================================================
 
-        /*this.data = this.createPieChart([
+        this.data = this.createDataTable([
             ['', 'People', {role: 'style'}],
             ['Google', 44, 'rgb(17, 18, 50)'],
             ['Bạn bè', 42, 'rgb(17, 18, 50)'],
@@ -116,8 +118,8 @@ export class DrawChartComponent extends GoogleChartComponent{
             ['Khác', 8, 'rgb(17, 18, 50)'],
         ]);
 
-        this.view = new google.visualization.DataView(data);
-        view.setColumns([0, 1,
+        this.view = this.createDataView(this.data);
+        this.view.setColumns([0, 1,
             {
                 calc: "stringify",
                 sourceColumn: 1,
@@ -137,7 +139,7 @@ export class DrawChartComponent extends GoogleChartComponent{
                 startup: true,
             },
         };
-        this.chart = new google.visualization.BarChart(document.getElementById("bar-chart"));
-        chart.draw(view, options);*/
+        this.chart = this.createBarChart(document.getElementById("chart-4"));
+        this.chart.draw(this.view, this.options);
     }
 }

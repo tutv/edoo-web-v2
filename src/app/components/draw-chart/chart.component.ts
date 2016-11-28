@@ -39,5 +39,7 @@ export class GoogleChartComponent implements OnInit {
     createPieChart(element:any):any {
         return new google.visualization.PieChart(element);
     }
-
+    createDataView(element:any):any {
+        return new google.visualization.DataView(element);
+    }
 }
