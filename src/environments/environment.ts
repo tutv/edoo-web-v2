@@ -6,4 +6,5 @@
 export const environment = {
     production: false,
     url_api: 'http://api-v2.uetf.me',
+    uploadImage: 'https://upload.uetf.me/upload'
 };

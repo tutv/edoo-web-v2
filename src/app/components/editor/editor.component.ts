@@ -1,5 +1,6 @@
 import {Component, OnInit, EventEmitter, OnDestroy, AfterViewInit} from '@angular/core';
 import {Input, Output} from "@angular/core/src/metadata/directives";
+import {environment} from "../../../environments/environment";
 
 @Component({
     selector: 'editor',
@@ -12,10 +13,11 @@ export class EditorComponent implements OnInit, AfterViewInit, OnDestroy {
     @Output() onEditorKeyup = new EventEmitter<any>();
     editor;
 
-    public urlUloadImage = 'http://upload.uetf.me/upload';
+    public urlUploadImage = '';
     public eModalImageId = '';
 
     constructor() {
+        this.urlUploadImage = environment.uploadImage;
         this.eModalImageId = this.elementId + '-modal-upload-image';
     }
 
