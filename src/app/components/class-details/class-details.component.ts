@@ -48,15 +48,15 @@ export const classDetailsState = {
             token: 'classDetails',
             deps: [Transition, ClassService],
             resolveFn: (trans, classSvc) => {
-                var params = trans.params();
-                var classId = params.classId;
-                var page = params['page'];
+                let params = trans.params();
+                let classId = params.classId;
+                let page = params['page'];
 
                 if (!page) {
                     page = 1;
                 }
 
-                return classSvc.getPosts(classId, page);
+                return classSvc.getPosts(classId, page).toPromise();
             }
         }
     ]

@@ -181,7 +181,7 @@ export const postDetailsState = {
                 let postId = trans.params().postId;
 
                 LogService.i('POST', 'router get PostDetails');
-                return classSvc.getPost(postId);
+                return classSvc.getPost(postId).toPromise();
             }
         },
         {
