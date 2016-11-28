@@ -22,14 +22,10 @@ export class FormCommentComponent implements OnInit {
     }
 
     public submit() {
-        if (this.answer.length < 1){
-            return;
-        }
-
         this.isDisabled = true;
 
         this.postService.comment(this.post_id, this.answer)
-            .then(
+            .subscribe(
                 data => {
                     let comment = data;
                     delete comment.post;
@@ -42,10 +38,7 @@ export class FormCommentComponent implements OnInit {
                 error => {
                     console.log(error);
                     this.isDisabled = false;
-                })
-            .catch(()=>{
-                this.isDisabled = false;
-            })
+                });
     }
 
 }

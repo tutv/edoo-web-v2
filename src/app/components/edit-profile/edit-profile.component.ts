@@ -14,6 +14,8 @@ export class EditProfileComponent implements OnInit {
     private isEditDes = false;
     private isEditFavorite = false;
 
+    private isDisabled = false;
+
     private description = '';
     private favorite = '';
 
@@ -27,6 +29,8 @@ export class EditProfileComponent implements OnInit {
     }
 
     updateDes() {
+        this.isDisabled = true;
+
         this.accountService.updateProfile(this.description, this.user['favorite'])
             .subscribe(
                 data => {
@@ -34,13 +38,18 @@ export class EditProfileComponent implements OnInit {
                     this.user['description'] = this.description;
 
                     this.closeEditDes();
+
+                    this.isDisabled = false;
                 },
                 err => {
+                    this.isDisabled = false;
                     this.notiService.error(err);
                 });
     }
 
     updateFavorite() {
+        this.isDisabled = true;
+
         this.accountService.updateProfile(this.user['description'], this.favorite)
             .subscribe(
                 data => {
@@ -48,8 +57,12 @@ export class EditProfileComponent implements OnInit {
                     this.user['favorite'] = this.favorite;
 
                     this.closeEditFavorite();
+
+                    this.isDisabled = false;
                 },
                 err => {
+                    this.isDisabled = false;
+
                     this.notiService.error(err);
                 }
             )

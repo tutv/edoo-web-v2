@@ -41,7 +41,7 @@ export const classPostDetailsState = {
             deps: [ClassService],
             resolveFn: (classSvc) => {
 
-                return classSvc.getListClasses();
+                return classSvc.getListClasses().toPromise();
             }
         },
         {

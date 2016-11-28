@@ -1,7 +1,7 @@
 <div class="col-md-9 wrapper-content">
     <div class="wrapper-new-post">
         <h2 class="modal-title">Đăng chủ đề mới</h2>
-        <form class="new_post">
+        <form class="new_post" (submit)="postPost()">
             <div class="form-group">
                 <label for="title">Tiêu đề</label>
                 <!--<input type="text" id="title" ng-model="createPostCtrl.newPost.title" class="form-control" placeholder="Tiêu đề tập trung vào vấn đề cần hỏi">-->
@@ -48,9 +48,9 @@
             <!--</select>-->
             <!--</div>-->
 
-                <a class="btn btn-primary btn-lg create_topic" data-toggle="modal" [ngClass]="{disabled: isDisabled}" (click)="postPost()">
+                <button class="btn btn-primary btn-lg create_topic" data-toggle="modal" [disabled]="isDisabled">
                     Đăng bài
-                </a>
+                </button>
         </form>
 
     </div>

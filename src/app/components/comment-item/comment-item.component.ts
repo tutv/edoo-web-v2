@@ -32,8 +32,8 @@ export class CommentItemComponent implements OnInit {
         }
 
         this.postService.voteComment(this.comment.id)
-            .then(data => {
-                this.comment.vote_count = data.vote_count;
+            .subscribe(data => {
+                this.comment.vote_count = data['vote_count'];
             });
     }
 
@@ -44,8 +44,8 @@ export class CommentItemComponent implements OnInit {
         }
 
         this.postService.devoteComment(this.comment.id)
-            .then(data => {
-                this.comment.vote_count = data.vote_count;
+            .subscribe(data => {
+                this.comment.vote_count = data['vote_count'];
             });
     }
 
@@ -53,7 +53,7 @@ export class CommentItemComponent implements OnInit {
         if (!this.permission.allow_solve_cmt) return;
 
         this.postService.solveComment(this.comment.id)
-            .then(data => {
+            .subscribe(data => {
                 this.comment.is_solve = true;
                 this.onSolveComment.emit();
             })
@@ -63,8 +63,8 @@ export class CommentItemComponent implements OnInit {
         if (!this.permission.allow_solve_cmt) return;
 
         this.postService.unsolveComment(this.comment.id)
-            .then(data => {
+            .subscribe(data => {
                 this.comment.is_solve = false;
-            })
+            });
     }
 }

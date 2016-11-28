@@ -29,7 +29,7 @@ export const listClassState = {
         {
             token: 'listClasses',
             deps: [ClassService],
-            resolveFn: (classSvc) => classSvc.getListClasses()
+            resolveFn: (classSvc) => classSvc.getListClasses().toPromise()
         }
     ]
 };

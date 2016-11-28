@@ -10,7 +10,7 @@ export class ClassService {
     }
 
     public getListClasses() {
-        var args = {
+        let args = {
             method: 'GET',
             url: '/classes',
             ignoreLoadingBar: true
@@ -20,11 +20,11 @@ export class ClassService {
             .api.requestAuth(args)
             .map(response => {
                 return response['data'].classes;
-            }).toPromise();
+            });
     }
 
     public getPosts(class_id, page = 1) {
-        var args = {
+        let args = {
             method: 'GET',
             url: '/posts/' + class_id + '/page/' + page
         };
@@ -37,11 +37,11 @@ export class ClassService {
 
         this.eventService.switchClass(class_id);
 
-        return postReq.toPromise();
+        return postReq;
     }
 
     public getPost(post_id) {
-        var args = {
+        let args = {
             method: 'GET',
             url: '/post/' + post_id
         };
@@ -50,7 +50,7 @@ export class ClassService {
             .api.requestAuth(args)
             .map(response => {
                 return response['data'];
-            }).toPromise();
+            });
     }
 
     public getClassRank(class_id) {
@@ -64,6 +64,6 @@ export class ClassService {
             .api.requestAuth(args)
             .map(response => {
                 return response['data'];
-            }).toPromise();
+            });
     }
 }

@@ -8,8 +8,8 @@ export class AuthService {
 
     }
 
-    authenticated() {
-        var token = this.storageService.getToken();
+    authenticated():boolean {
+        let token = this.storageService.getToken();
 
         return Boolean(token);
     }
