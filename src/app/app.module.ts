@@ -43,6 +43,7 @@ import {UtilService} from "./services/util.service";
 import {FileSelectDirective} from "ng2-file-upload";
 import {NKDatetimeModule} from "ng2-datetime/ng2-datetime";
 import {ImageUploadModule} from "angular2-image-upload";
+import { DrawChartComponent } from './components/draw-chart/draw-chart.component';
 
 const WINDOW_PROVIDER: ValueProvider = {
 	provide: Window,
@@ -76,7 +77,7 @@ const WINDOW_PROVIDER: ValueProvider = {
 		PaginationComponent
 
 
-		, FileSelectDirective
+		, FileSelectDirective, DrawChartComponent, DrawChartComponent
 	],
 	imports: [
 		BrowserModule,
