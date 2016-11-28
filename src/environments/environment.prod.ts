@@ -1,4 +1,4 @@
 export const environment = {
     production: true,
-    url_api: 'http://api-v2.uetf.me',
+    url_api: 'https://api-v2.uetf.me',
 };
