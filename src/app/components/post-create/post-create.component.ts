@@ -81,12 +81,14 @@ export class PostCreateComponent implements OnInit {
         }
 
         this.postSrv.createPost(this.params)
-            .then(() => {
-                this.router.stateService.go('^.listPost', {'classId': this.classId});
-            })
-            .catch(() => {
-                this.isDisabled = false;
-            });
+            .subscribe(
+                () => {
+                    this.router.stateService.go('^.listPost', {'classId': this.classId});
+                },
+                () => {
+                    this.isDisabled = false;
+                }
+            );
     }
 }
 

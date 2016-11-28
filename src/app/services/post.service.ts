@@ -23,8 +23,7 @@ export class PostService {
             .requestAuth(args)
             .map(response => {
                 return response['data'];
-            })
-            .toPromise();
+            });
     }
 
     /**
@@ -49,8 +48,7 @@ export class PostService {
             .requestAuth(args)
             .map(response => {
                 return response['data'];
-            })
-            .toPromise();
+            });
     }
 
 
@@ -64,10 +62,9 @@ export class PostService {
 
         return this.api
             .requestAuth(args)
-            // .toPromise();
             .map(response => {
                 return response['data'];
-            }).toPromise();
+            });
     }
 
     public createPost(params) {
@@ -81,8 +78,7 @@ export class PostService {
             .requestAuth(args)
             .map(response => {
                 return response['data'];
-            })
-            .toPromise();
+            });
     }
 
     public updatePost(params) {
@@ -96,8 +92,7 @@ export class PostService {
             .requestAuth(args)
             .map(response => {
                 return response['data'];
-            })
-            .toPromise();
+            });
     }
 
     // ---------------------------------------- Exercise ---------------------------------------------------------------
@@ -111,8 +106,7 @@ export class PostService {
             .requestAuth(args)
             .map(response => {
                 return response['data'];
-            })
-            .toPromise();
+            });
     }
 
     public downloadAllExercise(post_id){
@@ -142,8 +136,7 @@ export class PostService {
             .requestAuth(args)
             .map(response => {
                 return response['data'];
-            })
-            .toPromise();
+            });
     }
 
     public unsolveComment(comment_id) {
@@ -158,8 +151,7 @@ export class PostService {
             .requestAuth(args)
             .map(response => {
                 return response['data'];
-            })
-            .toPromise();
+            });
     }
 
     public voteComment(comment_id) {
@@ -174,8 +166,7 @@ export class PostService {
             .requestAuth(args)
             .map(response => {
                 return response['data'];
-            })
-            .toPromise();
+            });
     }
 
     public devoteComment(comment_id) {
@@ -190,8 +181,7 @@ export class PostService {
             .requestAuth(args)
             .map(response => {
                 return response['data'];
-            })
-            .toPromise();
+            });
     }
 
     public unvoteComment(comment_id) {
@@ -205,7 +195,6 @@ export class PostService {
             .requestAuth(args)
             .map(response => {
                 return response['data'];
-            })
-            .toPromise();
+            });
     }
 }

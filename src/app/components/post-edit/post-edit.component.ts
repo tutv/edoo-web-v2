@@ -81,16 +81,18 @@ export class PostEditComponent implements OnInit {
         }
 
         this.postSrv.updatePost(params)
-            .then(() => {
-                this.post.time_end = +this.date + '';
-                this.onUpdated.emit(true);
-                this.notification.success('Cập nhật thành công.');
+            .subscribe(
+                () => {
+                    this.post.time_end = +this.date + '';
+                    this.onUpdated.emit(true);
+                    this.notification.success('Cập nhật thành công.');
 
-                this.isDisabled = false;
-            })
-            .catch(() => {
-                this.isDisabled = false;
-            });
+                    this.isDisabled = false;
+                },
+                () => {
+                    this.isDisabled = false;
+                }
+            );
     }
 
 }

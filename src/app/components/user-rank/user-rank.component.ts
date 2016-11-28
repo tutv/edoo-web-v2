@@ -18,12 +18,8 @@ export class UserRankComponent implements OnInit {
 
     ngOnInit() {
         this.classService.getClassRank(this.classId)
-            .then((data)=> {
+            .subscribe((data)=> {
                 this.users = data.users;
-
-                // log for testing
-                // LogService.i(UserRankComponent.TAG, this.users.toString());
-                // LogService.i(UserRankComponent.TAG, 'class_id = ' + this.classId);
             });
     }
 

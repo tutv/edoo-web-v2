@@ -34,10 +34,6 @@ export class ApiService {
             )
             .share();
 
-        if (args.ignoreLoadingBar == undefined) {
-            args.ignoreLoadingBar = false;
-        }
-
         if (!args.ignoreLoadingBar) {
             this.loadingBar(source);
         }
@@ -45,7 +41,7 @@ export class ApiService {
         return source;
     }
 
-    public requestAuth(args): Observable<Response> {
+    public requestAuth(args): Observable<any> {
         let url_api = this.BASE_URL + args.url;
 
         let headers = new Headers();
@@ -71,10 +67,6 @@ export class ApiService {
                 }
             )
             .share();
-
-        if (args.ignoreLoadingBar == undefined) {
-            args.ignoreLoadingBar = false;
-        }
 
         if (!args.ignoreLoadingBar) {
             this.loadingBar(source);

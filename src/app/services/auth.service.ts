@@ -8,7 +8,7 @@ export class AuthService {
 
     }
 
-    authenticated() {
+    authenticated():boolean {
         let token = this.storageService.getToken();
 
         return Boolean(token);

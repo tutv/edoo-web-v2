@@ -46,7 +46,7 @@ export class PostDetailsComponent implements OnInit {
         if (this.post.type == 'event') {
             this.post.listExercise = [];
             this.postService.checkEvent(this.post.id)
-                .then(data => {
+                .subscribe(data => {
                     this.post.listExercise = data['attack_files'];
                 })
         }
@@ -82,9 +82,9 @@ export class PostDetailsComponent implements OnInit {
 
     public votePost(post_id, content) {
         this.postService.votePost(post_id, content)
-            .then(
+            .subscribe(
                 data => {
-                    this.post.vote_count = data.vote_count;
+                    this.post.vote_count = data['vote_count'];
                 },
                 error => {
                     window.alert('Bạn không thể đánh giá cho bài viết này nữa! ' + error);
@@ -97,7 +97,7 @@ export class PostDetailsComponent implements OnInit {
         }
 
         this.postService.deletePost(post_id)
-            .then(
+            .subscribe(
                 () => {
                     this.notification.success('Xóa bài viết thành công!');
                     this.router.stateService.go('^.listPost', {'classId': this.post.class.id});
@@ -178,7 +178,7 @@ export const postDetailsState = {
             token: 'post',
             deps: [Transition, ClassService],
             resolveFn: (trans, classSvc) => {
-                var postId = trans.params().postId;
+                let postId = trans.params().postId;
 
                 LogService.i('POST', 'router get PostDetails');
                 return classSvc.getPost(postId);

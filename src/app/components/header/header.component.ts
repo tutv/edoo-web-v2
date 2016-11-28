@@ -66,7 +66,7 @@ export class HeaderComponent implements OnInit {
 
         this.classService
             .getListClasses()
-            .then(
+            .subscribe(
                 data => {
                     this.event.fetchListClasses(data);
                 },
