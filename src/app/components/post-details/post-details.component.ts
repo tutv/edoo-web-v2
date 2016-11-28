@@ -42,7 +42,7 @@ export class PostDetailsComponent implements OnInit {
             }
         }
 
-        console.log('post: ' + this.post.toString());
+        LogService.i('POST_DETAILS', this.post);
         if (this.post.type == 'event') {
             this.post.listExercise = [];
             this.postService.checkEvent(this.post.id)
@@ -56,11 +56,12 @@ export class PostDetailsComponent implements OnInit {
         this.uploader = new FileUploader({
             url: 'http://api-v2.uetf.me/upfileevent/' + this.post.id,
             headers: [
-                // {'name': 'Content-Type', 'value': 'multipart/form-data'}
                 {'name': 'Authorization', 'value': this.storageService.getToken()}
             ]
         });
-        this.uploader.onAfterAddingFile = (file)=> { file.withCredentials = false; };
+        this.uploader.onAfterAddingFile = (file) => {
+            file.withCredentials = false;
+        };
     }
 
     public onComment(comment) {
@@ -125,11 +126,11 @@ export class PostDetailsComponent implements OnInit {
 
     // -------------------------------- Exercise -----------------------------------------------------------------------
 
-    public getListExercise(){
+    public getListExercise() {
         // this.notification.information('Danh sach nop bai tap');
     }
 
-    public downloadAllExercise(){
+    public downloadAllExercise() {
         this.postService.downloadAllExercise(this.post.id)
             .subscribe(
                 response => {
@@ -143,7 +144,7 @@ export class PostDetailsComponent implements OnInit {
 
     public disableUpload = false;
 
-    public uploadExercise(){
+    public uploadExercise() {
         this.disableUpload = true;
 
         this.uploader.onCompleteItem = (item, response, status, header) => {
@@ -159,12 +160,12 @@ export class PostDetailsComponent implements OnInit {
             this.post.is_send_file = true;
         };
 
-        for (let item of this.uploader.queue){
+        for (let item of this.uploader.queue) {
             item.upload();
         }
     }
 
-    public uploader:FileUploader;
+    public uploader: FileUploader;
     public link_download;
 }
 
