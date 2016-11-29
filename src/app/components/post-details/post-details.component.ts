@@ -7,6 +7,7 @@ import {StorageService} from "../../services/storage.service";
 import {NotificationService} from "../../services/notification.service";
 import {LogService} from "../../services/log.service";
 import {FileUploader, FileSelectDirective} from "ng2-file-upload";
+import {environment} from "../../../environments/environment";
 //import {UploaderService} from "../../services/uploader.service";
 
 // var FileSaver = require('file-saver');
@@ -54,7 +55,7 @@ export class PostDetailsComponent implements OnInit {
 
         // -----------
         this.uploader = new FileUploader({
-            url: 'http://api-v2.uetf.me/upfileevent/' + this.post.id,
+            url: environment.url_api + '/upfileevent/' + this.post.id,
             headers: [
                 {'name': 'Authorization', 'value': this.storageService.getToken()}
             ]
