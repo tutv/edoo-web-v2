@@ -54,7 +54,7 @@ export class PostDetailsComponent implements OnInit {
 
 
         // -----------
-        this.uploader = new FileUploader({
+        this.uploader = new FileUploader({//@todo @quý đưa phần upload này vào service
             url: environment.url_api + '/upfileevent/' + this.post.id,
             headers: [
                 {'name': 'Authorization', 'value': this.storageService.getToken()}
